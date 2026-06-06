@@ -1,7 +1,7 @@
 import { type ButtonHTMLAttributes, forwardRef } from 'react'
 import Link from 'next/link'
 
-type Variant = 'primary' | 'secondary' | 'ghost'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'white'
 type Size = 'sm' | 'md' | 'lg'
 
 const base =
@@ -12,6 +12,7 @@ const variants: Record<Variant, string> = {
   secondary:
     'border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-400',
   ghost: 'text-slate-600 hover:text-slate-900 hover:bg-slate-100',
+  white: 'border border-white/30 text-white bg-transparent hover:bg-white hover:text-blue-600',
 }
 
 const sizes: Record<Size, string> = {
