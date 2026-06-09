@@ -1,13 +1,24 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Fraunces, Inter } from 'next/font/google'
 import '../globals.css'
 import { Nav } from '@/components/nav'
 import { Footer } from '@/components/footer'
 import { getDictionary } from '@/lib/dictionaries'
 import { SITE_URL } from '@/lib/metadata'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+  axes: ['opsz'],
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+  weight: ['400', '500', '600'],
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -35,11 +46,8 @@ export default async function RootLayout({
   const dict = await getDictionary(resolvedLang)
 
   return (
-    <html
-      lang={resolvedLang}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-sans">
+    <html lang={resolvedLang} className={`${fraunces.variable} ${inter.variable} h-full`}>
+      <body className="min-h-full flex flex-col">
         <Nav lang={resolvedLang} dict={dict} />
         <main className="flex-1">{children}</main>
         <Footer lang={resolvedLang} dict={dict} />

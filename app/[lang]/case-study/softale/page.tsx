@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getDictionary } from '@/lib/dictionaries'
+import { getDictionary, type Lang } from '@/lib/dictionaries'
 import { pageAlternates } from '@/lib/metadata'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { Reveal } from '@/components/scroll-reveal'
 
 export async function generateMetadata({
   params,
@@ -11,113 +10,314 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>
 }): Promise<Metadata> {
   const { lang } = await params
-  const l = (lang === 'en' ? 'en' : 'it') as 'it' | 'en'
+  const l = (lang === 'en' ? 'en' : 'it') as Lang
   const dict = await getDictionary(l)
+  const { title, description } = dict.softale.meta
   return {
-    title: dict.softale.meta.title,
-    description: dict.softale.meta.description,
+    title,
+    description,
     alternates: pageAlternates(l, 'case-study/softale'),
-    openGraph: {
-      title: dict.softale.meta.title,
-      description: dict.softale.meta.description,
-    },
+    openGraph: { title, description },
   }
 }
 
-export default async function SoftalePage({
+export default async function SoftaleCS({
   params,
 }: {
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  const l = (lang === 'en' ? 'en' : 'it') as 'it' | 'en'
+  const l = (lang === 'en' ? 'en' : 'it') as Lang
   const dict = await getDictionary(l)
-  const cs = dict.softale
-  const base = l === 'en' ? '/en' : ''
+  const s = dict.softale
+  const home = l === 'en' ? '/en' : '/'
 
   return (
-    <article>
-      {/* ── Header ──────────────────────────────────────────── */}
-      <header className="bg-slate-950 text-white py-20 md:py-28">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-2 text-slate-500 text-sm mb-8" aria-label="breadcrumb">
-            <Link href={`${base}/`} className="hover:text-white transition-colors">
-              Home
+    <>
+      {/* ── HERO ── */}
+      <section style={{ paddingTop: 'var(--s7)' }}>
+        <div className="wrap">
+          <nav
+            style={{
+              display: 'flex',
+              gap: '10px',
+              alignItems: 'center',
+              fontSize: '13px',
+              color: 'var(--ink-45)',
+              marginBottom: '30px',
+            }}
+            aria-label="Breadcrumb"
+          >
+            <Link href={home} style={{ color: 'inherit', textDecoration: 'none' }}>
+              {s.breadcrumb[0]}
             </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-slate-300">{cs.breadcrumb}</span>
+            <span>/</span>
+            <a href={`${home}#progetti`} style={{ color: 'inherit', textDecoration: 'none' }}>
+              {s.breadcrumb[1]}
+            </a>
+            <span>/</span>
+            <span style={{ color: 'var(--ink)' }}>{s.breadcrumb[2]}</span>
           </nav>
-          <div className="mb-4">
-            <Badge variant="blue">{cs.tag}</Badge>
+
+          <div className="cs-title-grid">
+            <div>
+              <span className="kicker">{s.kicker}</span>
+              <h1 className="display" style={{ margin: '24px 0 0', maxWidth: '11ch' }}>
+                {s.title}
+              </h1>
+              <p className="lead" style={{ marginTop: '26px', maxWidth: '42ch' }}>
+                {s.lead}
+              </p>
+            </div>
+            <div className="cs-meta">
+              <div>
+                <div className="cs-meta-lbl">{s.settoreLabel}</div>
+                <div className="cs-meta-val">{s.settore}</div>
+              </div>
+              <div>
+                <div className="cs-meta-lbl">{s.ruoloLabel}</div>
+                <div className="cs-meta-val">{s.ruolo}</div>
+              </div>
+              <div>
+                <div className="cs-meta-lbl">{s.tipoLabel}</div>
+                <div className="cs-meta-val">{s.tipo}</div>
+              </div>
+              <div>
+                <div className="cs-meta-lbl">{s.statusLabel}</div>
+                <div className="cs-meta-val" style={{ color: 'var(--bronze)' }}>{s.status}</div>
+              </div>
+            </div>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6">
-            {cs.title}
-          </h1>
-          <p className="text-lg text-slate-300 leading-relaxed">{cs.lead}</p>
+
+          <Reveal>
+            <div className="device" style={{ marginTop: 'var(--s6)' }}>
+              <div className="device-bar">
+                <i /><i /><i />
+                <span className="url">{s.deviceUrl}</span>
+              </div>
+              <div className="ph dark" style={{ aspectRatio: '16/9', borderRadius: 0 }} />
+            </div>
+          </Reveal>
         </div>
-      </header>
+      </section>
 
-      {/* ── Body ────────────────────────────────────────────── */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-
-        {/* What is */}
-        <section className="mb-12" aria-labelledby="what-is-softale">
-          <h2 id="what-is-softale" className="text-2xl font-bold text-slate-900 mb-4">
-            {cs.sections.whatIs.title}
-          </h2>
-          <p className="text-slate-600 leading-relaxed text-lg">{cs.sections.whatIs.body}</p>
-        </section>
-
-        <hr className="border-slate-200 my-12" />
-
-        {/* Pipeline */}
-        <section className="mb-12" aria-labelledby="pipeline">
-          <h2 id="pipeline" className="text-2xl font-bold text-slate-900 mb-4">
-            {cs.sections.pipeline.title}
-          </h2>
-          <p className="text-slate-600 leading-relaxed text-lg">{cs.sections.pipeline.body}</p>
-        </section>
-
-        {/* Proof / What it proves */}
-        <section
-          className="mb-12 bg-slate-900 text-white rounded-2xl p-8"
-          aria-labelledby="proof"
-        >
-          <h2 id="proof" className="text-2xl font-bold mb-4">
-            {cs.sections.proof.title}
-          </h2>
-          <p className="text-slate-300 leading-relaxed text-lg">{cs.sections.proof.body}</p>
-        </section>
-
-        <hr className="border-slate-200 my-12" />
-
-        {/* Stack */}
-        <section className="mb-12" aria-labelledby="stack-softale">
-          <h2 id="stack-softale" className="text-2xl font-bold text-slate-900 mb-4">
-            {cs.sections.stack.title}
-          </h2>
-          <ul className="flex flex-wrap gap-2" role="list">
-            {cs.sections.stack.items.map((item) => (
-              <li key={item}>
-                <Badge variant="default" className="text-sm px-3 py-1">{item}</Badge>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap gap-4 mt-12">
-          <Button href={cs.ctaHref} external size="lg">
-            {cs.cta}
-            <svg className="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </Button>
-          <Button href={cs.ctaContactHref} variant="secondary" size="lg">
-            {cs.ctaContact}
-          </Button>
+      {/* ── WHAT IS ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div className="cs-intro">
+            <span className="kicker">{s.whatIs.kicker}</span>
+            <div>
+              <p className="h3" style={{ marginBottom: '24px', maxWidth: '24ch' }}>
+                {s.whatIs.lead}
+              </p>
+              <p className="body measure">{s.whatIs.body}</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </article>
+      </section>
+
+      {/* ── PIPELINE ── */}
+      <section
+        className="section-sm"
+        style={{
+          background: 'var(--paper-2)',
+          borderTop: '1px solid var(--ink-08)',
+          borderBottom: '1px solid var(--ink-08)',
+        }}
+      >
+        <div className="wrap">
+          <span className="kicker">{s.pipeline.kicker}</span>
+          <h2 className="h1" style={{ marginTop: '22px', marginBottom: 'var(--s6)', maxWidth: '18ch' }}>
+            {s.pipeline.title}
+          </h2>
+          <div className="stack-grid">
+            <p className="body measure">{s.pipeline.body}</p>
+            <div>
+              {s.pipeline.items.map((item, i) => (
+                <Reveal key={item.label} delay={i * 60}>
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '60px 1fr',
+                      gap: 'var(--s3)',
+                      padding: 'var(--s3) 0',
+                      borderTop: '1px solid var(--ink-12)',
+                      alignItems: 'baseline',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontFamily: 'var(--serif)',
+                        fontWeight: 300,
+                        fontSize: '30px',
+                        color: 'var(--ink-30)',
+                        letterSpacing: '-0.02em',
+                        lineHeight: 1,
+                      }}
+                    >
+                      0{i + 1}
+                    </div>
+                    <div>
+                      <div className="h3" style={{ fontSize: '20px', marginBottom: '6px' }}>{item.label}</div>
+                      <p style={{ color: 'var(--ink-80)', fontSize: '15.5px', maxWidth: '44ch' }}>{item.desc}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+              <div style={{ borderBottom: '1px solid var(--ink-12)' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROOF CALLOUT ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div
+            style={{
+              background: 'var(--blue-deep)',
+              color: 'var(--on-blue)',
+              borderRadius: 'var(--r-lg)',
+              padding: 'var(--s6)',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <div
+              aria-hidden
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'radial-gradient(80% 100% at 10% 0%, rgba(255,255,255,0.05), transparent 60%)',
+              }}
+            />
+            <div style={{ position: 'relative' }}>
+              <span className="kicker on-dark">{s.proof.kicker}</span>
+              <p
+                className="h2"
+                style={{
+                  color: 'var(--on-blue)',
+                  marginTop: '20px',
+                  maxWidth: '56ch',
+                  fontStyle: 'italic',
+                }}
+              >
+                &ldquo;{s.proof.body}&rdquo;
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STACK ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div className="stack-grid">
+            <div>
+              <span className="kicker">{s.stack.kicker}</span>
+              <h2 className="h2" style={{ marginTop: '20px', maxWidth: '14ch' }}>
+                {s.stack.title}
+              </h2>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'flex-start' }}>
+              {s.stack.items.map((item) => (
+                <span key={item} className="chip-tech">{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div className="demo-cta">
+            <div
+              aria-hidden
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'radial-gradient(70% 120% at 50% 0%, rgba(255,255,255,0.06), transparent 60%)',
+              }}
+            />
+            <div style={{ position: 'relative', textAlign: 'center' }}>
+              <span className="kicker on-dark">{s.cta.kicker}</span>
+              <h2
+                className="h2"
+                style={{ color: 'var(--on-blue)', maxWidth: '18ch', margin: '22px auto' }}
+              >
+                {s.cta.title}
+              </h2>
+              <p
+                className="lead"
+                style={{ color: 'var(--on-blue-60)', maxWidth: '50ch', margin: '0 auto 34px' }}
+              >
+                {s.cta.lead}
+              </p>
+              <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a
+                  href={s.cta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-on-blue btn-lg"
+                >
+                  {s.cta.button} <span className="arw">→</span>
+                </a>
+                <Link
+                  href={s.cta.ctaContactHref}
+                  className="btn btn-ghost btn-lg"
+                  style={{ borderColor: 'rgba(244,242,238,0.3)', color: 'var(--on-blue)' }}
+                >
+                  {s.cta.ctaContact}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── NEXT ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: 'var(--s4)',
+              paddingBlock: 'var(--s6)',
+              borderTop: '1px solid var(--ink-12)',
+              flexWrap: 'wrap',
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  fontSize: '12px',
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                  color: 'var(--ink-45)',
+                  marginBottom: '10px',
+                }}
+              >
+                {s.next.label}
+              </div>
+              <h3
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontWeight: 300,
+                  fontSize: 'clamp(28px, 3vw, 40px)',
+                }}
+              >
+                {s.next.title}
+              </h3>
+            </div>
+            <a href={s.next.href} className="btn btn-primary btn-lg">
+              {s.next.title} <span className="arw">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
+import Link from 'next/link'
+import { getDictionary, type Lang } from '@/lib/dictionaries'
 import { pageAlternates } from '@/lib/metadata'
-import { Button } from '@/components/ui/button'
+import { Reveal } from '@/components/scroll-reveal'
 
 export async function generateMetadata({
   params,
@@ -9,16 +10,14 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>
 }): Promise<Metadata> {
   const { lang } = await params
-  const l = (lang === 'en' ? 'en' : 'it') as 'it' | 'en'
+  const l = (lang === 'en' ? 'en' : 'it') as Lang
   const dict = await getDictionary(l)
+  const { title, description } = dict.about.meta
   return {
-    title: dict.about.meta.title,
-    description: dict.about.meta.description,
+    title,
+    description,
     alternates: pageAlternates(l, 'about'),
-    openGraph: {
-      title: dict.about.meta.title,
-      description: dict.about.meta.description,
-    },
+    openGraph: { title, description },
   }
 }
 
@@ -28,36 +27,201 @@ export default async function AboutPage({
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  const l = (lang === 'en' ? 'en' : 'it') as 'it' | 'en'
+  const l = (lang === 'en' ? 'en' : 'it') as Lang
   const dict = await getDictionary(l)
-  const ab = dict.about
+  const a = dict.about
+  const base = l === 'en' ? '/en' : ''
 
   return (
     <>
-      {/* ── Header ──────────────────────────────────────────── */}
-      <header className="bg-slate-950 text-white py-20 md:py-28">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight mb-4">
-            {ab.title}
-          </h1>
-          <p className="text-lg text-slate-300">{ab.paragraphs[0]}</p>
-        </div>
-      </header>
+      {/* ── HERO ── */}
+      <section className="about-hero">
+        <div className="wrap">
+          <div className="about-grid">
+            <div>
+              <span className="kicker">{a.kicker}</span>
+              <h1 className="h1" style={{ margin: '24px 0 28px', maxWidth: '20ch' }}>
+                {a.title}
+              </h1>
+              <p className="lead measure">{a.lead}</p>
+              <div className="about-sign">
+                <div className="sign-seal">FD</div>
+                <div>
+                  <div className="sign-name">Fabio Delli</div>
+                  <div className="sign-role">{a.role}</div>
+                </div>
+              </div>
+            </div>
 
-      {/* ── Body ────────────────────────────────────────────── */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div className="prose prose-slate max-w-none">
-          {ab.paragraphs.slice(1).map((p, i) => (
-            <p key={i} className="text-slate-600 leading-relaxed text-lg mb-6 last:mb-0">
-              {p}
-            </p>
-          ))}
+            {/* FD brand treatment — no personal photo */}
+            <Reveal>
+              <div className="portrait">
+                <div
+                  style={{
+                    aspectRatio: '4/5',
+                    background:
+                      'linear-gradient(150deg, var(--paper) 0%, var(--paper-2) 50%, var(--cenere) 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    gap: '24px',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '96px',
+                      height: '96px',
+                      borderRadius: '50%',
+                      border: '1.5px solid var(--bronze)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontFamily: 'var(--serif)',
+                      fontSize: '28px',
+                      color: 'var(--bronze)',
+                      fontWeight: 300,
+                    }}
+                  >
+                    FD
+                  </div>
+                  <div style={{ textAlign: 'center' }}>
+                    <div
+                      style={{
+                        fontFamily: 'var(--serif)',
+                        fontSize: '26px',
+                        color: 'var(--ink)',
+                        marginBottom: '8px',
+                      }}
+                    >
+                      Fabio Delli
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '13px',
+                        color: 'var(--ink-60)',
+                        letterSpacing: '0.04em',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      AI Integration Specialist
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '13px',
+                        color: 'var(--ink-45)',
+                        marginTop: '4px',
+                        letterSpacing: '0.04em',
+                      }}
+                    >
+                      Versilia, Toscana
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
+      </section>
 
-        <div className="mt-12">
-          <Button href={ab.ctaHref} size="lg">
-            {ab.cta}
-          </Button>
+      {/* ── NARRATIVA ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div className="narr">
+            <span className="kicker">{a.narrativa.kicker}</span>
+            <div>
+              <div className="narr-flow">
+                {a.narrativa.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              <blockquote className="pull" style={{ marginTop: '40px' }}>
+                {a.narrativa.pull}
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRINCIPI ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <span className="kicker">{a.principi.kicker}</span>
+          <h2 className="h1" style={{ margin: '22px 0 var(--s5)', maxWidth: '16ch' }}>
+            {a.principi.title}
+          </h2>
+          <div className="principles">
+            {a.principi.items.map((item) => (
+              <Reveal key={item.num} className="principle">
+                <div className="principle-num">{item.num}</div>
+                <h3 className="h3" style={{ fontSize: '22px', margin: '14px 0 12px' }}>
+                  {item.title}
+                </h3>
+                <p className="body">{item.body}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── COME LAVORO ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div className="narr" style={{ alignItems: 'start' }}>
+            <span className="kicker">{a.steps.kicker}</span>
+            <div>
+              <p className="h3" style={{ maxWidth: '22ch', marginBottom: '8px' }}>
+                {a.steps.title}
+              </p>
+              <div className="steps">
+                {a.steps.items.map((step) => (
+                  <div key={step.num} className="step">
+                    <div className="step-num">{step.num}</div>
+                    <div>
+                      <h3 className="h3" style={{ marginBottom: '8px' }}>{step.title}</h3>
+                      <p>{step.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section
+        style={{
+          background: 'var(--blue)',
+          color: 'var(--on-blue)',
+          paddingBlock: 'var(--s6)',
+        }}
+      >
+        <div className="wrap">
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1.3fr 1fr',
+              gap: 'var(--s6)',
+              alignItems: 'center',
+            }}
+            className="about-cta-grid"
+          >
+            <div>
+              <span className="kicker on-dark">{a.cta.kicker}</span>
+              <h2 className="h1" style={{ color: 'var(--on-blue)', margin: '22px 0' }}>
+                {a.cta.title}
+              </h2>
+              <p className="lead" style={{ color: 'var(--on-blue-60)' }}>
+                {a.cta.lead}
+              </p>
+            </div>
+            <div>
+              <Link href={a.cta.href} className="btn btn-on-blue btn-lg">
+                {a.cta.button} <span className="arw">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>

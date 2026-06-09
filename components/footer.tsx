@@ -5,73 +5,110 @@ type Props = { lang: Lang; dict: Dict }
 
 export function Footer({ lang, dict }: Props) {
   const base = lang === 'en' ? '/en' : ''
+  const home = lang === 'en' ? '/en' : '/'
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="footer">
+      <div className="footer-inner">
+        {/* Top grid */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1.4fr 1fr 1fr',
+            gap: 'var(--s5)',
+            paddingBottom: 'var(--s6)',
+            borderBottom: '1px solid rgba(255,255,255,0.14)',
+          }}
+          className="footer-top-grid"
+        >
           {/* Brand */}
           <div>
-            <p className="font-bold text-slate-900 text-lg">Fabio Delli</p>
-            <p className="mt-1 text-sm text-slate-500">{dict.footer.tagline}</p>
+            <div style={{ fontFamily: 'var(--serif)', fontSize: '22px', color: 'var(--on-blue)' }}>
+              Fabio Delli
+            </div>
+            <p
+              style={{
+                color: 'var(--on-blue-60)',
+                maxWidth: '38ch',
+                marginTop: '18px',
+                fontSize: '15px',
+                lineHeight: '1.6',
+              }}
+            >
+              {dict.footer.tagline}
+            </p>
           </div>
 
-          {/* Case studies */}
+          {/* Nav */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
-              {dict.footer.caseStudies}
-            </p>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href={`${base}/case-study/villa-levante`}
-                  className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
-                >
-                  {dict.footer.nav.villaLevante}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`${base}/case-study/softale`}
-                  className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
-                >
-                  {dict.footer.nav.softale}
-                </Link>
-              </li>
-            </ul>
+            <h4
+              style={{
+                fontSize: '12px',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--on-blue-60)',
+                marginBottom: '18px',
+                fontWeight: 500,
+              }}
+            >
+              {dict.footer.navLabel}
+            </h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              <Link href={home} className="footer-link">{dict.nav.home}</Link>
+              <Link href={`${home}#progetti`} className="footer-link">{dict.nav.caseStudies}</Link>
+              <Link href={`${base}/about`} className="footer-link">{dict.nav.about}</Link>
+            </div>
           </div>
 
-          {/* Links */}
+          {/* Contact */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
-              Info
-            </p>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href={`${base}/about`}
-                  className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
-                >
-                  {dict.footer.nav.about}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`${base}/contact`}
-                  className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
-                >
-                  {dict.footer.nav.contact}
-                </Link>
-              </li>
-            </ul>
+            <h4
+              style={{
+                fontSize: '12px',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--on-blue-60)',
+                marginBottom: '18px',
+                fontWeight: 500,
+              }}
+            >
+              {dict.footer.contactLabel}
+            </h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              <a href={`mailto:${dict.contact.email}`} className="footer-link">
+                {dict.contact.email}
+              </a>
+              <a href={dict.contact.linkedinHref} target="_blank" rel="noopener noreferrer" className="footer-link">
+                LinkedIn
+              </a>
+              <Link href={`${base}/contact`} className="footer-link">
+                {dict.nav.cta} →
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-slate-200">
-          <p className="text-xs text-slate-400">
-            {dict.footer.rights.replace('{year}', String(year))}
-          </p>
+        {/* Bottom */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingTop: '28px',
+            fontSize: '13px',
+            color: 'var(--on-blue-60)',
+            flexWrap: 'wrap',
+            gap: '16px',
+          }}
+        >
+          <span>© {year} Fabio Delli · Versilia, Toscana</span>
+          <a
+            href={lang === 'it' ? '/en' : '/'}
+            style={{ color: 'var(--on-blue-60)', textDecoration: 'none', fontSize: '13px' }}
+          >
+            {dict.nav.langSwitch}
+          </a>
         </div>
       </div>
     </footer>

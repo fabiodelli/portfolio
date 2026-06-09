@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getDictionary } from '@/lib/dictionaries'
+import { getDictionary, type Lang } from '@/lib/dictionaries'
 import { pageAlternates } from '@/lib/metadata'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { Reveal } from '@/components/scroll-reveal'
 
 export async function generateMetadata({
   params,
@@ -11,129 +10,271 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>
 }): Promise<Metadata> {
   const { lang } = await params
-  const l = (lang === 'en' ? 'en' : 'it') as 'it' | 'en'
+  const l = (lang === 'en' ? 'en' : 'it') as Lang
   const dict = await getDictionary(l)
+  const { title, description } = dict.villaLevante.meta
   return {
-    title: dict.villaLevante.meta.title,
-    description: dict.villaLevante.meta.description,
+    title,
+    description,
     alternates: pageAlternates(l, 'case-study/villa-levante'),
-    openGraph: {
-      title: dict.villaLevante.meta.title,
-      description: dict.villaLevante.meta.description,
-    },
+    openGraph: { title, description },
   }
 }
 
-export default async function VillaLevantePage({
+export default async function VillaLevanteCS({
   params,
 }: {
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  const l = (lang === 'en' ? 'en' : 'it') as 'it' | 'en'
+  const l = (lang === 'en' ? 'en' : 'it') as Lang
   const dict = await getDictionary(l)
-  const cs = dict.villaLevante
+  const vl = dict.villaLevante
   const base = l === 'en' ? '/en' : ''
+  const home = l === 'en' ? '/en' : '/'
 
   return (
-    <article>
-      {/* ── Header ──────────────────────────────────────────── */}
-      <header className="bg-slate-950 text-white py-20 md:py-28">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-2 text-slate-500 text-sm mb-8" aria-label="breadcrumb">
-            <Link href={`${base}/`} className="hover:text-white transition-colors">
-              Home
+    <>
+      {/* ── HERO ── */}
+      <section style={{ paddingTop: 'var(--s7)' }}>
+        <div className="wrap">
+          {/* Breadcrumb */}
+          <nav
+            style={{
+              display: 'flex',
+              gap: '10px',
+              alignItems: 'center',
+              fontSize: '13px',
+              color: 'var(--ink-45)',
+              marginBottom: '30px',
+            }}
+            aria-label="Breadcrumb"
+          >
+            <Link href={home} style={{ color: 'inherit', textDecoration: 'none' }}>
+              {vl.breadcrumb[0]}
             </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-slate-300">{cs.breadcrumb}</span>
+            <span>/</span>
+            <a href={`${home}#progetti`} style={{ color: 'inherit', textDecoration: 'none' }}>
+              {vl.breadcrumb[1]}
+            </a>
+            <span>/</span>
+            <span style={{ color: 'var(--ink)' }}>{vl.breadcrumb[2]}</span>
           </nav>
-          <div className="flex items-center gap-3 mb-4">
-            <Badge variant="blue">{cs.tag}</Badge>
-            <Badge variant="slate">{cs.disclaimer}</Badge>
+
+          {/* Title grid */}
+          <div className="cs-title-grid">
+            <div>
+              <span className="kicker">{vl.kicker}</span>
+              <h1 className="display" style={{ margin: '24px 0 0', maxWidth: '11ch' }}>
+                {vl.title}
+              </h1>
+              <p className="lead" style={{ marginTop: '26px', maxWidth: '42ch' }}>
+                {vl.lead}
+              </p>
+            </div>
+            <div className="cs-meta">
+              <div>
+                <div className="cs-meta-lbl">{vl.settoreLabel}</div>
+                <div className="cs-meta-val">{vl.settore}</div>
+              </div>
+              <div>
+                <div className="cs-meta-lbl">{vl.ruoloLabel}</div>
+                <div className="cs-meta-val">{vl.ruolo}</div>
+              </div>
+              <div>
+                <div className="cs-meta-lbl">{vl.tipoLabel}</div>
+                <div className="cs-meta-val">{vl.tipo}</div>
+              </div>
+              <div>
+                <div className="cs-meta-lbl">{vl.statusLabel}</div>
+                <div className="cs-meta-val" style={{ color: 'var(--bronze)' }}>{vl.status}</div>
+              </div>
+            </div>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6">
-            {cs.title}
-          </h1>
-          <p className="text-lg text-slate-300 leading-relaxed">{cs.lead}</p>
+
+          {/* Hero screenshot */}
+          <Reveal>
+            <div className="device" style={{ marginTop: 'var(--s6)' }}>
+              <div className="device-bar">
+                <i /><i /><i />
+                <span className="url">{vl.deviceUrl}</span>
+              </div>
+              <div className="ph" style={{ aspectRatio: '16/9', borderRadius: 0 }} />
+            </div>
+          </Reveal>
         </div>
-      </header>
+      </section>
 
-      {/* ── Body ────────────────────────────────────────────── */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-
-        {/* What is */}
-        <section className="mb-12" aria-labelledby="what-is">
-          <h2 id="what-is" className="text-2xl font-bold text-slate-900 mb-4">
-            {cs.sections.whatIs.title}
-          </h2>
-          <p className="text-slate-600 leading-relaxed text-lg">{cs.sections.whatIs.body}</p>
-        </section>
-
-        <hr className="border-slate-200 my-12" />
-
-        {/* Value: costs */}
-        <section className="mb-12" aria-labelledby="value-costs">
-          <div className="flex items-start gap-4">
-            <span className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold" aria-hidden="true">↓</span>
+      {/* ── CONTESTO ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div className="cs-intro">
+            <span className="kicker">{vl.context.kicker}</span>
             <div>
-              <h2 id="value-costs" className="text-2xl font-bold text-slate-900 mb-4">
-                {cs.sections.costs.title}
-              </h2>
-              <p className="text-slate-600 leading-relaxed text-lg">{cs.sections.costs.body}</p>
+              <p className="h3" style={{ marginBottom: '24px', maxWidth: '24ch' }}>
+                {vl.context.lead}
+              </p>
+              <p className="body measure">{vl.context.body}</p>
+              <p className="body measure" style={{ marginTop: '18px' }}>
+                {vl.context.body2}
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Value: revenue */}
-        <section className="mb-12 bg-blue-50 border border-blue-100 rounded-2xl p-8" aria-labelledby="value-revenue">
-          <div className="flex items-start gap-4">
-            <span className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-lg font-bold" aria-hidden="true">↑</span>
-            <div>
-              <h2 id="value-revenue" className="text-2xl font-bold text-slate-900 mb-4">
-                {cs.sections.revenue.title}
-              </h2>
-              <p className="text-slate-600 leading-relaxed text-lg">{cs.sections.revenue.body}</p>
-            </div>
+      {/* ── LEVA A DUE TEMPI ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <span className="kicker">{vl.lever.kicker}</span>
+          <h2 className="h1" style={{ marginTop: '22px', maxWidth: '20ch' }}>
+            {vl.lever.title}
+          </h2>
+          <div className="lever-grid">
+            <Reveal>
+              <div className="lever-card lever-cost">
+                <span className="lever-tag">{vl.lever.cost.tag}</span>
+                <h3 className="h3" style={{ marginBottom: '16px' }}>{vl.lever.cost.title}</h3>
+                <p className="lever-body">{vl.lever.cost.body}</p>
+                <ul className="lever-list">
+                  {vl.lever.cost.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="lever-card lever-rev">
+                <span className="lever-tag">{vl.lever.rev.tag}</span>
+                <h3 className="h3" style={{ marginBottom: '16px', color: 'var(--on-blue)' }}>
+                  {vl.lever.rev.title}
+                </h3>
+                <p className="lever-body lever-body-dark">{vl.lever.rev.body}</p>
+                <ul className="lever-list lever-list-dark">
+                  {vl.lever.rev.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Payment integration */}
-        <section className="mb-12" aria-labelledby="payment">
-          <h2 id="payment" className="text-2xl font-bold text-slate-900 mb-4">
-            {cs.sections.payment.title}
-          </h2>
-          <p className="text-slate-600 leading-relaxed text-lg">{cs.sections.payment.body}</p>
-        </section>
-
-        <hr className="border-slate-200 my-12" />
-
-        {/* Stack */}
-        <section className="mb-12" aria-labelledby="stack">
-          <h2 id="stack" className="text-2xl font-bold text-slate-900 mb-4">
-            {cs.sections.stack.title}
-          </h2>
-          <ul className="flex flex-wrap gap-2" role="list">
-            {cs.sections.stack.items.map((item) => (
-              <li key={item}>
-                <Badge variant="default" className="text-sm px-3 py-1">{item}</Badge>
-              </li>
+      {/* ── KPI BAND ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div className="kpi-band">
+            {vl.kpis.map((kpi) => (
+              <Reveal key={kpi.value}>
+                <div>
+                  <div className="kpi-n">{kpi.value}</div>
+                  <div className="kpi-l">{kpi.label}</div>
+                </div>
+              </Reveal>
             ))}
-          </ul>
-        </section>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap gap-4 mt-12">
-          <Button href={cs.ctaHref} external size="lg">
-            {cs.cta}
-            <svg className="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </Button>
-          <Button href={cs.ctaContactHref} variant="secondary" size="lg">
-            {cs.ctaContact}
-          </Button>
+          </div>
         </div>
-      </div>
-    </article>
+      </section>
+
+      {/* ── STACK ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div className="stack-grid">
+            <div>
+              <span className="kicker">{vl.stack.kicker}</span>
+              <h2 className="h2" style={{ marginTop: '20px', maxWidth: '14ch' }}>
+                {vl.stack.title}
+              </h2>
+            </div>
+            <div>
+              <p className="body measure" style={{ marginBottom: '26px' }}>
+                {vl.stack.body}
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                {vl.stack.items.map((item) => (
+                  <span key={item} className="chip-tech">{item}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DEMO CTA ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div className="demo-cta">
+            <div
+              aria-hidden
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'radial-gradient(70% 120% at 50% 0%, rgba(255,255,255,0.06), transparent 60%)',
+              }}
+            />
+            <div style={{ position: 'relative', textAlign: 'center' }}>
+              <span className="kicker on-dark">{vl.demo.kicker}</span>
+              <h2 className="h2" style={{ color: 'var(--on-blue)', maxWidth: '18ch', margin: '22px auto' }}>
+                {vl.demo.title}
+              </h2>
+              <p className="lead" style={{ color: 'var(--on-blue-60)', maxWidth: '50ch', margin: '0 auto 34px' }}>
+                {vl.demo.lead}
+              </p>
+              <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a
+                  href={vl.demo.ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-on-blue btn-lg"
+                >
+                  {vl.demo.cta} <span className="arw">→</span>
+                </a>
+                <Link href={vl.demo.ctaContactHref} className="btn btn-ghost btn-lg" style={{ borderColor: 'rgba(244,242,238,0.3)', color: 'var(--on-blue)' }}>
+                  {vl.demo.ctaContact}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── NEXT PROJECT ── */}
+      <section className="section-sm">
+        <div className="wrap">
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: 'var(--s4)',
+              paddingBlock: 'var(--s6)',
+              borderTop: '1px solid var(--ink-12)',
+              flexWrap: 'wrap',
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  fontSize: '12px',
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                  color: 'var(--ink-45)',
+                  marginBottom: '10px',
+                }}
+              >
+                {vl.next.label}
+              </div>
+              <h3 style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 'clamp(28px, 3vw, 40px)' }}>
+                {vl.next.title}
+              </h3>
+            </div>
+            <Link href={vl.next.href} className="btn btn-primary btn-lg">
+              {vl.next.title} <span className="arw">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

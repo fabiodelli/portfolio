@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getDictionary } from '@/lib/dictionaries'
+import { getDictionary, type Lang } from '@/lib/dictionaries'
 import { pageAlternates, SITE_URL } from '@/lib/metadata'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { Reveal } from '@/components/scroll-reveal'
 
 export async function generateMetadata({
   params,
@@ -11,16 +10,14 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>
 }): Promise<Metadata> {
   const { lang } = await params
-  const l = (lang === 'en' ? 'en' : 'it') as 'it' | 'en'
+  const l = (lang === 'en' ? 'en' : 'it') as Lang
   const dict = await getDictionary(l)
+  const { title, description } = dict.home.meta
   return {
-    title: dict.home.meta.title,
-    description: dict.home.meta.description,
+    title,
+    description,
     alternates: pageAlternates(l, ''),
-    openGraph: {
-      title: dict.home.meta.title,
-      description: dict.home.meta.description,
-    },
+    openGraph: { title, description, url: l === 'it' ? SITE_URL : `${SITE_URL}/en` },
   }
 }
 
@@ -30,200 +27,296 @@ export default async function HomePage({
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  const l = (lang === 'en' ? 'en' : 'it') as 'it' | 'en'
+  const l = (lang === 'en' ? 'en' : 'it') as Lang
   const dict = await getDictionary(l)
   const h = dict.home
-  const base = l === 'en' ? '/en' : ''
 
-  const personLd = {
+  const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': `${SITE_URL}/#person`,
-    name: 'Fabio Delli',
-    jobTitle: l === 'en' ? 'AI Integration Specialist' : 'Specialista AI Integration',
-    url: SITE_URL,
-    sameAs: [dict.contact.linkedinHref],
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Versilia',
-      addressRegion: 'Toscana',
-      addressCountry: 'IT',
-    },
-  }
-
-  const serviceLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${SITE_URL}/#service`,
-    name: 'Fabio Delli — AI Integration',
-    description: dict.home.meta.description,
-    url: SITE_URL,
-    provider: { '@id': `${SITE_URL}/#person` },
-    areaServed: { '@type': 'Place', name: 'Versilia, Toscana, Italia' },
-    serviceType: l === 'en' ? 'AI Integration & Development' : 'Integrazione AI e Sviluppo',
+    '@graph': [
+      {
+        '@type': 'Person',
+        name: 'Fabio Delli',
+        jobTitle: 'AI Integration Specialist',
+        url: SITE_URL,
+        address: { '@type': 'PostalAddress', addressLocality: 'Versilia', addressCountry: 'IT' },
+      },
+      {
+        '@type': 'ProfessionalService',
+        name: 'Fabio Delli — AI Integration',
+        url: SITE_URL,
+        description: dict.home.meta.description,
+        areaServed: { '@type': 'Place', name: 'Versilia, Toscana' },
+      },
+    ],
   }
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([personLd, serviceLd]).replace(/</g, '\\u003c'),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
 
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative bg-slate-950 text-white overflow-hidden">
+      {/* ── HERO ── */}
+      <section className="hero-section">
         <div
-          className="absolute inset-0 opacity-40"
+          aria-hidden
           style={{
-            backgroundImage:
-              'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37,99,235,0.4), transparent)',
+            position: 'absolute',
+            inset: 0,
+            zIndex: 0,
+            pointerEvents: 'none',
+            background:
+              'radial-gradient(120% 90% at 88% -10%, rgba(31,58,84,0.05), transparent 55%), linear-gradient(122deg, rgba(246,244,241,0.5) 0%, var(--paper) 40%, var(--paper-2) 100%)',
           }}
-          aria-hidden="true"
         />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40">
-          <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-6">
-            {dict.siteTagline}
-          </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight max-w-4xl">
-            {h.hero.headline}
-          </h1>
-          <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed">
-            {h.hero.sub}
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href={h.hero.ctaHref} size="lg">
-              {h.hero.cta}
-            </Button>
-            <Button href={h.hero.secondaryHref} variant="white" size="lg">
-              {h.hero.secondary}
-            </Button>
+        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="hero-grid">
+            <Reveal>
+              <span className="kicker">{h.hero.kicker}</span>
+              <h1 className="display hero-h1">
+                {h.hero.headline}
+              </h1>
+              <p className="lead" style={{ maxWidth: '46ch' }}>
+                {h.hero.lead}
+              </p>
+              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginTop: '38px' }}>
+                <Link href={h.hero.ctaHref} className="btn btn-primary btn-lg">
+                  {h.hero.cta} <span className="arw">→</span>
+                </Link>
+                <a href={h.hero.secondaryHref} className="btn btn-ghost btn-lg">
+                  {h.hero.secondary}
+                </a>
+              </div>
+              <div className="hero-meta">
+                <span className="hero-meta-lbl">{h.hero.metaLabel}</span>
+                <div className="hero-sectors">
+                  {h.hero.sectors.map((s) => (
+                    <span key={s}>{s}</span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Right — FD calling card */}
+            <Reveal delay={120}>
+              <div className="card-portrait">
+                <div className="card-portrait-brand">
+                  <div className="fd-sigil-lg">FD</div>
+                  <div className="fd-name-lg">Fabio Delli</div>
+                  <div className="fd-role-lg">AI Integration · Versilia</div>
+                </div>
+                <div className="card-portrait-cap">
+                  <div>
+                    <div style={{ fontFamily: 'var(--serif)', fontSize: '19px' }}>Fabio Delli</div>
+                    <div style={{ fontSize: '12.5px', color: 'var(--ink-60)', letterSpacing: '0.02em' }}>
+                      Interlocutore unico · Versilia
+                    </div>
+                  </div>
+                  <div className="seal">FD</div>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ── Services ─────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-white" aria-labelledby="services-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            id="services-heading"
-            className="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-14"
-          >
-            {h.services.title}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {h.services.items.map((item) => (
-              <article
-                key={item.title}
-                className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-blue-100 hover:bg-blue-50/30 transition-colors"
-              >
-                <div className="text-3xl mb-4" aria-hidden="true">{item.icon}</div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
-              </article>
+      {/* ── SERVIZI ── */}
+      <section className="section" id="servizi">
+        <div className="wrap">
+          <div className="svc-head">
+            <div>
+              <span className="kicker">{h.services.kicker}</span>
+              <h2 className="h1" style={{ marginTop: '22px', maxWidth: '16ch' }}>
+                {h.services.title}
+              </h2>
+            </div>
+            <p className="body" style={{ maxWidth: '44ch', color: 'var(--ink-80)' }}>
+              {h.services.subtitle}
+            </p>
+          </div>
+
+          <div>
+            {h.services.items.map((svc) => (
+              <Reveal key={svc.num} className="svc-row">
+                <div className="svc-num">{svc.num}</div>
+                <h3 className="h3" style={{ maxWidth: '18ch' }}>{svc.title}</h3>
+                <p className="svc-desc">{svc.desc}</p>
+                <div className="gain-box">
+                  <div className="gain-lbl">{l === 'it' ? 'Il guadagno' : 'The gain'}</div>
+                  <div className="gain-val">{svc.gain}</div>
+                </div>
+              </Reveal>
             ))}
+            <div style={{ borderBottom: '1px solid var(--ink-12)' }} />
           </div>
+
+          <Reveal>
+            <p className="svc-foot">
+              <span className="index-num">+</span>
+              {h.services.footnote}
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── Projects ─────────────────────────────────────────── */}
-      <section
-        id="projects"
-        className="py-20 md:py-28 bg-slate-950"
-        aria-labelledby="projects-heading"
-      >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            id="projects-heading"
-            className="text-3xl md:text-4xl font-bold text-white text-center mb-14"
-          >
-            {h.projects.title}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Villa Levante */}
-            <article className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-blue-700/50 transition-colors group flex flex-col">
-              <Badge variant="blue" className="self-start mb-4">{h.projects.villaLevante.tag}</Badge>
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                {h.projects.villaLevante.title}
-              </h3>
-              <p className="text-slate-400 leading-relaxed text-sm flex-1">
-                {h.projects.villaLevante.desc}
-              </p>
-              <Link
-                href={h.projects.villaLevante.href}
-                className="mt-6 inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
-              >
-                {h.projects.viewProject}
-                <svg className="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </article>
-
-            {/* Softale */}
-            <article className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-blue-700/50 transition-colors group flex flex-col">
-              <Badge variant="blue" className="self-start mb-4">{h.projects.softale.tag}</Badge>
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                {h.projects.softale.title}
-              </h3>
-              <p className="text-slate-400 leading-relaxed text-sm flex-1">
-                {h.projects.softale.desc}
-              </p>
-              <Link
-                href={h.projects.softale.href}
-                className="mt-6 inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
-              >
-                {h.projects.viewProject}
-                <svg className="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </article>
+      {/* ── PROGETTI ── */}
+      <section id="progetti" className="projects-section">
+        <div className="wrap">
+          <div className="svc-head" style={{ paddingTop: 'var(--s7)' }}>
+            <div>
+              <span className="kicker">{h.projects.kicker}</span>
+              <h2 className="h1" style={{ marginTop: '22px', maxWidth: '14ch' }}>
+                {h.projects.title}
+              </h2>
+            </div>
+            <p className="body" style={{ maxWidth: '44ch', color: 'var(--ink-80)' }}>
+              {h.projects.subtitle}
+            </p>
           </div>
+
+          {/* Villa Levante */}
+          <Reveal>
+            <article className="proj">
+              <div className="proj-body">
+                <div className="row" style={{ gap: '14px' }}>
+                  <span className="index-num">{h.projects.villaLevante.index}</span>
+                  <span className="small">{h.projects.villaLevante.meta}</span>
+                </div>
+                <h3 className="h2" style={{ margin: '18px 0 14px' }}>{h.projects.villaLevante.title}</h3>
+                <p className="body measure">{h.projects.villaLevante.desc}</p>
+                <div className="proj-tags">
+                  {h.projects.villaLevante.tags.map((t) => (
+                    <span key={t} className="tag">{t}</span>
+                  ))}
+                </div>
+                <div className="proj-kpi">
+                  <div>
+                    <div className="stat-n">{h.projects.villaLevante.kpi1.value}</div>
+                    <div className="kpi-lbl">{h.projects.villaLevante.kpi1.label}</div>
+                  </div>
+                  <div>
+                    <div className="stat-n">{h.projects.villaLevante.kpi2.value}</div>
+                    <div className="kpi-lbl">{h.projects.villaLevante.kpi2.label}</div>
+                  </div>
+                </div>
+                <Link href={h.projects.villaLevante.href} className="tlink">
+                  {h.projects.villaLevante.cta} <span className="arw">→</span>
+                </Link>
+              </div>
+              <div className="proj-media">
+                <div className="device">
+                  <div className="device-bar">
+                    <i /><i /><i />
+                    <span className="url">{h.projects.villaLevante.deviceUrl}</span>
+                  </div>
+                  <div className="ph" style={{ aspectRatio: '16/10', borderRadius: 0 }} />
+                </div>
+              </div>
+            </article>
+          </Reveal>
+
+          {/* Softale */}
+          <Reveal>
+            <article className="proj proj-flip">
+              <div className="proj-body">
+                <div className="row" style={{ gap: '14px' }}>
+                  <span className="index-num">{h.projects.softale.index}</span>
+                  <span className="small">{h.projects.softale.meta}</span>
+                </div>
+                <h3 className="h2" style={{ margin: '18px 0 14px' }}>{h.projects.softale.title}</h3>
+                <p className="body measure">{h.projects.softale.desc}</p>
+                <div className="proj-tags">
+                  {h.projects.softale.tags.map((t) => (
+                    <span key={t} className="tag">{t}</span>
+                  ))}
+                </div>
+                <div className="proj-kpi">
+                  <div>
+                    <div className="stat-n">{h.projects.softale.kpi1.value}</div>
+                    <div className="kpi-lbl">{h.projects.softale.kpi1.label}</div>
+                  </div>
+                  <div>
+                    <div className="stat-n">{h.projects.softale.kpi2.value}</div>
+                    <div className="kpi-lbl">{h.projects.softale.kpi2.label}</div>
+                  </div>
+                </div>
+                <Link href={h.projects.softale.href} className="tlink">
+                  {h.projects.softale.cta} <span className="arw">→</span>
+                </Link>
+              </div>
+              <div className="proj-media">
+                <div className="device">
+                  <div className="device-bar">
+                    <i /><i /><i />
+                    <span className="url">{h.projects.softale.deviceUrl}</span>
+                  </div>
+                  <div className="ph dark" style={{ aspectRatio: '16/10', borderRadius: 0 }} />
+                </div>
+              </div>
+            </article>
+          </Reveal>
+
+          <div style={{ paddingBottom: 'var(--s7)' }} />
         </div>
       </section>
 
-      {/* ── Why me ───────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-white" aria-labelledby="why-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            id="why-heading"
-            className="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-14"
-          >
+      {/* ── PERCHÉ ME ── */}
+      <section className="section">
+        <div className="wrap">
+          <span className="kicker">{h.why.kicker}</span>
+          <h2 className="h1" style={{ marginTop: '22px', maxWidth: '18ch' }}>
             {h.why.title}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="why-grid">
             {h.why.items.map((item, i) => (
-              <div key={item.title} className="flex flex-col">
-                <div className="flex items-center gap-3 mb-3">
-                  <span
-                    className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center flex-shrink-0"
-                    aria-hidden="true"
-                  >
-                    {i + 1}
-                  </span>
-                  <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+              <Reveal key={item.num} delay={i * 80}>
+                <div className="why-item">
+                  <div className="why-num">{item.num}</div>
+                  <h3 className="h3" style={{ fontSize: '23px', margin: '14px 0 12px' }}>
+                    {item.title}
+                  </h3>
+                  <p className="body">{item.desc}</p>
                 </div>
-                <p className="text-slate-600 leading-relaxed text-sm ml-11">{item.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA Banner ───────────────────────────────────────── */}
-      <section className="py-20 bg-blue-600" aria-labelledby="cta-heading">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2
-            id="cta-heading"
-            className="text-3xl font-bold text-white mb-6"
-          >
-            {h.cta.text}
-          </h2>
-          <Button href={h.cta.href} variant="white" size="lg">
-            {h.cta.button}
-          </Button>
+      {/* ── CTA FINALE ── */}
+      <section className="cta-final-section">
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(90% 120% at 90% 0%, rgba(255,255,255,0.06), transparent 60%)',
+          }}
+        />
+        <div className="wrap" style={{ position: 'relative' }}>
+          <div className="cta-final-grid">
+            <div>
+              <span className="kicker on-dark">{h.cta.kicker}</span>
+              <h2 className="h1" style={{ color: 'var(--on-blue)', margin: '22px 0 22px' }}>
+                {h.cta.title}
+              </h2>
+              <p className="lead" style={{ color: 'var(--on-blue-60)' }}>
+                {h.cta.lead}
+              </p>
+              <div style={{ marginTop: '34px' }}>
+                <Link href={h.cta.href} className="btn btn-on-blue btn-lg">
+                  {h.cta.button} <span className="arw">→</span>
+                </Link>
+              </div>
+            </div>
+            <ul className="cta-points">
+              {h.cta.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
     </>

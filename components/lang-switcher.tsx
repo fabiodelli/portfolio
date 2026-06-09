@@ -20,11 +20,7 @@ export function LangSwitcher({ lang, label, ariaLabel }: Props) {
         : pathname.replace(/^\/en/, '') || '/'
 
   return (
-    <a
-      href={href}
-      aria-label={ariaLabel}
-      className="text-sm font-medium text-slate-600 hover:text-slate-900 border border-slate-300 hover:border-slate-400 rounded-md px-2.5 py-1 transition-colors"
-    >
+    <a href={href} aria-label={ariaLabel} className="lang-btn">
       {label}
     </a>
   )
