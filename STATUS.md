@@ -1,6 +1,6 @@
 # STATUS — Portfolio Fabio Delli
 
-Aggiornato: 2026-06-10
+Aggiornato: 2026-06-10 (FIX_R1)
 
 ## Blocchi completati
 
@@ -27,6 +27,42 @@ Aggiornato: 2026-06-10
 - `lever-rev` non usa più un grande fill blu ma `--ambra-08` (wash) per rispettare "ambra col contagocce"
 - Proof callout Softale: da box blu pieno a `--ambra-08` + bordi `--calce-08`
 - `headlineKeyword` aggiunto ai dizionari (unico campo strutturale fuori Blocco 4) per il rendering italic+ambra della headline hero
+
+## Round FIX_R1 — completato 2026-06-10
+
+### Blocco 1 — Bug fix
+- [x] **Lang-switcher**: fix `pathname.replace(/^\/(it|en)/, '')` — risolve il 404 su IT→EN (pathname interno `/it/...` produceva `/en/it/...`)
+- [x] **deviceUrl fittizio**: `villalevante.it` → `villa-levante-demo.vercel.app` in tutti e 4 i punti (it.ts home + villaLevante, en.ts home + villaLevante)
+- [x] **Stringa hardcoded**: "Interlocutore unico · Versilia" spostata nei dictionaries (chiave `home.hero.chatCard.footer`); il campo è ora consumato da `HeroChatCard`
+
+### Blocco 2 — Screenshot Playwright
+- [x] `playwright` + `sharp` installati come devDependencies
+- [x] `npx playwright install chromium` eseguito
+- [x] `scripts/capture.mjs` creato (cattura VL desktop+mobile+chat, Softale desktop; ottimizza in WebP ≤ 200KB)
+- [ ] Screenshot da catturare manualmente con `node scripts/capture.mjs` e poi committati — richiedono connessione ai domini live
+
+### Blocco 3 — Sostituzione placeholder "ritratto"
+- [x] **`HeroChatCard`** (`components/hero-chat-card.tsx`): sostituisce `card-portrait` nell'hero home; bolle ospite/assistente, chip "Prenota ora · senza commissioni" ambra, header salvia, footer FD sigillo. Testi da dictionaries (`home.hero.chatCard`).
+- [x] **`MethodCard`** (`components/method-card.tsx`): sostituisce `.portrait` nell'about hero; tre step numerati Spectral 300 ambra, divider + sigillo FD. Testi da dictionaries (`about.methodCard`).
+- [x] CSS orfano rimosso: `.card-portrait*`, `.fd-sigil-lg`, `.fd-name-lg`, `.fd-role-lg`, `.card-portrait-cap`, `.seal`, `.portrait`
+
+### Blocco 4 — OG image
+- [x] `app/[lang]/opengraph-image.tsx` creato via `next/og` (edge runtime): fondo notte `#16140F`, nome Spectral 300 calce, payoff IT/EN calce-60, linea ambra. Eredita a tutte le pagine del lang.
+- [x] `twitter: { card: 'summary_large_image' }` aggiunto nel root layout.
+
+### Blocco 5 — Verifica
+- [x] Build clean — 15 pagine SSG, TypeScript zero errori
+- [x] Grep: zero `villalevante.it`, zero stringhe IT hardcoded nei componenti condivisi
+- [ ] Lighthouse (da fare post-deploy su Vercel, dopo aver catturato gli screenshot)
+- [ ] Anteprima OG verificata su dominio live
+
+### Coda villa-levante-demo
+- [ ] **Da fare quando il repo è disponibile localmente**: sostituire `effedi.dev` (footer, meta, costanti) con `https://fabiodelli.com` + testo "costruito da Fabio Delli". Aggiornare STATUS.md del repo con conferma deploy live.
+
+### Decisioni prese (FIX_R1)
+- `HeroChatCard` usa testi EN per la bolla ospite in entrambe le lingue (straniero che scrive in inglese — realismo), risposta assistente localizzata IT/EN
+- OG image in edge runtime → route dinamica (`ƒ`), non SSG — accettabile: le immagini OG non sono nel critical path della pagina
+- Playwright Chromium installato ma cattura manuale: gli screenshot sono asset statici da committare, non da rigenerate in CI
 
 ## Definition of Done
 

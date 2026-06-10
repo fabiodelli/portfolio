@@ -8,16 +8,8 @@ type Props = { lang: Lang; label: string; ariaLabel: string }
 export function LangSwitcher({ lang, label, ariaLabel }: Props) {
   const pathname = usePathname()
 
-  const href =
-    lang === 'it'
-      ? // from IT path: prefix with /en
-        pathname === '/'
-        ? '/en'
-        : `/en${pathname}`
-      : // from EN path: strip /en prefix
-        pathname === '/en'
-        ? '/'
-        : pathname.replace(/^\/en/, '') || '/'
+  const clean = pathname.replace(/^\/(it|en)/, '') || '/'
+  const href = lang === 'it' ? (clean === '/' ? '/en' : `/en${clean}`) : clean
 
   return (
     <a href={href} aria-label={ariaLabel} className="lang-btn">

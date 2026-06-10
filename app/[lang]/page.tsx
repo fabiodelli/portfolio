@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getDictionary, type Lang } from '@/lib/dictionaries'
 import { pageAlternates, SITE_URL } from '@/lib/metadata'
 import { Reveal } from '@/components/scroll-reveal'
+import { HeroChatCard } from '@/components/hero-chat-card'
 
 export async function generateMetadata({
   params,
@@ -100,24 +101,9 @@ export default async function HomePage({
               </div>
             </Reveal>
 
-            {/* Right — FD calling card */}
+            {/* Right — mini-chat demo card */}
             <Reveal delay={120}>
-              <div className="card-portrait">
-                <div className="card-portrait-brand">
-                  <div className="fd-sigil-lg">FD</div>
-                  <div className="fd-name-lg">Fabio Delli</div>
-                  <div className="fd-role-lg">AI Integration · Versilia</div>
-                </div>
-                <div className="card-portrait-cap">
-                  <div>
-                    <div style={{ fontFamily: 'var(--serif)', fontSize: '19px', color: 'var(--calce)' }}>Fabio Delli</div>
-                    <div style={{ fontSize: '12.5px', color: 'var(--calce-60)', letterSpacing: '0.02em' }}>
-                      Interlocutore unico · Versilia
-                    </div>
-                  </div>
-                  <div className="seal">FD</div>
-                </div>
-              </div>
+              <HeroChatCard strings={h.hero.chatCard} />
             </Reveal>
           </div>
         </div>

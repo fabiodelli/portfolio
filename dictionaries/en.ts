@@ -34,6 +34,13 @@ export const en = {
       secondaryHref: '#progetti',
       metaLabel: 'Tailored for',
       sectors: ['Hospitality', 'Marble', 'Nautical', 'and beyond'],
+      chatCard: {
+        header: 'AI assistant · demo',
+        bubbleGuest: 'Hi! Do you have a room for two this weekend?',
+        bubbleAssistant: 'Of course! The Levante Room is available: €180/night, breakfast included. Would you like to proceed with a direct booking?',
+        chipCta: 'Book now · no commission',
+        footer: 'Fabio Delli · Versilia',
+      },
     },
     services: {
       kicker: 'What I solve for you',
@@ -77,7 +84,7 @@ export const en = {
         kpi2: { value: '−OTA', label: 'Commissions saved' },
         cta: 'Read the case study',
         href: '/en/case-study/villa-levante',
-        deviceUrl: 'villalevante.it',
+        deviceUrl: 'villa-levante-demo.vercel.app',
       },
       softale: {
         index: '02',
@@ -146,7 +153,7 @@ export const en = {
     ruolo: 'Design + full-stack development',
     tipoLabel: 'Type',
     tipo: 'AI assistant · Web',
-    deviceUrl: 'villalevante.it',
+    deviceUrl: 'villa-levante-demo.vercel.app',
     context: {
       kicker: 'The context',
       lead: 'A property receiving guests from around the world, at every hour of the day.',
@@ -276,6 +283,15 @@ export const en = {
     title: 'One person, from first conversation to a working solution.',
     lead: "I'm Fabio Delli, a full-stack developer and AI integration specialist. I work in Versilia, close to the businesses I help — no agency, no chain of contacts.",
     role: 'AI Integration Specialist · Versilia',
+    methodCard: {
+      kicker: 'How I work',
+      steps: [
+        { num: '01', title: 'Listen', desc: 'Understand the real workflow — where time is actually lost.' },
+        { num: '02', title: 'Build', desc: 'Tailored to you, integrated with what you already use.' },
+        { num: '03', title: 'Stay present', desc: 'Ongoing maintenance and continuous improvement.' },
+      ],
+      footer: 'Fabio Delli · Versilia',
+    },
     narrativa: {
       kicker: 'My position',
       paragraphs: [

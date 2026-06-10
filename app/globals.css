@@ -459,72 +459,185 @@ body {
   flex-wrap: wrap;
 }
 
-/* ─── Home — Calling card ─── */
-.card-portrait {
+/* ─── HeroChatCard ─── */
+.hero-chat-card {
   background: var(--espresso);
   border: 1px solid var(--calce-08);
   border-radius: var(--r-lg);
   padding: 16px;
-}
-
-.card-portrait-brand {
-  aspect-ratio: 4/5;
-  background: linear-gradient(135deg, var(--espresso) 0%, var(--espresso-2) 60%, var(--notte) 100%);
-  border-radius: var(--r-md);
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
 }
 
-.fd-sigil-lg {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 1.5px solid var(--ambra);
+.hcc-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-family: var(--serif);
-  font-size: 24px;
-  color: var(--ambra);
-  font-weight: 300;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--espresso-2);
+  border-radius: var(--r-md);
 }
 
-.fd-name-lg {
-  font-family: var(--serif);
-  font-size: 22px;
-  color: var(--calce);
-  text-align: center;
+.hcc-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--salvia);
+  flex: none;
 }
 
-.fd-role-lg {
-  font-size: 13px;
+.hcc-header-label {
+  font-size: 11.5px;
   color: var(--calce-60);
-  letter-spacing: 0.04em;
-  text-align: center;
+  letter-spacing: 0.03em;
+  font-family: var(--sans);
 }
 
-.card-portrait-cap {
+.hcc-bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.hcc-bubble {
+  font-size: 14.5px;
+  line-height: 1.5;
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  max-width: 90%;
+}
+
+.hcc-bubble-guest {
+  align-self: flex-end;
+  border: 1px solid var(--calce-12);
+  color: var(--calce-80);
+  background: transparent;
+}
+
+.hcc-bubble-assistant {
+  align-self: flex-start;
+  background: var(--espresso-2);
+  color: var(--calce);
+}
+
+.hcc-chip {
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--sans);
+  color: var(--on-ambra);
+  background: var(--ambra);
+  border-radius: var(--r-pill);
+  padding: 8px 18px;
+  cursor: default;
+}
+
+.hcc-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 6px 6px;
+  padding: 12px 6px 4px;
+  border-top: 1px solid var(--calce-08);
 }
 
-.seal {
-  width: 44px;
-  height: 44px;
+.hcc-sigil {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1px solid var(--ambra);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--serif);
-  font-size: 15px;
+  font-size: 13px;
   color: var(--ambra);
-  flex-shrink: 0;
+  flex: none;
+}
+
+.hcc-footer-label {
+  font-size: 12px;
+  color: var(--calce-60);
+  letter-spacing: 0.02em;
+}
+
+/* ─── MethodCard ─── */
+.method-card {
+  background: var(--espresso);
+  border: 1px solid var(--calce-08);
+  border-radius: var(--r-lg);
+  padding: 28px 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.mc-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mc-step {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+}
+
+.mc-num {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 28px;
+  color: var(--ambra);
+  line-height: 1;
+  flex: none;
+  min-width: 40px;
+}
+
+.mc-title {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--calce);
+  margin-bottom: 4px;
+}
+
+.mc-desc {
+  font-size: 14.5px;
+  color: var(--calce-60);
+  line-height: 1.5;
+}
+
+.mc-footer { display: flex; flex-direction: column; gap: 14px; }
+
+.mc-divider { height: 1px; background: var(--calce-08); }
+
+.mc-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.mc-sigil {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--ambra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 12px;
+  color: var(--ambra);
+  flex: none;
+}
+
+.mc-footer-label {
+  font-size: 12px;
+  color: var(--calce-60);
+  letter-spacing: 0.02em;
 }
 
 /* ─── Home — Services ─── */
@@ -679,7 +792,6 @@ body {
 @media (max-width: 768px) {
   .hero-section { padding-top: var(--s6); padding-bottom: var(--s7); }
   .hero-grid { grid-template-columns: 1fr; gap: var(--s5); }
-  .card-portrait { max-width: 380px; }
   .proj { grid-template-columns: 1fr; gap: var(--s5); }
   .proj-flip .proj-media { order: 0; }
   .proj-media { order: -1; }
@@ -844,13 +956,6 @@ body {
   align-items: center;
 }
 
-.portrait {
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  border: 1px solid var(--calce-12);
-  background: var(--espresso);
-}
-
 .about-sign { display: flex; align-items: center; gap: 16px; margin-top: 30px; }
 .sign-seal { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--ambra); display: flex; align-items: center; justify-content: center; font-family: var(--serif); color: var(--ambra); font-size: 17px; flex-shrink: 0; }
 .sign-name { font-family: var(--serif); font-size: 20px; }
@@ -904,7 +1009,6 @@ body {
   .about-grid,
   .narr,
   .about-cta-grid { grid-template-columns: 1fr; gap: var(--s5); }
-  .portrait { max-width: 400px; }
   .principles { grid-template-columns: 1fr; }
   .principle + .principle { padding-left: 0; border-left: 0; border-top: 1px solid var(--calce-12); }
   .step { grid-template-columns: 50px 1fr; }

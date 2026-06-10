@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getDictionary, type Lang } from '@/lib/dictionaries'
 import { pageAlternates } from '@/lib/metadata'
 import { Reveal } from '@/components/scroll-reveal'
+import { MethodCard } from '@/components/method-card'
 
 export async function generateMetadata({
   params,
@@ -53,72 +54,9 @@ export default async function AboutPage({
               </div>
             </div>
 
-            {/* FD brand treatment — no personal photo */}
+            {/* Method card — no personal photo */}
             <Reveal>
-              <div className="portrait">
-                <div
-                  style={{
-                    aspectRatio: '4/5',
-                    background:
-                      'linear-gradient(150deg, var(--espresso) 0%, var(--espresso-2) 50%, var(--notte) 100%)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                    gap: '24px',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '96px',
-                      height: '96px',
-                      borderRadius: '50%',
-                      border: '1.5px solid var(--ambra)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontFamily: 'var(--serif)',
-                      fontSize: '28px',
-                      color: 'var(--ambra)',
-                      fontWeight: 300,
-                    }}
-                  >
-                    FD
-                  </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <div
-                      style={{
-                        fontFamily: 'var(--serif)',
-                        fontSize: '26px',
-                        color: 'var(--calce)',
-                        marginBottom: '8px',
-                      }}
-                    >
-                      Fabio Delli
-                    </div>
-                    <div
-                      style={{
-                        fontSize: '13px',
-                        color: 'var(--calce-60)',
-                        letterSpacing: '0.04em',
-                        textTransform: 'uppercase',
-                      }}
-                    >
-                      AI Integration Specialist
-                    </div>
-                    <div
-                      style={{
-                        fontSize: '13px',
-                        color: 'var(--calce-45)',
-                        marginTop: '4px',
-                        letterSpacing: '0.04em',
-                      }}
-                    >
-                      Versilia, Toscana
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <MethodCard strings={a.methodCard} />
             </Reveal>
           </div>
         </div>

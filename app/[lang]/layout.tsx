@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   openGraph: { type: 'website', siteName: 'Fabio Delli' },
+  twitter: { card: 'summary_large_image' },
 }
 
 export function generateStaticParams() {
