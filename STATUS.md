@@ -21,6 +21,17 @@ Aggiornato: 2026-06-10 (FIX_R1)
 - [x] **Blocco 4** — Softale IT: `status → 'Pubblicato · softale.app'`, lead rimosso "in produzione" → "pubblicato e funzionante". EN: `status → 'Live · softale.app'`, lead → "live and working"
 - [x] **Blocco 5** — Build clean (15 pagine SSG), grep zero "artigiano" e zero colori vietati (#fff, #000, vecchi hardcoded)
 
+## Fix post-analisi — 2026-06-11
+
+- [x] Nav CTA da ambra a ghost — rispetta la regola "un solo CTA ambra per viewport" (DESIGN.md §6)
+- [x] Scroll-reveal accessibile: nascosto solo con `html.js` (script inline nel layout) — senza JS il contenuto resta visibile; aggiunto `prefers-reduced-motion`
+- [x] Hero home e device hero dei case study fuori da `Reveal` (LCP non più nascosto)
+- [x] Screenshot reali in `public/screenshots/` (JPEG ~300KB) nei device frame di home + case study, filter sull'immagine come DESIGN.md §3.3
+- [x] URL corretti: `villa-levante-demo.vercel.app` e `www.softale.app`
+- [x] Settori generici al posto di Marmo/Nautica: IT "Attività locali / Servizi / Commercio", EN "Local businesses / Services / Retail"
+- [x] Refusi it.ts corretti (Un'idea, dall'inizio, all'utente)
+- [x] KPI home più chiari: `−25% Commissioni OTA recuperabili`, `Testo → voce Pipeline AI completa`
+
 ### Decisioni prese (Notturno)
 - Footer usa `--espresso` (più chiaro della pagina `--notte`), non più scuro — comportamento invertito rispetto ai siti chiari
 - Status nei case study: da `--bronze`/`--ambra` (accento) a `--salvia` (metadato/stato) — semantica corretta
