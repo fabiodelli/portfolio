@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Levante — Caso studio · Fabio Delli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ds.css">
+<style>
+  .cs-hero { padding-top: var(--s7); }
+  .breadcrumb { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--ink-45); margin-bottom: 30px; }
+  .breadcrumb a:hover { color: var(--ink); }
+  .breadcrumb .sep { opacity: 0.5; }
+  .cs-title-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--s6); align-items: end; }
+  .cs-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 30px; }
+  .cs-meta .m-lbl { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-45); margin-bottom: 5px; }
+  .cs-meta .m-val { font-size: 15.5px; color: var(--ink); }
+  .cs-shot { margin-top: var(--s6); }
+  .cs-shot .device .ph { aspect-ratio: 16/9; border: 0; border-radius: 0; }
+
+  .cs-intro { display: grid; grid-template-columns: 1fr 1.3fr; gap: var(--s6); }
+  .lever { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s5); margin-top: var(--s6); }
+  .lever-card {
+    background: var(--paper); border: 1px solid var(--ink-12); border-radius: var(--r-lg);
+    padding: var(--s5); position: relative; overflow: hidden;
+  }
+  .lever-card.cost { background: var(--paper-2); }
+  .lever-card.rev { background: var(--blue); color: var(--on-blue); border-color: transparent; }
+  .lever-card .l-tag { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bronze); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 10px; }
+  .lever-card.rev .l-tag { color: var(--bronze-soft); }
+  .lever-card h3 { margin-bottom: 16px; }
+  .lever-card.rev h3 { color: var(--on-blue); }
+  .lever-card .l-body { color: var(--ink-80); font-size: 15.5px; line-height: 1.6; }
+  .lever-card.rev .l-body { color: var(--on-blue-60); }
+  .lever-list { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .lever-list li { display: flex; gap: 12px; align-items: baseline; font-size: 15.5px; }
+  .lever-list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--bronze); flex: none; transform: translateY(-2px); }
+  .lever-card.rev .lever-list li::before { background: var(--bronze-soft); }
+
+  .kpi-band { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); border-top: 1px solid var(--ink-12); border-bottom: 1px solid var(--ink-12); padding-block: var(--s6); }
+  .kpi-band .k-n { font-family: var(--serif); font-weight: 300; font-size: clamp(40px, 4.5vw, 62px); letter-spacing: -0.02em; line-height: 1; }
+  .kpi-band .k-l { color: var(--ink-60); font-size: 15px; margin-top: 12px; max-width: 26ch; }
+
+  .stack-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--s6); }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip-tech { font-size: 14px; padding: 9px 16px; border-radius: var(--r-pill); border: 1px solid var(--ink-12); background: var(--paper); color: var(--ink-80); }
+
+  .gallery { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--s4); }
+  .gallery .ph { border-radius: var(--r-md); }
+  .gallery .g-tall { aspect-ratio: 3/4; }
+  .gallery .g-wide { aspect-ratio: 16/11; }
+
+  .demo-cta { background: var(--blue-deep); color: var(--on-blue); border-radius: var(--r-lg); padding: var(--s7); text-align: center; position: relative; overflow: hidden; }
+  .demo-cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 120% at 50% 0%, rgba(255,255,255,0.06), transparent 60%); }
+  .demo-cta > * { position: relative; }
+  .demo-cta h2 { color: var(--on-blue); max-width: 18ch; margin: 22px auto 22px; }
+  .demo-cta .lead { color: var(--on-blue-60); max-width: 50ch; margin: 0 auto 34px; }
+
+  .next-proj { display: flex; justify-content: space-between; align-items: center; gap: var(--s4); padding-block: var(--s6); flex-wrap: wrap; }
+  .next-proj .np-l { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-45); margin-bottom: 10px; }
+  .next-proj h3 { font-size: clamp(28px, 3vw, 40px); }
+
+  .foot-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s5); padding-bottom: var(--s6); border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .foot-top .blurb { color: var(--on-blue-60); max-width: 38ch; margin-top: 18px; font-size: 15px; line-height: 1.6; }
+  .foot-col h4 { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-blue-60); margin-bottom: 18px; font-weight: 500; }
+  .foot-col a { display: block; font-size: 15.5px; margin-bottom: 12px; color: var(--on-blue); opacity: 0.9; }
+  .foot-col a:hover { opacity: 0.6; }
+  .foot-bot { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: 13px; color: var(--on-blue-60); flex-wrap: wrap; gap: 16px; }
+  .foot-word { font-family: var(--serif); font-size: 22px; }
+
+  @media (max-width: 860px) {
+    .cs-title-grid, .cs-intro, .lever, .kpi-band, .stack-grid, .gallery { grid-template-columns: 1fr; }
+    .kpi-band { gap: var(--s4); }
+    .cs-meta { grid-template-columns: 1fr 1fr; }
+    .foot-top { grid-template-columns: 1fr; gap: var(--s4); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="Home.html"><span class="fd">FD</span> Fabio Delli</a>
+    <nav class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="Case study.html" class="active">Progetti</a>
+      <a href="Chi sono.html">Chi sono</a>
+      <a href="Contatti.html">Contatti</a>
+    </nav>
+    <div class="nav-right">
+      <span class="lang"><b>IT</b> / EN</span>
+      <a href="Contatti.html" class="btn btn-primary">Incontro conoscitivo <span class="arw">→</span></a>
+      <button class="nav-toggle" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="Home.html">Home</a><span class="sep">/</span>
+      <a href="Home.html#progetti">Progetti</a><span class="sep">/</span>
+      <span style="color:var(--ink)">Villa Levante</span>
+    </div>
+    <div class="cs-title-grid">
+      <div>
+        <span class="kicker">Hospitality · Assistente AI</span>
+        <h1 class="display" style="margin:24px 0 0; max-width:11ch;">Villa Levante</h1>
+        <p class="lead" style="margin-top:26px; max-width:42ch;">Un assistente AI multilingua che risponde agli ospiti 24/7 e trasforma le richieste in prenotazioni dirette.</p>
+      </div>
+      <div class="cs-meta">
+        <div><div class="m-lbl">Settore</div><div class="m-val">Hospitality · Ricettivo</div></div>
+        <div><div class="m-lbl">Ruolo</div><div class="m-val">Design + sviluppo end-to-end</div></div>
+        <div><div class="m-lbl">Tipo</div><div class="m-val">Assistente AI · Web</div></div>
+        <div><div class="m-lbl">Stato</div><div class="m-val">In produzione · demo live</div></div>
+      </div>
+    </div>
+    <div class="cs-shot reveal in">
+      <div class="device">
+        <div class="device-bar"><i></i><i></i><i></i><span class="url">villalevante.it</span></div>
+        <div class="ph" data-label="[ screenshot — Villa Levante · home + assistente ]"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTESTO -->
+<section class="section-sm">
+  <div class="wrap">
+    <div class="cs-intro">
+      <span class="kicker">Il contesto</span>
+      <div>
+        <p class="h3" style="margin-bottom:24px; max-width:24ch;">Una struttura che riceve ospiti da tutto il mondo, a ogni ora del giorno.</p>
+        <p class="body measure">Le richieste arrivano in più lingue e fuori orario; ogni risposta tardiva è una prenotazione che rischia di passare a una OTA, con la sua commissione. Il personale spende ore su domande ripetitive — disponibilità, servizi, indicazioni — sottraendo tempo all'ospitalità vera.</p>
+        <p class="body measure" style="margin-top:18px;">L'obiettivo: rispondere subito, in ogni lingua, e riportare la prenotazione sul canale diretto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEVA A DUE TEMPI -->
+<section class="section-sm">
+  <div class="wrap">
+    <span class="kicker">La soluzione · leva a due tempi</span>
+    <h2 class="h1" style="margin-top:22px; max-width:20ch;">Taglia i costi e, allo stesso tempo, aumenta i ricavi diretti.</h2>
+    <div class="lever">
+      <div class="lever-card cost reveal in">
+        <span class="l-tag">Lato costi</span>
+        <h3 class="h3">Meno ore, nessun orario</h3>
+        <p class="l-body">L'assistente gestisce in autonomia le domande ricorrenti, in ogni lingua e 24 ore su 24. Il personale interviene solo quando serve davvero.</p>
+        <ul class="lever-list">
+          <li>Risposte immediate giorno e notte</li>
+          <li>Multilingua nativo, senza traduttori</li>
+          <li>Ore liberate dalle richieste ripetitive</li>
+        </ul>
+      </div>
+      <div class="lever-card rev reveal in" style="transition-delay:.1s">
+        <span class="l-tag">Lato ricavi</span>
+        <h3 class="h3">Più prenotazioni dirette</h3>
+        <p class="l-body">Rispondendo subito e bene, l'assistente accompagna l'ospite alla prenotazione sul canale diretto — riducendo la dipendenza dalle OTA e le loro commissioni.</p>
+        <ul class="lever-list">
+          <li>Conversione diretta guidata</li>
+          <li>Meno commissioni OTA (15–25%)</li>
+          <li>Relazione con l'ospite dal primo contatto</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KPI -->
+<section class="section-sm">
+  <div class="wrap">
+    <div class="kpi-band">
+      <div><div class="k-n">24/7</div><div class="k-l">Copertura delle richieste, in ogni fuso e ogni lingua.</div></div>
+      <div><div class="k-n">15–25%</div><div class="k-l">Commissione OTA potenzialmente recuperata su ogni diretta.</div></div>
+      <div><div class="k-n">ore/sett.</div><div class="k-l">Tempo del personale restituito all'ospitalità reale.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="section-sm">
+  <div class="wrap">
+    <div class="stack-grid">
+      <div>
+        <span class="kicker">Stack</span>
+        <h2 class="h2" style="margin-top:20px; max-width:14ch;">Costruito per durare e integrarsi.</h2>
+      </div>
+      <div>
+        <p class="body measure" style="margin-bottom:26px;">Un assistente conversazionale collegato ai dati reali della struttura, su un'infrastruttura web leggera e veloce. Nessuna dipendenza da piattaforme chiuse: tutto resta tuo.</p>
+        <div class="chips">
+          <span class="chip-tech">LLM conversazionale</span>
+          <span class="chip-tech">RAG sui dati struttura</span>
+          <span class="chip-tech">Multilingua</span>
+          <span class="chip-tech">Next.js</span>
+          <span class="chip-tech">Integrazione prenotazioni</span>
+          <span class="chip-tech">Analytics conversioni</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section-sm">
+  <div class="wrap">
+    <div class="gallery reveal in">
+      <div class="ph g-wide" data-label="[ screenshot — conversazione assistente ]"></div>
+      <div class="ph g-tall" data-label="[ screenshot — vista mobile ]"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO CTA -->
+<section class="section-sm">
+  <div class="wrap">
+    <div class="demo-cta">
+      <span class="kicker on-dark no-rule" style="justify-content:center;">Provalo dal vivo</span>
+      <h2 class="h1">Parla con l'assistente come farebbe un ospite.</h2>
+      <p class="lead">Il modo migliore per capire l'effetto è provarlo. La demo è online, in più lingue.</p>
+      <a href="#" class="btn btn-on-blue btn-lg">Apri il demo live <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section>
+  <div class="wrap">
+    <hr class="divider">
+    <div class="next-proj">
+      <div>
+        <div class="np-l">Progetto successivo</div>
+        <h3 class="h2">Softale — prodotto AI end-to-end</h3>
+      </div>
+      <a href="Case study.html" class="btn btn-ghost btn-lg">Vai al progetto <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-top">
+      <div>
+        <div class="foot-word">Fabio Delli</div>
+        <p class="blurb">Specialista di integrazione AI in Versilia. Soluzioni su misura che automatizzano i task ripetitivi delle attività locali, recuperando ore di lavoro ogni settimana.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Naviga</h4>
+        <a href="Home.html">Home</a>
+        <a href="Case study.html">Progetti</a>
+        <a href="Chi sono.html">Chi sono</a>
+        <a href="Contatti.html">Contatti</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contatti</h4>
+        <a href="Contatti.html"><span class="__cf_email__" data-cfemail="fc9f959d93bc9a9d9e95939899909095d29588">[email&#160;protected]</span></a>
+        <a href="Contatti.html">LinkedIn</a>
+        <a href="Contatti.html">Incontro conoscitivo →</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Fabio Delli · Versilia, Toscana</span>
+      <span class="lang" style="color:var(--on-blue-60);"><b style="color:var(--on-blue)">IT</b> / EN</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

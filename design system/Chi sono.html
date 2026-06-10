@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi sono — Fabio Delli · Specialista AI Integration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ds.css">
+<style>
+  .about-hero { padding-top: var(--s7); padding-bottom: var(--s6); }
+  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--s7); align-items: center; }
+  .about-hero h1 { margin: 24px 0 28px; max-width: 16ch; }
+  .portrait {
+    border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--ink-12);
+    background: var(--paper);
+    box-shadow: 0 2px 1px rgba(27,26,24,0.03), 0 50px 90px -55px rgba(27,26,24,0.5);
+  }
+  .portrait .ph { aspect-ratio: 4/5; border: 0; border-radius: 0; }
+  .sign { display: flex; align-items: center; gap: 16px; margin-top: 30px; }
+  .sign .seal { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--bronze); display: flex; align-items: center; justify-content: center; font-family: var(--serif); color: var(--bronze); font-size: 17px; }
+  .sign .s-name { font-family: var(--serif); font-size: 20px; }
+  .sign .s-role { font-size: 13px; color: var(--ink-60); }
+
+  .narr { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--s6); }
+  .narr .flow p { font-size: 17px; line-height: 1.7; color: var(--ink-80); }
+  .narr .flow p + p { margin-top: 20px; }
+  .pull {
+    font-family: var(--serif); font-weight: 300; font-style: italic;
+    font-size: clamp(24px, 2.6vw, 34px); line-height: 1.3; letter-spacing: -0.01em;
+    color: var(--ink); max-width: 22ch; padding-left: 26px; border-left: 2px solid var(--bronze);
+  }
+
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--ink-12); }
+  .principle { padding: var(--s5) var(--s4) 0 0; }
+  .principle + .principle { padding-left: var(--s4); border-left: 1px solid var(--ink-12); }
+  .principle .p-n { font-family: var(--serif); color: var(--bronze); font-size: 14px; }
+  .principle h3 { font-size: 22px; margin: 14px 0 12px; }
+
+  .steps { display: grid; gap: 0; margin-top: var(--s5); }
+  .step { display: grid; grid-template-columns: 80px 1fr; gap: var(--s4); padding: var(--s4) 0; border-top: 1px solid var(--ink-12); align-items: baseline; }
+  .step:last-child { border-bottom: 1px solid var(--ink-12); }
+  .step .st-n { font-family: var(--serif); font-weight: 300; font-size: 34px; color: var(--ink-30); letter-spacing: -0.02em; }
+  .step h3 { font-size: 21px; margin-bottom: 8px; }
+  .step p { color: var(--ink-80); font-size: 15.5px; max-width: 52ch; }
+
+  .cta-final { background: var(--blue); color: var(--on-blue); }
+  .cta-final h2 { color: var(--on-blue); max-width: 16ch; }
+  .cta-final .lead { color: var(--on-blue-60); max-width: 46ch; }
+  .cta-final-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--s6); align-items: center; }
+
+  .foot-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s5); padding-bottom: var(--s6); border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .foot-top .blurb { color: var(--on-blue-60); max-width: 38ch; margin-top: 18px; font-size: 15px; line-height: 1.6; }
+  .foot-col h4 { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-blue-60); margin-bottom: 18px; font-weight: 500; }
+  .foot-col a { display: block; font-size: 15.5px; margin-bottom: 12px; color: var(--on-blue); opacity: 0.9; }
+  .foot-col a:hover { opacity: 0.6; }
+  .foot-bot { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: 13px; color: var(--on-blue-60); flex-wrap: wrap; gap: 16px; }
+  .foot-word { font-family: var(--serif); font-size: 22px; }
+
+  @media (max-width: 860px) {
+    .about-grid, .narr, .cta-final-grid { grid-template-columns: 1fr; gap: var(--s5); }
+    .portrait { max-width: 400px; }
+    .principles { grid-template-columns: 1fr; }
+    .principle + .principle { padding-left: 0; border-left: 0; border-top: 1px solid var(--ink-12); }
+    .step { grid-template-columns: 50px 1fr; }
+    .foot-top { grid-template-columns: 1fr; gap: var(--s4); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="Home.html"><span class="fd">FD</span> Fabio Delli</a>
+    <nav class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="Case study.html">Progetti</a>
+      <a href="Chi sono.html" class="active">Chi sono</a>
+      <a href="Contatti.html">Contatti</a>
+    </nav>
+    <div class="nav-right">
+      <span class="lang"><b>IT</b> / EN</span>
+      <a href="Contatti.html" class="btn btn-primary">Incontro conoscitivo <span class="arw">→</span></a>
+      <button class="nav-toggle" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <span class="kicker">Chi sono</span>
+        <h1 class="h1">Una sola persona, dal primo colloquio alla soluzione che funziona.</h1>
+        <p class="lead measure">Sono Fabio Delli, sviluppatore full-stack e specialista di integrazione AI. Lavoro in Versilia, vicino alle attività che aiuto — niente agenzia, niente catena di referenti.</p>
+        <div class="sign">
+          <div class="seal">FD</div>
+          <div>
+            <div class="s-name">Fabio Delli</div>
+            <div class="s-role">Specialista AI Integration · Versilia</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal in">
+        <div class="portrait">
+          <div class="ph" data-label="[ foto professionale — Fabio Delli ]"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NARRATIVA -->
+<section class="section-sm">
+  <div class="wrap">
+    <div class="narr">
+      <span class="kicker">La mia posizione</span>
+      <div>
+        <div class="flow">
+          <p>Non sono un generalista che fa un po' di tutto. Sono uno specialista di integrazione AI: il mio mestiere è capire dove, nella tua attività, il tempo si perde in compiti ripetitivi — e restituirtelo con soluzioni costruite su misura.</p>
+          <p>Credo nella scala umana. Quando lavoriamo insieme parli sempre con me: chi ascolta il problema è la stessa persona che progetta, costruisce e ti segue dopo. Questo rende tutto più chiaro, più rapido e, alla fine, più conveniente — senza l'overhead di una struttura tra te e il lavoro.</p>
+          <p>E credo nella concretezza. Niente promesse rivoluzionarie: parliamo di ore liberate, di prenotazioni dirette, di processi che smettono di pesare. Se l'AI non serve, te lo dico.</p>
+        </div>
+        <blockquote class="pull" style="margin-top:40px;">Su misura, non in serie. Cucito sulla tua attività, non preso da uno scaffale.</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPI -->
+<section class="section-sm">
+  <div class="wrap">
+    <span class="kicker">Come ragiono</span>
+    <h2 class="h1" style="margin:22px 0 var(--s5); max-width:16ch;">Tre principi, sempre gli stessi.</h2>
+    <div class="principles">
+      <div class="principle">
+        <div class="p-n">01</div>
+        <h3 class="h3">Chiarezza prima di tutto</h3>
+        <p class="body">Spiego ogni scelta in parole semplici. Se un termine tecnico è necessario, te lo racconto — niente gergo per sembrare bravo.</p>
+      </div>
+      <div class="principle">
+        <div class="p-n">02</div>
+        <h3 class="h3">Mai astratto senza un esempio</h3>
+        <p class="body">Ogni proposta nasce da un caso reale della tua attività. Concretezza prima della teoria, sempre.</p>
+      </div>
+      <div class="principle">
+        <div class="p-n">03</div>
+        <h3 class="h3">Calmo, mai hype</h3>
+        <p class="body">Niente urgenza artificiale né parole gonfiate. Tempi onesti, aspettative reali, risultati che restano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COME LAVORO -->
+<section class="section-sm">
+  <div class="wrap">
+    <div class="narr" style="align-items:start;">
+      <span class="kicker">Come lavoro</span>
+      <div>
+        <p class="h3" style="max-width:22ch; margin-bottom:8px;">Quattro passi, dal primo caffè alla soluzione che gira da sola.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="st-n">01</div>
+            <div><h3 class="h3">Ascolto</h3><p>Un incontro conoscitivo per capire dove perdi tempo e cosa conta davvero per te. Gratuito, senza impegno.</p></div>
+          </div>
+          <div class="step">
+            <div class="st-n">02</div>
+            <div><h3 class="h3">Roadmap</h3><p>Ti lascio una rotta concreta: cosa conviene automatizzare, in che ordine, con quali ritorni attesi.</p></div>
+          </div>
+          <div class="step">
+            <div class="st-n">03</div>
+            <div><h3 class="h3">Costruzione</h3><p>Sviluppo la soluzione su misura, integrata con gli strumenti che già usi, con aggiornamenti chiari lungo il percorso.</p></div>
+          </div>
+          <div class="step">
+            <div class="st-n">04</div>
+            <div><h3 class="h3">Presenza</h3><p>Resto il tuo interlocutore: la seguo, la affino, ci sono quando serve. Non sparisco alla consegna.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final section-sm">
+  <div class="wrap">
+    <div class="cta-final-grid">
+      <div>
+        <span class="kicker on-dark">Conosciamoci</span>
+        <h2 class="h1" style="margin:22px 0;">Il modo migliore per capirci è parlarne.</h2>
+        <p class="lead">Raccontami la tua attività. Ti dirò, in modo onesto, se e come posso restituirti delle ore.</p>
+      </div>
+      <div>
+        <a href="Contatti.html" class="btn btn-on-blue btn-lg">Incontro conoscitivo gratuito <span class="arw">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-top">
+      <div>
+        <div class="foot-word">Fabio Delli</div>
+        <p class="blurb">Specialista di integrazione AI in Versilia. Soluzioni su misura che automatizzano i task ripetitivi delle attività locali, recuperando ore di lavoro ogni settimana.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Naviga</h4>
+        <a href="Home.html">Home</a>
+        <a href="Case study.html">Progetti</a>
+        <a href="Chi sono.html">Chi sono</a>
+        <a href="Contatti.html">Contatti</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contatti</h4>
+        <a href="Contatti.html"><span class="__cf_email__" data-cfemail="6b08020a042b0d0a0902040f0e07070245021f">[email&#160;protected]</span></a>
+        <a href="Contatti.html">LinkedIn</a>
+        <a href="Contatti.html">Incontro conoscitivo →</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Fabio Delli · Versilia, Toscana</span>
+      <span class="lang" style="color:var(--on-blue-60);"><b style="color:var(--on-blue)">IT</b> / EN</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

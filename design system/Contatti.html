@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contatti — Fabio Delli · Incontro conoscitivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ds.css">
+<style>
+  .contact { padding-top: var(--s7); padding-bottom: var(--s8); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: var(--s7); align-items: start; }
+  .contact h1 { margin: 24px 0 26px; max-width: 14ch; font-size: clamp(40px, 5.4vw, 70px); }
+
+  .channels { margin-top: var(--s5); display: flex; flex-direction: column; }
+  .channel {
+    display: flex; align-items: center; gap: 20px; padding: 22px 0;
+    border-top: 1px solid var(--ink-12); text-decoration: none; transition: padding .3s;
+  }
+  .channel:last-child { border-bottom: 1px solid var(--ink-12); }
+  .channel:hover { padding-left: 8px; }
+  .channel .c-ic {
+    width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--ink-12);
+    display: flex; align-items: center; justify-content: center; flex: none;
+    font-family: var(--serif); font-size: 17px; color: var(--blue); background: var(--paper);
+  }
+  .channel .c-lbl { display: block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-45); margin-bottom: 4px; }
+  .channel .c-val { display: block; font-size: 17px; color: var(--ink); }
+  .channel .c-arw { margin-left: auto; color: var(--ink-30); transition: transform .3s, color .3s; }
+  .channel:hover .c-arw { transform: translateX(4px); color: var(--blue); }
+
+  .reassure { margin-top: var(--s5); display: flex; flex-direction: column; gap: 14px; }
+  .reassure li { list-style: none; display: flex; gap: 13px; align-items: baseline; color: var(--ink-80); font-size: 15.5px; }
+  .reassure li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--bronze); flex: none; transform: translateY(-2px); }
+
+  /* FORM */
+  .form-card {
+    background: var(--paper); border: 1px solid var(--ink-12); border-radius: var(--r-lg);
+    padding: var(--s5);
+    box-shadow: 0 2px 1px rgba(27,26,24,0.03), 0 50px 90px -60px rgba(27,26,24,0.45);
+  }
+  .form-card .fc-title { font-family: var(--serif); font-weight: 400; font-size: 24px; margin-bottom: 6px; }
+  .form-card .fc-sub { color: var(--ink-60); font-size: 14.5px; margin-bottom: var(--s4); }
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 13px; font-weight: 500; color: var(--ink-80); margin-bottom: 9px; letter-spacing: 0.01em; }
+  .field input, .field textarea, .field select {
+    width: 100%; font-family: var(--sans); font-size: 15.5px; color: var(--ink);
+    background: var(--paper-2); border: 1px solid var(--ink-12); border-radius: var(--r-sm);
+    padding: 14px 16px; transition: border-color .25s, background .25s; -webkit-appearance: none; appearance: none;
+  }
+  .field textarea { resize: vertical; min-height: 120px; line-height: 1.55; }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    outline: none; border-color: var(--blue); background: var(--paper);
+  }
+  .field input::placeholder, .field textarea::placeholder { color: var(--ink-45); }
+  .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231B1A18' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-card button { width: 100%; justify-content: center; margin-top: 8px; }
+  .form-note { font-size: 12.5px; color: var(--ink-45); margin-top: 16px; text-align: center; }
+
+  .foot-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s5); padding-bottom: var(--s6); border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .foot-top .blurb { color: var(--on-blue-60); max-width: 38ch; margin-top: 18px; font-size: 15px; line-height: 1.6; }
+  .foot-col h4 { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-blue-60); margin-bottom: 18px; font-weight: 500; }
+  .foot-col a { display: block; font-size: 15.5px; margin-bottom: 12px; color: var(--on-blue); opacity: 0.9; }
+  .foot-col a:hover { opacity: 0.6; }
+  .foot-bot { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: 13px; color: var(--on-blue-60); flex-wrap: wrap; gap: 16px; }
+  .foot-word { font-family: var(--serif); font-size: 22px; }
+
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; gap: var(--s5); }
+    .contact { padding-bottom: var(--s7); }
+    .field-row { grid-template-columns: 1fr; }
+    .foot-top { grid-template-columns: 1fr; gap: var(--s4); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="Home.html"><span class="fd">FD</span> Fabio Delli</a>
+    <nav class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="Case study.html">Progetti</a>
+      <a href="Chi sono.html">Chi sono</a>
+      <a href="Contatti.html" class="active">Contatti</a>
+    </nav>
+    <div class="nav-right">
+      <span class="lang"><b>IT</b> / EN</span>
+      <a href="#form" class="btn btn-primary">Incontro conoscitivo <span class="arw">→</span></a>
+      <button class="nav-toggle" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <!-- left -->
+      <div>
+        <span class="kicker">Contatti</span>
+        <h1 class="display">Parliamone, senza impegno.</h1>
+        <p class="lead measure">Raccontami la tua attività e dove senti di perdere tempo. Ti rispondo di persona, di solito entro un giorno lavorativo.</p>
+
+        <div class="channels">
+          <a class="channel" href="/cdn-cgi/l/email-protection#74171d151b341215161d1b101118181d5a1d00">
+            <span class="c-ic">@</span>
+            <span><span class="c-lbl">Email</span><span class="c-val"><span class="__cf_email__" data-cfemail="aac9c3cbc5eacccbc8c3c5cecfc6c6c384c3de">[email&#160;protected]</span></span></span>
+            <span class="c-arw">→</span>
+          </a>
+          <a class="channel" href="#">
+            <span class="c-ic">in</span>
+            <span><span class="c-lbl">LinkedIn</span><span class="c-val">Fabio Delli</span></span>
+            <span class="c-arw">→</span>
+          </a>
+          <div class="channel">
+            <span class="c-ic">◷</span>
+            <span><span class="c-lbl">Dove</span><span class="c-val">Versilia, Toscana · in sede o da remoto</span></span>
+          </div>
+        </div>
+
+        <ul class="reassure">
+          <li>Risposta personale, mai un modulo automatico.</li>
+          <li>Il primo incontro conoscitivo è gratuito.</li>
+          <li>Nessun gergo: parliamo di ore e di clienti.</li>
+        </ul>
+      </div>
+
+      <!-- form -->
+      <div class="form-card reveal in" id="form">
+        <div class="fc-title">Prenota l'incontro conoscitivo</div>
+        <div class="fc-sub">Gratuito e senza impegno. Bastano pochi campi.</div>
+        <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Grazie — ti rispondo presto ✓';">
+          <div class="field-row">
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" placeholder="Il tuo nome" required>
+            </div>
+            <div class="field">
+              <label for="att">Attività</label>
+              <input id="att" type="text" placeholder="Nome attività">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="nome@esempio.it" required>
+            </div>
+            <div class="field">
+              <label for="settore">Settore</label>
+              <select id="settore">
+                <option>Hospitality</option>
+                <option>Marmo</option>
+                <option>Nautica</option>
+                <option>Altro</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="msg">Dove perdi più tempo?</label>
+            <textarea id="msg" placeholder="Racconta in due righe il compito ripetitivo che ti pesa di più…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Invia la richiesta <span class="arw">→</span></button>
+          <div class="form-note">Inviando accetti di essere ricontattato. Nessuna newsletter, nessuno spam.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-top">
+      <div>
+        <div class="foot-word">Fabio Delli</div>
+        <p class="blurb">Specialista di integrazione AI in Versilia. Soluzioni su misura che automatizzano i task ripetitivi delle attività locali, recuperando ore di lavoro ogni settimana.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Naviga</h4>
+        <a href="Home.html">Home</a>
+        <a href="Case study.html">Progetti</a>
+        <a href="Chi sono.html">Chi sono</a>
+        <a href="Contatti.html">Contatti</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contatti</h4>
+        <a href="/cdn-cgi/l/email-protection#bcdfd5ddd3fcdaddded5d3d8d9d0d0d592d5c8"><span class="__cf_email__" data-cfemail="9cfff5fdf3dcfafdfef5f3f8f9f0f0f5b2f5e8">[email&#160;protected]</span></a>
+        <a href="#">LinkedIn</a>
+        <a href="#form">Incontro conoscitivo →</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Fabio Delli · Versilia, Toscana</span>
+      <span class="lang" style="color:var(--on-blue-60);"><b style="color:var(--on-blue)">IT</b> / EN</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>

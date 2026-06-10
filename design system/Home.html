@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabio Delli — Soluzioni AI su misura · Versilia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ds.css">
+<style>
+  /* ===== HOME-SPECIFIC ===== */
+  .hero { padding-top: var(--s8); padding-bottom: var(--s8); position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(120% 90% at 88% -10%, rgba(31,58,84,0.05), transparent 55%),
+      linear-gradient(122deg, var(--marble-veil) 0%, var(--paper) 40%, var(--paper-2) 100%);
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: var(--s7); align-items: center; }
+  .hero h1 { margin: 26px 0 30px; max-width: 16ch; font-size: clamp(38px, 5vw, 66px); }
+  .hero .lead { max-width: 46ch; }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 38px; }
+  .hero-meta {
+    margin-top: 52px; padding-top: 26px; border-top: 1px solid var(--ink-12);
+    display: flex; gap: 30px; flex-wrap: wrap; align-items: center;
+  }
+  .hero-meta .lbl { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-45); }
+  .hero-meta .sectors { display: flex; gap: 18px; font-size: 14px; color: var(--ink-80); flex-wrap: wrap; }
+  .hero-meta .sectors span { position: relative; }
+  .hero-meta .sectors span + span::before { content: "·"; position: absolute; left: -11px; color: var(--ink-30); }
+
+  /* calling card */
+  .card-portrait {
+    background: var(--paper);
+    border: 1px solid var(--ink-12);
+    border-radius: var(--r-lg);
+    padding: 16px;
+    box-shadow: 0 2px 1px rgba(27,26,24,0.03), 0 50px 90px -55px rgba(27,26,24,0.5);
+  }
+  .card-portrait .ph { aspect-ratio: 4/5; width: 100%; }
+  .card-portrait .cap { display: flex; align-items: center; justify-content: space-between; padding: 16px 6px 6px; }
+  .card-portrait .cap .nm { font-family: var(--serif); font-size: 19px; }
+  .card-portrait .cap .ro { font-size: 12.5px; color: var(--ink-60); letter-spacing: 0.02em; }
+  .seal {
+    width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--bronze);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 15px; color: var(--bronze);
+  }
+
+  /* SERVIZI */
+  .svc-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--s5); margin-bottom: var(--s6); flex-wrap: wrap; }
+  .svc-list { display: grid; gap: 0; }
+  .svc {
+    display: grid; grid-template-columns: 56px 1fr 1.05fr 220px; gap: var(--s4);
+    align-items: start;
+    padding: var(--s5) 0;
+    border-top: 1px solid var(--ink-12);
+  }
+  .svc:last-child { border-bottom: 1px solid var(--ink-12); }
+  .svc .num { font-family: var(--serif); font-size: 16px; color: var(--bronze); padding-top: 6px; }
+  .svc h3 { max-width: 18ch; }
+  .svc .desc { color: var(--ink-80); font-size: 16px; line-height: 1.6; }
+  .svc .gain {
+    background: var(--paper-2); border: 1px solid var(--ink-08); border-radius: var(--r-md);
+    padding: 18px 20px;
+  }
+  .svc .gain .g-lbl { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bronze); margin-bottom: 8px; }
+  .svc .gain .g-val { font-size: 15px; line-height: 1.45; color: var(--ink); }
+  .svc-foot { margin-top: var(--s5); font-size: 15px; color: var(--ink-60); display: flex; gap: 12px; align-items: baseline; }
+  .svc-foot .index-num { white-space: nowrap; }
+
+  /* PROGETTI */
+  .projects { background: var(--paper-2); border-top: 1px solid var(--ink-08); border-bottom: 1px solid var(--ink-08); }
+  .proj {
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: var(--s7); align-items: center;
+    padding-block: var(--s7);
+  }
+  .proj + .proj { border-top: 1px solid var(--ink-12); }
+  .proj.flip .proj-media { order: 2; }
+  .proj-media .device .ph { aspect-ratio: 16/10; border: 0; border-radius: 0; }
+  .proj-tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 22px 0 24px; }
+  .proj h3 { font-size: clamp(26px, 2.4vw, 34px); margin-bottom: 14px; }
+  .proj .kpi { display: flex; gap: var(--s5); margin: 26px 0 30px; flex-wrap: wrap; }
+  .proj .kpi-lbl { font-size: 12.5px; color: var(--ink-60); margin-top: 4px; }
+
+  /* PERCHÉ ME */
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); margin-top: var(--s6); }
+  .why-item { padding-top: 26px; border-top: 2px solid var(--ink); }
+  .why-item .n { font-family: var(--serif); font-size: 14px; color: var(--bronze); }
+  .why-item h3 { font-size: 23px; margin: 14px 0 12px; }
+
+  /* CTA FINALE */
+  .cta-final { background: var(--blue); color: var(--on-blue); position: relative; overflow: hidden; }
+  .cta-final::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(90% 120% at 90% 0%, rgba(255,255,255,0.06), transparent 60%);
+  }
+  .cta-final .wrap { position: relative; }
+  .cta-final-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--s7); align-items: center; }
+  .cta-final h2 { color: var(--on-blue); max-width: 16ch; }
+  .cta-final .lead { color: var(--on-blue-60); }
+  .cta-points { display: flex; flex-direction: column; gap: 18px; }
+  .cta-points li { list-style: none; display: flex; gap: 14px; align-items: baseline; color: var(--on-blue); font-size: 16px; }
+  .cta-points li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--bronze-soft); flex: none; transform: translateY(-2px); }
+
+  /* FOOTER content */
+  .foot-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s5); padding-bottom: var(--s6); border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .foot-top .blurb { color: var(--on-blue-60); max-width: 38ch; margin-top: 18px; font-size: 15px; line-height: 1.6; }
+  .foot-col h4 { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-blue-60); margin-bottom: 18px; font-weight: 500; }
+  .foot-col a { display: block; font-size: 15.5px; margin-bottom: 12px; color: var(--on-blue); opacity: 0.9; transition: opacity .25s; }
+  .foot-col a:hover { opacity: 0.6; }
+  .foot-bot { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: 13px; color: var(--on-blue-60); flex-wrap: wrap; gap: 16px; }
+  .foot-word { font-family: var(--serif); font-size: 22px; }
+
+  @media (max-width: 980px) {
+    .svc { grid-template-columns: 40px 1fr; }
+    .svc h3 { grid-column: 2; }
+    .svc .desc { grid-column: 2; }
+    .svc .gain { grid-column: 2; max-width: 360px; }
+    .why-grid { grid-template-columns: 1fr; gap: var(--s4); }
+  }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: var(--s5); }
+    .hero { padding-top: var(--s6); padding-bottom: var(--s7); }
+    .card-portrait { max-width: 380px; }
+    .proj, .proj.flip .proj-media { grid-template-columns: 1fr; order: 0; }
+    .proj-media { order: -1 !important; }
+    .cta-final-grid { grid-template-columns: 1fr; gap: var(--s5); }
+    .foot-top { grid-template-columns: 1fr; gap: var(--s4); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="Home.html"><span class="fd">FD</span> Fabio Delli</a>
+    <nav class="nav-links">
+      <a href="Home.html" class="active">Home</a>
+      <a href="Case study.html">Progetti</a>
+      <a href="Chi sono.html">Chi sono</a>
+      <a href="Contatti.html">Contatti</a>
+    </nav>
+    <div class="nav-right">
+      <span class="lang"><b>IT</b> / EN</span>
+      <a href="Contatti.html" class="btn btn-primary">Incontro conoscitivo <span class="arw">→</span></a>
+      <button class="nav-toggle" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal in">
+        <span class="kicker">Specialista AI Integration · Versilia</span>
+        <h1 class="display">Recupero le ore che la tua attività perde nei <em>task ripetitivi</em>.</h1>
+        <p class="lead">Costruisco soluzioni AI cucite sulla tua realtà — richieste, prenotazioni, comunicazioni multilingua — così il tempo torna a ciò che conta davvero: i tuoi clienti.</p>
+        <div class="hero-cta">
+          <a href="Contatti.html" class="btn btn-primary btn-lg">Incontro conoscitivo gratuito <span class="arw">→</span></a>
+          <a href="#progetti" class="btn btn-ghost btn-lg">Vedi i progetti</a>
+        </div>
+        <div class="hero-meta">
+          <span class="lbl">Su misura per</span>
+          <div class="sectors"><span>Hospitality</span><span>Marmo</span><span>Nautica</span><span>e oltre</span></div>
+        </div>
+      </div>
+      <div class="reveal in" style="transition-delay:.12s">
+        <div class="card-portrait">
+          <div class="ph" data-label="[ foto — Fabio Delli ]"></div>
+          <div class="cap">
+            <div>
+              <div class="nm">Fabio Delli</div>
+              <div class="ro">Interlocutore unico · Versilia</div>
+            </div>
+            <div class="seal">FD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="section" id="servizi">
+  <div class="wrap">
+    <div class="svc-head">
+      <div>
+        <span class="kicker">Cosa risolvo per te</span>
+        <h2 class="h1" style="margin-top:22px; max-width:16ch;">Tre modi per restituire tempo alla tua attività.</h2>
+      </div>
+      <p class="body measure-sm">Niente pacchetti in serie. Ogni intervento parte da un problema reale e da un guadagno misurabile — ore, conversioni, margine.</p>
+    </div>
+
+    <div class="svc-list">
+      <div class="svc reveal">
+        <div class="num">01</div>
+        <h3 class="h3">Assistenti AI che rispondono al posto tuo, 24/7 e in ogni lingua</h3>
+        <p class="desc">Un assistente che gestisce richieste e prenotazioni in autonomia, di giorno e di notte, nella lingua del cliente. Le domande ricorrenti trovano risposta subito; tu intervieni solo dove serve davvero.</p>
+        <div class="gain">
+          <div class="g-lbl">Il guadagno</div>
+          <div class="g-val">Ore liberate ogni settimana e più conversioni dirette — fino al 15–25% di commissione OTA recuperata.</div>
+        </div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="num">02</div>
+        <h3 class="h3">Automazione dei processi ripetitivi</h3>
+        <p class="desc">Mappo i passaggi manuali che si ripetono ogni giorno — copia-incolla, inserimenti, comunicazioni standard — e li affido a flussi automatici affidabili, integrati con gli strumenti che già usi.</p>
+        <div class="gain">
+          <div class="g-lbl">Il guadagno</div>
+          <div class="g-val">Meno lavoro manuale e meno errori, più tempo per ciò che conta.</div>
+        </div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="num">03</div>
+        <h3 class="h3">Audit e consulenza AI</h3>
+        <p class="desc">Prima di investire, capiamo insieme dove l'AI conviene davvero e dove no. Ti lascio una roadmap concreta, con priorità, tempi e ritorni attesi — anche se poi decidi di procedere da solo.</p>
+        <div class="gain">
+          <div class="g-lbl">Il guadagno</div>
+          <div class="g-val">Una rotta chiara prima di spendere un euro.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="svc-foot reveal"><span class="index-num">+</span> Sviluppo e integrazione dell'infrastruttura web come abilitatore — sito, prenotazioni, dati — quando serve a far funzionare il resto.</p>
+  </div>
+</section>
+
+<!-- PROGETTI -->
+<section class="projects" id="progetti">
+  <div class="wrap">
+    <div class="svc-head" style="margin-bottom:var(--s5);">
+      <div>
+        <span class="kicker">Progetti in evidenza</span>
+        <h2 class="h1" style="margin-top:22px; max-width:14ch;">Soluzioni reali, in produzione.</h2>
+      </div>
+      <p class="body measure-sm">Due lavori che mostrano l'intera filiera: dal problema dell'attività al prodotto AI funzionante.</p>
+    </div>
+
+    <!-- Villa Levante -->
+    <article class="proj reveal">
+      <div class="proj-body">
+        <div class="row" style="gap:14px;">
+          <span class="index-num">01</span><span class="small">Hospitality · Caso studio</span>
+        </div>
+        <h3 class="h2">Villa Levante</h3>
+        <p class="body measure">Assistente AI multilingua per una struttura ricettiva: risponde agli ospiti 24/7, gestisce le richieste di prenotazione e spinge la conversione diretta, riducendo la dipendenza dalle OTA.</p>
+        <div class="proj-tags">
+          <span class="tag">Assistente AI</span>
+          <span class="tag">Multilingua</span>
+          <span class="tag">Conversione diretta</span>
+        </div>
+        <div class="kpi">
+          <div><div class="stat-n">24/7</div><div class="kpi-lbl">Risposte agli ospiti</div></div>
+          <div><div class="stat-n">−OTA</div><div class="kpi-lbl">Commissioni risparmiate</div></div>
+        </div>
+        <a href="Case study.html" class="tlink">Leggi il caso studio <span class="arw">→</span></a>
+      </div>
+      <div class="proj-media">
+        <div class="device">
+          <div class="device-bar"><i></i><i></i><i></i><span class="url">villalevante.it</span></div>
+          <div class="ph" data-label="[ screenshot — Villa Levante ]"></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Softale -->
+    <article class="proj flip reveal">
+      <div class="proj-body">
+        <div class="row" style="gap:14px;">
+          <span class="index-num">02</span><span class="small">Prodotto AI · Proof of capability</span>
+        </div>
+        <h3 class="h2">Softale</h3>
+        <p class="body measure">Un prodotto AI end-to-end: pipeline generativa più sintesi vocale (TTS) per creare contenuti narrati. La dimostrazione di cosa significa costruire l'intera catena, non solo collegare un servizio.</p>
+        <div class="proj-tags">
+          <span class="tag">Pipeline generativa</span>
+          <span class="tag">Text-to-Speech</span>
+          <span class="tag">End-to-end</span>
+        </div>
+        <div class="kpi">
+          <div><div class="stat-n">E2E</div><div class="kpi-lbl">Generazione + voce</div></div>
+          <div><div class="stat-n">Live</div><div class="kpi-lbl">softale.app</div></div>
+        </div>
+        <a href="Case study.html" class="tlink">Scopri il prodotto <span class="arw">→</span></a>
+      </div>
+      <div class="proj-media">
+        <div class="device">
+          <div class="device-bar"><i></i><i></i><i></i><span class="url">softale.app</span></div>
+          <div class="ph dark" data-label="[ screenshot — Softale ]"></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PERCHÉ ME -->
+<section class="section">
+  <div class="wrap">
+    <span class="kicker">Perché me</span>
+    <h2 class="h1" style="margin-top:22px; max-width:18ch;">Un interlocutore unico, vicino, che costruisce per te.</h2>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="n">01</div>
+        <h3 class="h3">Interlocutore unico</h3>
+        <p class="body">Parli sempre con chi progetta e costruisce. Niente catene di referenti, niente account manager: una sola persona, presente sul territorio.</p>
+      </div>
+      <div class="why-item reveal" style="transition-delay:.08s">
+        <div class="n">02</div>
+        <h3 class="h3">Su misura, non in serie</h3>
+        <p class="body">Ogni soluzione nasce dal tuo flusso reale e si adatta a come lavori — non il contrario. Cucita, non presa da uno scaffale.</p>
+      </div>
+      <div class="why-item reveal" style="transition-delay:.16s">
+        <div class="n">03</div>
+        <h3 class="h3">Più valore per ogni euro</h3>
+        <p class="body">Senza l'overhead di un'agenzia, l'investimento va nel lavoro che conta. Risultati concreti, costi trasparenti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="cta-final section">
+  <div class="wrap">
+    <div class="cta-final-grid">
+      <div>
+        <span class="kicker on-dark">Iniziamo</span>
+        <h2 class="h1" style="margin:22px 0 22px;">Parliamone davanti a un caffè, senza impegno.</h2>
+        <p class="lead">Un incontro conoscitivo gratuito per capire dove la tua attività perde tempo e se l'AI può restituirtelo. Esci con una risposta chiara, in ogni caso.</p>
+        <div class="hero-cta" style="margin-top:34px;">
+          <a href="Contatti.html" class="btn btn-on-blue btn-lg">Prenota l'incontro <span class="arw">→</span></a>
+        </div>
+      </div>
+      <ul class="cta-points">
+        <li>Nessun gergo tecnico — parliamo di ore e di clienti.</li>
+        <li>Una rotta concreta, anche se poi non lavoriamo insieme.</li>
+        <li>Sul territorio, in Versilia o da remoto.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-top">
+      <div>
+        <div class="foot-word">Fabio Delli</div>
+        <p class="blurb">Specialista di integrazione AI in Versilia. Soluzioni su misura che automatizzano i task ripetitivi delle attività locali, recuperando ore di lavoro ogni settimana.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Naviga</h4>
+        <a href="Home.html">Home</a>
+        <a href="Case study.html">Progetti</a>
+        <a href="Chi sono.html">Chi sono</a>
+        <a href="Contatti.html">Contatti</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contatti</h4>
+        <a href="Contatti.html"><span class="__cf_email__" data-cfemail="ec8f858d83ac8a8d8e85838889808085c28598">[email&#160;protected]</span></a>
+        <a href="Contatti.html">LinkedIn</a>
+        <a href="Contatti.html">Incontro conoscitivo →</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Fabio Delli · Versilia, Toscana</span>
+      <span class="lang" style="color:var(--on-blue-60);"><b style="color:var(--on-blue)">IT</b> / EN</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+  // mobile nav (placeholder toggle)
+  document.querySelector('.nav-toggle')?.addEventListener('click', () => {
+    document.querySelector('.nav-links')?.scrollIntoView();
+  });
+</script>
+</body>
+</html>
