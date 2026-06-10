@@ -60,7 +60,7 @@ export default async function AboutPage({
                   style={{
                     aspectRatio: '4/5',
                     background:
-                      'linear-gradient(150deg, var(--paper) 0%, var(--paper-2) 50%, var(--cenere) 100%)',
+                      'linear-gradient(150deg, var(--espresso) 0%, var(--espresso-2) 50%, var(--notte) 100%)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -73,13 +73,13 @@ export default async function AboutPage({
                       width: '96px',
                       height: '96px',
                       borderRadius: '50%',
-                      border: '1.5px solid var(--bronze)',
+                      border: '1.5px solid var(--ambra)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontFamily: 'var(--serif)',
                       fontSize: '28px',
-                      color: 'var(--bronze)',
+                      color: 'var(--ambra)',
                       fontWeight: 300,
                     }}
                   >
@@ -90,7 +90,7 @@ export default async function AboutPage({
                       style={{
                         fontFamily: 'var(--serif)',
                         fontSize: '26px',
-                        color: 'var(--ink)',
+                        color: 'var(--calce)',
                         marginBottom: '8px',
                       }}
                     >
@@ -99,7 +99,7 @@ export default async function AboutPage({
                     <div
                       style={{
                         fontSize: '13px',
-                        color: 'var(--ink-60)',
+                        color: 'var(--calce-60)',
                         letterSpacing: '0.04em',
                         textTransform: 'uppercase',
                       }}
@@ -109,7 +109,7 @@ export default async function AboutPage({
                     <div
                       style={{
                         fontSize: '13px',
-                        color: 'var(--ink-45)',
+                        color: 'var(--calce-45)',
                         marginTop: '4px',
                         letterSpacing: '0.04em',
                       }}
@@ -192,8 +192,9 @@ export default async function AboutPage({
       {/* ── CTA ── */}
       <section
         style={{
-          background: 'var(--blue)',
-          color: 'var(--on-blue)',
+          background: 'var(--ambra-08)',
+          borderTop: '1px solid var(--calce-08)',
+          borderBottom: '1px solid var(--calce-08)',
           paddingBlock: 'var(--s6)',
         }}
       >
@@ -208,16 +209,16 @@ export default async function AboutPage({
             className="about-cta-grid"
           >
             <div>
-              <span className="kicker on-dark">{a.cta.kicker}</span>
-              <h2 className="h1" style={{ color: 'var(--on-blue)', margin: '22px 0' }}>
+              <span className="kicker">{a.cta.kicker}</span>
+              <h2 className="h1" style={{ margin: '22px 0' }}>
                 {a.cta.title}
               </h2>
-              <p className="lead" style={{ color: 'var(--on-blue-60)' }}>
+              <p className="lead" style={{ color: 'var(--calce-80)' }}>
                 {a.cta.lead}
               </p>
             </div>
             <div>
-              <Link href={a.cta.href} className="btn btn-on-blue btn-lg">
+              <Link href={`${base}/contact`} className="btn btn-primary btn-lg">
                 {a.cta.button} <span className="arw">→</span>
               </Link>
             </div>

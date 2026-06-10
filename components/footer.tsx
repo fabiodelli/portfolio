@@ -18,18 +18,18 @@ export function Footer({ lang, dict }: Props) {
             gridTemplateColumns: '1.4fr 1fr 1fr',
             gap: 'var(--s5)',
             paddingBottom: 'var(--s6)',
-            borderBottom: '1px solid rgba(255,255,255,0.14)',
+            borderBottom: '1px solid var(--calce-12)',
           }}
           className="footer-top-grid"
         >
           {/* Brand */}
           <div>
-            <div style={{ fontFamily: 'var(--serif)', fontSize: '22px', color: 'var(--on-blue)' }}>
+            <div style={{ fontFamily: 'var(--serif)', fontSize: '22px', color: 'var(--calce)' }}>
               Fabio Delli
             </div>
             <p
               style={{
-                color: 'var(--on-blue-60)',
+                color: 'var(--calce-60)',
                 maxWidth: '38ch',
                 marginTop: '18px',
                 fontSize: '15px',
@@ -47,7 +47,7 @@ export function Footer({ lang, dict }: Props) {
                 fontSize: '12px',
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
-                color: 'var(--on-blue-60)',
+                color: 'var(--calce-45)',
                 marginBottom: '18px',
                 fontWeight: 500,
               }}
@@ -68,7 +68,7 @@ export function Footer({ lang, dict }: Props) {
                 fontSize: '12px',
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
-                color: 'var(--on-blue-60)',
+                color: 'var(--calce-45)',
                 marginBottom: '18px',
                 fontWeight: 500,
               }}
@@ -97,7 +97,7 @@ export function Footer({ lang, dict }: Props) {
             alignItems: 'center',
             paddingTop: '28px',
             fontSize: '13px',
-            color: 'var(--on-blue-60)',
+            color: 'var(--calce-60)',
             flexWrap: 'wrap',
             gap: '16px',
           }}
@@ -105,7 +105,7 @@ export function Footer({ lang, dict }: Props) {
           <span>© {year} Fabio Delli · Versilia, Toscana</span>
           <a
             href={lang === 'it' ? '/en' : '/'}
-            style={{ color: 'var(--on-blue-60)', textDecoration: 'none', fontSize: '13px' }}
+            style={{ color: 'var(--calce-60)', textDecoration: 'none', fontSize: '13px' }}
           >
             {dict.nav.langSwitch}
           </a>

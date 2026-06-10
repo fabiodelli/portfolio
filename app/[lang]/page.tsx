@@ -21,6 +21,18 @@ export async function generateMetadata({
   }
 }
 
+function HeadlineWithKeyword({ text, keyword }: { text: string; keyword: string }) {
+  const idx = text.indexOf(keyword)
+  if (idx === -1) return <>{text}</>
+  return (
+    <>
+      {text.slice(0, idx)}
+      <em style={{ fontStyle: 'italic', color: 'var(--ambra)' }}>{keyword}</em>
+      {text.slice(idx + keyword.length)}
+    </>
+  )
+}
+
 export default async function HomePage({
   params,
 }: {
@@ -60,23 +72,12 @@ export default async function HomePage({
 
       {/* ── HERO ── */}
       <section className="hero-section">
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 0,
-            pointerEvents: 'none',
-            background:
-              'radial-gradient(120% 90% at 88% -10%, rgba(31,58,84,0.05), transparent 55%), linear-gradient(122deg, rgba(246,244,241,0.5) 0%, var(--paper) 40%, var(--paper-2) 100%)',
-          }}
-        />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <div className="hero-grid">
             <Reveal>
               <span className="kicker">{h.hero.kicker}</span>
               <h1 className="display hero-h1">
-                {h.hero.headline}
+                <HeadlineWithKeyword text={h.hero.headline} keyword={h.hero.headlineKeyword} />
               </h1>
               <p className="lead" style={{ maxWidth: '46ch' }}>
                 {h.hero.lead}
@@ -109,8 +110,8 @@ export default async function HomePage({
                 </div>
                 <div className="card-portrait-cap">
                   <div>
-                    <div style={{ fontFamily: 'var(--serif)', fontSize: '19px' }}>Fabio Delli</div>
-                    <div style={{ fontSize: '12.5px', color: 'var(--ink-60)', letterSpacing: '0.02em' }}>
+                    <div style={{ fontFamily: 'var(--serif)', fontSize: '19px', color: 'var(--calce)' }}>Fabio Delli</div>
+                    <div style={{ fontSize: '12.5px', color: 'var(--calce-60)', letterSpacing: '0.02em' }}>
                       Interlocutore unico · Versilia
                     </div>
                   </div>
@@ -132,7 +133,7 @@ export default async function HomePage({
                 {h.services.title}
               </h2>
             </div>
-            <p className="body" style={{ maxWidth: '44ch', color: 'var(--ink-80)' }}>
+            <p className="body" style={{ maxWidth: '44ch', color: 'var(--calce-80)' }}>
               {h.services.subtitle}
             </p>
           </div>
@@ -149,7 +150,7 @@ export default async function HomePage({
                 </div>
               </Reveal>
             ))}
-            <div style={{ borderBottom: '1px solid var(--ink-12)' }} />
+            <div style={{ borderBottom: '1px solid var(--calce-12)' }} />
           </div>
 
           <Reveal>
@@ -171,7 +172,7 @@ export default async function HomePage({
                 {h.projects.title}
               </h2>
             </div>
-            <p className="body" style={{ maxWidth: '44ch', color: 'var(--ink-80)' }}>
+            <p className="body" style={{ maxWidth: '44ch', color: 'var(--calce-80)' }}>
               {h.projects.subtitle}
             </p>
           </div>
@@ -287,26 +288,18 @@ export default async function HomePage({
 
       {/* ── CTA FINALE ── */}
       <section className="cta-final-section">
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'radial-gradient(90% 120% at 90% 0%, rgba(255,255,255,0.06), transparent 60%)',
-          }}
-        />
         <div className="wrap" style={{ position: 'relative' }}>
           <div className="cta-final-grid">
             <div>
-              <span className="kicker on-dark">{h.cta.kicker}</span>
-              <h2 className="h1" style={{ color: 'var(--on-blue)', margin: '22px 0 22px' }}>
+              <span className="kicker">{h.cta.kicker}</span>
+              <h2 className="h1" style={{ margin: '22px 0 22px' }}>
                 {h.cta.title}
               </h2>
-              <p className="lead" style={{ color: 'var(--on-blue-60)' }}>
+              <p className="lead" style={{ color: 'var(--calce-80)' }}>
                 {h.cta.lead}
               </p>
               <div style={{ marginTop: '34px' }}>
-                <Link href={h.cta.href} className="btn btn-on-blue btn-lg">
+                <Link href={h.cta.href} className="btn btn-primary btn-lg">
                   {h.cta.button} <span className="arw">→</span>
                 </Link>
               </div>

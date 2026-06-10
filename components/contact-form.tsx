@@ -51,14 +51,14 @@ export function ContactForm({ form }: { form: FormDict }) {
               width: '56px',
               height: '56px',
               borderRadius: '50%',
-              border: '1.5px solid var(--bronze)',
+              border: '1.5px solid var(--ambra)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 20px',
               fontFamily: 'var(--serif)',
               fontSize: '22px',
-              color: 'var(--bronze)',
+              color: 'var(--ambra)',
             }}
           >
             ✓
@@ -67,7 +67,7 @@ export function ContactForm({ form }: { form: FormDict }) {
             style={{
               fontFamily: 'var(--serif)',
               fontSize: '22px',
-              color: 'var(--ink)',
+              color: 'var(--calce)',
             }}
           >
             {form.success}
@@ -84,7 +84,7 @@ export function ContactForm({ form }: { form: FormDict }) {
       >
         {form.title}
       </div>
-      <div style={{ color: 'var(--ink-60)', fontSize: '14.5px', marginBottom: 'var(--s4)' }}>
+      <div style={{ color: 'var(--calce-60)', fontSize: '14.5px', marginBottom: 'var(--s4)' }}>
         {form.subtitle}
       </div>
 
@@ -131,7 +131,7 @@ export function ContactForm({ form }: { form: FormDict }) {
         </button>
 
         {status === 'error' && (
-          <p style={{ color: 'var(--bronze)', fontSize: '13.5px', marginTop: '12px', textAlign: 'center' }}>
+          <p style={{ color: 'var(--ambra)', fontSize: '13.5px', marginTop: '12px', textAlign: 'center' }}>
             Errore nell&apos;invio — riprova o scrivimi via email.
           </p>
         )}

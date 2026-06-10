@@ -1,5 +1,14 @@
 # CLAUDE.md — Portfolio di Fabio Delli
 
+## Stile visivo — DESIGN.md è la fonte vincolante
+
+**`DESIGN.md` nella root del repo** è la fonte di verità per tutto il design system (palette, tipografia, componenti, regole del buio). In caso di dubbio tra CLAUDE.md e DESIGN.md, vince sempre DESIGN.md.
+
+Design system attivo: **Notturno** — dark warm, espresso + ambra + salvia, Spectral+Schibsted Grotesk.
+Vietato: `#000`, `#FFF`, ombre, glow, ambra su grandi campiture, più di un CTA ambra per viewport, la parola "artigiano".
+
+---
+
 ## Contesto business
 
 Fabio Delli è un **AI Integration Specialist** con base in Versilia (Toscana). Costruisce soluzioni AI su misura per hotel, strutture ricettive e piccole imprese locali: assistenti conversazionali, pipeline di automazione, integrazioni con sistemi di prenotazione e gestionali.
@@ -17,7 +26,8 @@ Web app di audio-storie generate con AI (pipeline LLM + TTS). Prodotto proprio, 
 Sito portfolio professionale di Fabio Delli. Obiettivo: strumento credibile e indicizzabile che porti albergatori e attività locali a chiedere un incontro conoscitivo.
 
 ### Stack
-- **Next.js 16** (App Router) + TypeScript + Tailwind CSS 4 + shadcn/ui
+- **Next.js 16** (App Router) + TypeScript + Tailwind CSS 4
+- Font: Spectral (300/400, normale+italic) + Schibsted Grotesk (400/500) via `next/font/google`
 - Deploy: Vercel
 - i18n: routing `[lang]` con `proxy.ts` — IT senza prefisso (default), EN a `/en/`
 - Nessun `output: 'export'` — SSG implicito via Server Components su Vercel
@@ -38,6 +48,7 @@ dictionaries/en.ts           # contenuti EN
 components/                  # Nav, Footer, Hero, UI primitives
 proxy.ts                     # locale routing
 lib/metadata.ts              # helper per canonical + hreflang
+DESIGN.md                    # design system vincolante (Notturno)
 ```
 
 ### SEO
@@ -53,7 +64,7 @@ lib/metadata.ts              # helper per canonical + hreflang
 - Il proxy riscrive le richieste senza prefisso a `/it/...` internamente
 - hreflang `it` → URL senza prefisso, `en` → URL con `/en/`
 
-### Regole di tono (da POSITIONING.md)
+### Regole di tono
 - Divulgativo professionale: chiaro, concreto, calmo, mai gergale
 - **MAI la parola "artigiano"** — usare invece: "su misura, non in serie", "cucito", "costruito per te"
 - Dall'astratto al concreto: mai "automatizzo i processi" senza dire quali
@@ -63,4 +74,4 @@ lib/metadata.ts              # helper per canonical + hreflang
 - `SITE_URL` in `lib/metadata.ts` — aggiornare al dominio reale (es. `https://fabiodelli.com`)
 - Demo Villa Levante: aggiornare link in `dictionaries/*.ts`
 - Email/LinkedIn in `dictionaries/*.ts`
-- Formspree/Calendly endpoint in `app/[lang]/contact/page.tsx` se si aggiunge il form
+- Formspree endpoint in `components/contact-form.tsx`

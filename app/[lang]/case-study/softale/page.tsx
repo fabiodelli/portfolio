@@ -43,7 +43,7 @@ export default async function SoftaleCS({
               gap: '10px',
               alignItems: 'center',
               fontSize: '13px',
-              color: 'var(--ink-45)',
+              color: 'var(--calce-45)',
               marginBottom: '30px',
             }}
             aria-label="Breadcrumb"
@@ -56,7 +56,7 @@ export default async function SoftaleCS({
               {s.breadcrumb[1]}
             </a>
             <span>/</span>
-            <span style={{ color: 'var(--ink)' }}>{s.breadcrumb[2]}</span>
+            <span style={{ color: 'var(--calce-80)' }}>{s.breadcrumb[2]}</span>
           </nav>
 
           <div className="cs-title-grid">
@@ -84,7 +84,7 @@ export default async function SoftaleCS({
               </div>
               <div>
                 <div className="cs-meta-lbl">{s.statusLabel}</div>
-                <div className="cs-meta-val" style={{ color: 'var(--bronze)' }}>{s.status}</div>
+                <div className="cs-meta-val" style={{ color: 'var(--salvia)' }}>{s.status}</div>
               </div>
             </div>
           </div>
@@ -120,9 +120,9 @@ export default async function SoftaleCS({
       <section
         className="section-sm"
         style={{
-          background: 'var(--paper-2)',
-          borderTop: '1px solid var(--ink-08)',
-          borderBottom: '1px solid var(--ink-08)',
+          background: 'var(--espresso)',
+          borderTop: '1px solid var(--calce-08)',
+          borderBottom: '1px solid var(--calce-08)',
         }}
       >
         <div className="wrap">
@@ -141,7 +141,7 @@ export default async function SoftaleCS({
                       gridTemplateColumns: '60px 1fr',
                       gap: 'var(--s3)',
                       padding: 'var(--s3) 0',
-                      borderTop: '1px solid var(--ink-12)',
+                      borderTop: '1px solid var(--calce-12)',
                       alignItems: 'baseline',
                     }}
                   >
@@ -150,7 +150,7 @@ export default async function SoftaleCS({
                         fontFamily: 'var(--serif)',
                         fontWeight: 300,
                         fontSize: '30px',
-                        color: 'var(--ink-30)',
+                        color: 'var(--calce-30)',
                         letterSpacing: '-0.02em',
                         lineHeight: 1,
                       }}
@@ -159,12 +159,12 @@ export default async function SoftaleCS({
                     </div>
                     <div>
                       <div className="h3" style={{ fontSize: '20px', marginBottom: '6px' }}>{item.label}</div>
-                      <p style={{ color: 'var(--ink-80)', fontSize: '15.5px', maxWidth: '44ch' }}>{item.desc}</p>
+                      <p style={{ color: 'var(--calce-80)', fontSize: '15.5px', maxWidth: '44ch' }}>{item.desc}</p>
                     </div>
                   </div>
                 </Reveal>
               ))}
-              <div style={{ borderBottom: '1px solid var(--ink-12)' }} />
+              <div style={{ borderBottom: '1px solid var(--calce-12)' }} />
             </div>
           </div>
         </div>
@@ -175,36 +175,24 @@ export default async function SoftaleCS({
         <div className="wrap">
           <div
             style={{
-              background: 'var(--blue-deep)',
-              color: 'var(--on-blue)',
+              background: 'var(--ambra-08)',
+              borderTop: '1px solid var(--calce-08)',
+              borderBottom: '1px solid var(--calce-08)',
               borderRadius: 'var(--r-lg)',
               padding: 'var(--s6)',
-              position: 'relative',
-              overflow: 'hidden',
             }}
           >
-            <div
-              aria-hidden
+            <span className="kicker">{s.proof.kicker}</span>
+            <p
+              className="h2"
               style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'radial-gradient(80% 100% at 10% 0%, rgba(255,255,255,0.05), transparent 60%)',
+                marginTop: '20px',
+                maxWidth: '56ch',
+                fontStyle: 'italic',
               }}
-            />
-            <div style={{ position: 'relative' }}>
-              <span className="kicker on-dark">{s.proof.kicker}</span>
-              <p
-                className="h2"
-                style={{
-                  color: 'var(--on-blue)',
-                  marginTop: '20px',
-                  maxWidth: '56ch',
-                  fontStyle: 'italic',
-                }}
-              >
-                &ldquo;{s.proof.body}&rdquo;
-              </p>
-            </div>
+            >
+              &ldquo;{s.proof.body}&rdquo;
+            </p>
           </div>
         </div>
       </section>
@@ -232,26 +220,12 @@ export default async function SoftaleCS({
       <section className="section-sm">
         <div className="wrap">
           <div className="demo-cta">
-            <div
-              aria-hidden
-              style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'radial-gradient(70% 120% at 50% 0%, rgba(255,255,255,0.06), transparent 60%)',
-              }}
-            />
             <div style={{ position: 'relative', textAlign: 'center' }}>
-              <span className="kicker on-dark">{s.cta.kicker}</span>
-              <h2
-                className="h2"
-                style={{ color: 'var(--on-blue)', maxWidth: '18ch', margin: '22px auto' }}
-              >
+              <span className="kicker">{s.cta.kicker}</span>
+              <h2 className="h2" style={{ maxWidth: '18ch', margin: '22px auto' }}>
                 {s.cta.title}
               </h2>
-              <p
-                className="lead"
-                style={{ color: 'var(--on-blue-60)', maxWidth: '50ch', margin: '0 auto 34px' }}
-              >
+              <p className="lead" style={{ color: 'var(--calce-80)', maxWidth: '50ch', margin: '0 auto 34px' }}>
                 {s.cta.lead}
               </p>
               <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -259,15 +233,11 @@ export default async function SoftaleCS({
                   href={s.cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-on-blue btn-lg"
+                  className="btn btn-primary btn-lg"
                 >
                   {s.cta.button} <span className="arw">→</span>
                 </a>
-                <Link
-                  href={s.cta.ctaContactHref}
-                  className="btn btn-ghost btn-lg"
-                  style={{ borderColor: 'rgba(244,242,238,0.3)', color: 'var(--on-blue)' }}
-                >
+                <Link href={s.cta.ctaContactHref} className="btn btn-ghost btn-lg">
                   {s.cta.ctaContact}
                 </Link>
               </div>
@@ -286,7 +256,7 @@ export default async function SoftaleCS({
               alignItems: 'center',
               gap: 'var(--s4)',
               paddingBlock: 'var(--s6)',
-              borderTop: '1px solid var(--ink-12)',
+              borderTop: '1px solid var(--calce-12)',
               flexWrap: 'wrap',
             }}
           >
@@ -296,19 +266,13 @@ export default async function SoftaleCS({
                   fontSize: '12px',
                   letterSpacing: '0.16em',
                   textTransform: 'uppercase',
-                  color: 'var(--ink-45)',
+                  color: 'var(--calce-45)',
                   marginBottom: '10px',
                 }}
               >
                 {s.next.label}
               </div>
-              <h3
-                style={{
-                  fontFamily: 'var(--serif)',
-                  fontWeight: 300,
-                  fontSize: 'clamp(28px, 3vw, 40px)',
-                }}
-              >
+              <h3 style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 'clamp(28px, 3vw, 40px)' }}>
                 {s.next.title}
               </h3>
             </div>

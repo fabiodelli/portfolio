@@ -30,7 +30,6 @@ export default async function VillaLevanteCS({
   const l = (lang === 'en' ? 'en' : 'it') as Lang
   const dict = await getDictionary(l)
   const vl = dict.villaLevante
-  const base = l === 'en' ? '/en' : ''
   const home = l === 'en' ? '/en' : '/'
 
   return (
@@ -45,7 +44,7 @@ export default async function VillaLevanteCS({
               gap: '10px',
               alignItems: 'center',
               fontSize: '13px',
-              color: 'var(--ink-45)',
+              color: 'var(--calce-45)',
               marginBottom: '30px',
             }}
             aria-label="Breadcrumb"
@@ -58,7 +57,7 @@ export default async function VillaLevanteCS({
               {vl.breadcrumb[1]}
             </a>
             <span>/</span>
-            <span style={{ color: 'var(--ink)' }}>{vl.breadcrumb[2]}</span>
+            <span style={{ color: 'var(--calce-80)' }}>{vl.breadcrumb[2]}</span>
           </nav>
 
           {/* Title grid */}
@@ -87,7 +86,7 @@ export default async function VillaLevanteCS({
               </div>
               <div>
                 <div className="cs-meta-lbl">{vl.statusLabel}</div>
-                <div className="cs-meta-val" style={{ color: 'var(--bronze)' }}>{vl.status}</div>
+                <div className="cs-meta-val" style={{ color: 'var(--salvia)' }}>{vl.status}</div>
               </div>
             </div>
           </div>
@@ -146,7 +145,7 @@ export default async function VillaLevanteCS({
             <Reveal delay={100}>
               <div className="lever-card lever-rev">
                 <span className="lever-tag">{vl.lever.rev.tag}</span>
-                <h3 className="h3" style={{ marginBottom: '16px', color: 'var(--on-blue)' }}>
+                <h3 className="h3" style={{ marginBottom: '16px' }}>
                   {vl.lever.rev.title}
                 </h3>
                 <p className="lever-body lever-body-dark">{vl.lever.rev.body}</p>
@@ -205,20 +204,12 @@ export default async function VillaLevanteCS({
       <section className="section-sm">
         <div className="wrap">
           <div className="demo-cta">
-            <div
-              aria-hidden
-              style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'radial-gradient(70% 120% at 50% 0%, rgba(255,255,255,0.06), transparent 60%)',
-              }}
-            />
             <div style={{ position: 'relative', textAlign: 'center' }}>
-              <span className="kicker on-dark">{vl.demo.kicker}</span>
-              <h2 className="h2" style={{ color: 'var(--on-blue)', maxWidth: '18ch', margin: '22px auto' }}>
+              <span className="kicker">{vl.demo.kicker}</span>
+              <h2 className="h2" style={{ maxWidth: '18ch', margin: '22px auto' }}>
                 {vl.demo.title}
               </h2>
-              <p className="lead" style={{ color: 'var(--on-blue-60)', maxWidth: '50ch', margin: '0 auto 34px' }}>
+              <p className="lead" style={{ color: 'var(--calce-80)', maxWidth: '50ch', margin: '0 auto 34px' }}>
                 {vl.demo.lead}
               </p>
               <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -226,11 +217,11 @@ export default async function VillaLevanteCS({
                   href={vl.demo.ctaHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-on-blue btn-lg"
+                  className="btn btn-primary btn-lg"
                 >
                   {vl.demo.cta} <span className="arw">→</span>
                 </a>
-                <Link href={vl.demo.ctaContactHref} className="btn btn-ghost btn-lg" style={{ borderColor: 'rgba(244,242,238,0.3)', color: 'var(--on-blue)' }}>
+                <Link href={vl.demo.ctaContactHref} className="btn btn-ghost btn-lg">
                   {vl.demo.ctaContact}
                 </Link>
               </div>
@@ -249,7 +240,7 @@ export default async function VillaLevanteCS({
               alignItems: 'center',
               gap: 'var(--s4)',
               paddingBlock: 'var(--s6)',
-              borderTop: '1px solid var(--ink-12)',
+              borderTop: '1px solid var(--calce-12)',
               flexWrap: 'wrap',
             }}
           >
@@ -259,7 +250,7 @@ export default async function VillaLevanteCS({
                   fontSize: '12px',
                   letterSpacing: '0.16em',
                   textTransform: 'uppercase',
-                  color: 'var(--ink-45)',
+                  color: 'var(--calce-45)',
                   marginBottom: '10px',
                 }}
               >

@@ -1,6 +1,6 @@
 # STATUS — Portfolio Fabio Delli
 
-Aggiornato: 2026-06-06
+Aggiornato: 2026-06-10
 
 ## Blocchi completati
 
@@ -10,6 +10,23 @@ Aggiornato: 2026-06-06
 - [x] **Block 3** — Case study Villa Levante IT + EN (Claudia: costi, ricavi, integrazione, stack, CTA demo + contatti)
 - [x] **Block 4** — Case study Softale IT + EN (cos'è, pipeline, proof box, stack, CTA softale.app + contatti)
 - [x] **Block 5** — Chi sono IT + EN + Contatti IT + EN (form mailto, email, LinkedIn)
+- [x] **Block 6** — Redesign completo "Direzione Chiara" (marble/warm-paper + sea-blue + bronze, Fraunces+Inter)
+
+## Migrazione Notturno — completata 2026-06-10
+
+- [x] **Blocco 0** — Archiviati mockup HTML in `design system/_archivio-direzione-chiara/`, `DESIGN.md` copiato in root
+- [x] **Blocco 1** — Token Notturno in `globals.css` (notte/espresso/calce/ambra/salvia), font Spectral+Schibsted Grotesk, `color-scheme: dark`, `::selection`, focus-visible, `<meta name="theme-color">`
+- [x] **Blocco 2** — `button.tsx`, `card.tsx`, `badge.tsx` aggiornati a Notturno
+- [x] **Blocco 3** — Nav, footer, mobile-menu, contact-form, home, villa-levante, softale, about: tutti i token inline sostituiti; CTA final e sezioni leva con `--ambra-08`; keyword hero in italic ambra; device frame con filter; classi `.on-blue`/`.btn-on-blue` rimosse
+- [x] **Blocco 4** — Softale IT: `status → 'Pubblicato · softale.app'`, lead rimosso "in produzione" → "pubblicato e funzionante". EN: `status → 'Live · softale.app'`, lead → "live and working"
+- [x] **Blocco 5** — Build clean (15 pagine SSG), grep zero "artigiano" e zero colori vietati (#fff, #000, vecchi hardcoded)
+
+### Decisioni prese (Notturno)
+- Footer usa `--espresso` (più chiaro della pagina `--notte`), non più scuro — comportamento invertito rispetto ai siti chiari
+- Status nei case study: da `--bronze`/`--ambra` (accento) a `--salvia` (metadato/stato) — semantica corretta
+- `lever-rev` non usa più un grande fill blu ma `--ambra-08` (wash) per rispettare "ambra col contagocce"
+- Proof callout Softale: da box blu pieno a `--ambra-08` + bordi `--calce-08`
+- `headlineKeyword` aggiunto ai dizionari (unico campo strutturale fuori Blocco 4) per il rendering italic+ambra della headline hero
 
 ## Definition of Done
 

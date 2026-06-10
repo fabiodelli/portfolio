@@ -52,8 +52,8 @@ export function MobileMenu({
           style={{
             position: 'fixed',
             inset: '66px 0 0',
-            background: 'var(--paper)',
-            borderTop: '1px solid var(--ink-12)',
+            background: 'var(--notte)',
+            borderTop: '1px solid var(--calce-08)',
             zIndex: 39,
             display: 'flex',
             flexDirection: 'column',
@@ -71,14 +71,14 @@ export function MobileMenu({
                 padding: '12px 16px',
                 borderRadius: 'var(--r-sm)',
                 fontSize: '17px',
-                color: 'var(--ink)',
+                color: 'var(--calce)',
                 textDecoration: 'none',
                 fontFamily: 'var(--serif)',
                 fontWeight: 300,
                 transition: 'background .15s',
               }}
               onMouseEnter={(e) =>
-                ((e.target as HTMLElement).style.background = 'var(--paper-2)')
+                ((e.target as HTMLElement).style.background = 'var(--espresso)')
               }
               onMouseLeave={(e) =>
                 ((e.target as HTMLElement).style.background = 'transparent')
@@ -90,7 +90,7 @@ export function MobileMenu({
 
           <div
             style={{
-              borderTop: '1px solid var(--ink-12)',
+              borderTop: '1px solid var(--calce-12)',
               marginTop: '12px',
               paddingTop: '16px',
               display: 'flex',
@@ -112,7 +112,7 @@ export function MobileMenu({
               className="lang-btn"
               style={{
                 padding: '12px 16px',
-                border: '1px solid var(--ink-12)',
+                border: '1px solid var(--calce-12)',
                 borderRadius: 'var(--r-sm)',
               }}
             >

@@ -6,7 +6,7 @@ type Props = {
 export function Card({ children, className = '' }: Props) {
   return (
     <div
-      className={`bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow ${className}`}
+      className={`bg-[var(--espresso)] border border-[var(--calce-08)] rounded-[var(--r-lg)] p-6 transition-colors hover:border-[var(--calce-12)] ${className}`}
     >
       {children}
     </div>
@@ -18,5 +18,5 @@ export function CardHeader({ children, className = '' }: Props) {
 }
 
 export function CardBody({ children, className = '' }: Props) {
-  return <div className={`text-slate-600 leading-relaxed ${className}`}>{children}</div>
+  return <div className={`text-[var(--calce-80)] leading-relaxed ${className}`}>{children}</div>
 }

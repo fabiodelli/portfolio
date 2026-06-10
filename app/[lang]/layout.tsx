@@ -1,23 +1,24 @@
 import type { Metadata } from 'next'
-import { Fraunces, Inter } from 'next/font/google'
+import { Spectral, Schibsted_Grotesk } from 'next/font/google'
 import '../globals.css'
 import { Nav } from '@/components/nav'
 import { Footer } from '@/components/footer'
 import { getDictionary } from '@/lib/dictionaries'
 import { SITE_URL } from '@/lib/metadata'
 
-const fraunces = Fraunces({
+const spectral = Spectral({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-spectral',
   display: 'swap',
-  axes: ['opsz'],
+  weight: ['300', '400'],
+  style: ['normal', 'italic'],
 })
 
-const inter = Inter({
+const schibsted = Schibsted_Grotesk({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-schibsted',
   display: 'swap',
-  weight: ['400', '500', '600'],
+  weight: ['400', '500'],
 })
 
 export const metadata: Metadata = {
@@ -46,7 +47,10 @@ export default async function RootLayout({
   const dict = await getDictionary(resolvedLang)
 
   return (
-    <html lang={resolvedLang} className={`${fraunces.variable} ${inter.variable} h-full`}>
+    <html lang={resolvedLang} className={`${spectral.variable} ${schibsted.variable} h-full`}>
+      <head>
+        <meta name="theme-color" content="#16140F" />
+      </head>
       <body className="min-h-full flex flex-col">
         <Nav lang={resolvedLang} dict={dict} />
         <main className="flex-1">{children}</main>
