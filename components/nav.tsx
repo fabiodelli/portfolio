@@ -18,7 +18,7 @@ function navLinks(lang: Lang, dict: Dict) {
 
 export function Nav({ lang, dict }: Props) {
   const links = navLinks(lang, dict)
-  const ctaHref = lang === 'en' ? '/en/contact' : '/contact'
+  const ctaHref = lang === 'en' ? '/en/contact#form' : '/contact#form'
 
   return (
     <header className="nav">

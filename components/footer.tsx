@@ -82,7 +82,7 @@ export function Footer({ lang, dict }: Props) {
               <a href={dict.contact.linkedinHref} target="_blank" rel="noopener noreferrer" className="footer-link">
                 LinkedIn
               </a>
-              <Link href={`${base}/contact`} className="footer-link">
+              <Link href={`${base}/contact#form`} className="footer-link">
                 {dict.nav.cta} →
               </Link>
             </div>

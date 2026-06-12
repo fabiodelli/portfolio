@@ -1,6 +1,6 @@
 # STATUS — Portfolio Fabio Delli
 
-Aggiornato: 2026-06-10 (FIX_R1)
+Aggiornato: 2026-06-12 (FIX_R2)
 
 ## Blocchi completati
 
@@ -75,12 +75,23 @@ Aggiornato: 2026-06-10 (FIX_R1)
 - [x] CTA incontro conoscitivo su Home, case study e Contatti
 - [x] Zero occorrenze della parola "artigiano" nel contenuto del sito
 
+## Round FIX_R2 — completato 2026-06-12
+
+- [x] **Blocco 1 — Email**: `fabio@fabiodelli.com` → `contact@fabiodelli.com` in `dictionaries/it.ts` e `en.ts`. Grep zero residui su tutto il repo.
+- [x] **Blocco 2 — Headline hero**: IT `'Semplifico il lavoro ripetitivo e ti restituisco le ore.'` (accent: "ti restituisco le ore"); EN `'I simplify repetitive work and give you back your hours.'` (accent: "give you back your hours"). Sottotitolo lead: IT `— e le giornate tornano…`; EN `— so your days go back…`.
+- [x] **Blocco 3 — CTA → `#form`**: `nav.tsx` e `footer.tsx` aggiornati inline; `home.hero.ctaHref` e `home.cta.href` aggiornati nei dizionari IT+EN. La voce di menu "Contatti" resta su `/contact`.
+
+### Coda villa-levante-demo (ancora aperta)
+- [ ] Footer `app/page.tsx`: "costruito da Fabio Delli" con link a `https://fabiodelli.com` (rimpiazza `effedi.dev`)
+- [ ] Metadata `app/layout.tsx`: sostituire `effedi.dev` con `fabiodelli.com`
+- [ ] Placeholder login `app/login/page.tsx`: `contact@fabiodelli.com` (o `nome@esempio.it`)
+- [ ] STATUS.md del repo villa-levante-demo: annotare il cambio
+
 ## TODO post-deploy
 
 1. **Dominio**: acquistare fabiodelli.com, aggiornare `SITE_URL` in `lib/metadata.ts`
 2. **Demo Villa Levante**: aggiornare `villaLevanteDemo` / `ctaHref` nelle dictionaries
-3. **Email**: aggiornare `fabio@fabiodelli.com` con l'email reale se diversa
-4. **LinkedIn**: aggiornare URL LinkedIn nelle dictionaries
+3. **LinkedIn**: aggiornare URL LinkedIn nelle dictionaries
 5. **Form contatti**: sostituire il form mailto con Formspree/Resend/altro service per invio reale
 6. **Calendly** (opzionale): aggiungere link Calendly per il CTA "incontro conoscitivo"
 7. **OG image**: creare immagine Open Graph (1200×630) e aggiungerla in `app/opengraph-image.png`
