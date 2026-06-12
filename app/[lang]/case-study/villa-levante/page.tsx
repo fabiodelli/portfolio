@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { getDictionary, type Lang } from '@/lib/dictionaries'
 import { pageAlternates } from '@/lib/metadata'
@@ -92,15 +93,23 @@ export default async function VillaLevanteCS({
           </div>
 
           {/* Hero screenshot */}
-          <Reveal>
+          <div>
             <div className="device" style={{ marginTop: 'var(--s6)' }}>
               <div className="device-bar">
                 <i /><i /><i />
                 <span className="url">{vl.deviceUrl}</span>
               </div>
-              <div className="ph" style={{ aspectRatio: '16/9', borderRadius: 0 }} />
+              <div className="device-shot" style={{ aspectRatio: '16/9' }}>
+                <Image
+                  src="/screenshots/villa-levante.jpg"
+                  alt={`${vl.title} — ${vl.lead}`}
+                  fill
+                  sizes="100vw"
+                  priority
+                />
+              </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

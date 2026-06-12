@@ -329,6 +329,16 @@ body {
   overflow: hidden;
   border: 1px solid var(--calce-12);
   background: var(--espresso);
+}
+
+/* Screenshot chiari dentro il buio: filtro sull'immagine, non sul frame (DESIGN.md §3.3) */
+.device-shot {
+  position: relative;
+  overflow: hidden;
+}
+.device-shot img {
+  object-fit: cover;
+  object-position: top center;
   filter: brightness(.96) saturate(.95);
 }
 
@@ -387,16 +397,27 @@ body {
   padding: var(--s6) var(--s4) var(--s5);
 }
 
-/* ─── Scroll reveal ─── */
-.reveal {
+/* ─── Scroll reveal ───
+   Nascosto solo se il JS è attivo (html.js aggiunta inline nel layout):
+   senza JS il contenuto resta visibile. */
+html.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity .65s ease, transform .65s ease;
 }
 
-.reveal.in {
+html.js .reveal.in {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* ─── Footer links ─── */

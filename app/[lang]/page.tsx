@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { getDictionary, type Lang } from '@/lib/dictionaries'
 import { pageAlternates, SITE_URL } from '@/lib/metadata'
@@ -75,7 +76,7 @@ export default async function HomePage({
       <section className="hero-section">
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <div className="hero-grid">
-            <Reveal>
+            <div>
               <span className="kicker">{h.hero.kicker}</span>
               <h1 className="display hero-h1">
                 <HeadlineWithKeyword text={h.hero.headline} keyword={h.hero.headlineKeyword} />
@@ -99,12 +100,12 @@ export default async function HomePage({
                   ))}
                 </div>
               </div>
-            </Reveal>
+            </div>
 
-            {/* Right — mini-chat demo card */}
-            <Reveal delay={120}>
+            {/* Right — mini-chat demo card (fuori da Reveal: è above the fold) */}
+            <div>
               <HeroChatCard strings={h.hero.chatCard} />
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -198,7 +199,14 @@ export default async function HomePage({
                     <i /><i /><i />
                     <span className="url">{h.projects.villaLevante.deviceUrl}</span>
                   </div>
-                  <div className="ph" style={{ aspectRatio: '16/10', borderRadius: 0 }} />
+                  <div className="device-shot" style={{ aspectRatio: '16/10' }}>
+                    <Image
+                      src="/screenshots/villa-levante.jpg"
+                      alt={`${h.projects.villaLevante.title} — ${h.projects.villaLevante.meta}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 55vw"
+                    />
+                  </div>
                 </div>
               </div>
             </article>
@@ -239,7 +247,14 @@ export default async function HomePage({
                     <i /><i /><i />
                     <span className="url">{h.projects.softale.deviceUrl}</span>
                   </div>
-                  <div className="ph dark" style={{ aspectRatio: '16/10', borderRadius: 0 }} />
+                  <div className="device-shot" style={{ aspectRatio: '16/10' }}>
+                    <Image
+                      src="/screenshots/softale.jpg"
+                      alt={`${h.projects.softale.title} — ${h.projects.softale.meta}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 55vw"
+                    />
+                  </div>
                 </div>
               </div>
             </article>

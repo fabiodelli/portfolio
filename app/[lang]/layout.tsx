@@ -51,6 +51,8 @@ export default async function RootLayout({
     <html lang={resolvedLang} className={`${spectral.variable} ${schibsted.variable} h-full`}>
       <head>
         <meta name="theme-color" content="#16140F" />
+        {/* Abilita lo scroll-reveal solo quando il JS è attivo: senza JS i contenuti restano visibili */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body className="min-h-full flex flex-col">
         <Nav lang={resolvedLang} dict={dict} />

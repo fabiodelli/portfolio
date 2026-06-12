@@ -44,7 +44,7 @@ export function Nav({ lang, dict }: Props) {
             label={dict.nav.langSwitch}
             ariaLabel={dict.nav.langSwitchLabel}
           />
-          <Link href={ctaHref} className="btn btn-primary">
+          <Link href={ctaHref} className="btn btn-ghost btn-sm">
             {dict.nav.cta} <span className="arw">→</span>
           </Link>
         </div>

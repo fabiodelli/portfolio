@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { getDictionary, type Lang } from '@/lib/dictionaries'
 import { pageAlternates } from '@/lib/metadata'
@@ -89,15 +90,23 @@ export default async function SoftaleCS({
             </div>
           </div>
 
-          <Reveal>
+          <div>
             <div className="device" style={{ marginTop: 'var(--s6)' }}>
               <div className="device-bar">
                 <i /><i /><i />
                 <span className="url">{s.deviceUrl}</span>
               </div>
-              <div className="ph dark" style={{ aspectRatio: '16/9', borderRadius: 0 }} />
+              <div className="device-shot" style={{ aspectRatio: '16/9' }}>
+                <Image
+                  src="/screenshots/softale.jpg"
+                  alt={`${s.title} — ${s.lead}`}
+                  fill
+                  sizes="100vw"
+                  priority
+                />
+              </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
