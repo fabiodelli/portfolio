@@ -63,7 +63,7 @@ async function main() {
   }
 
   // Softale
-  await shot(page, 'https://softale.app', 'softale-desktop.webp', 1440, 900)
+  await shot(page, 'https://www.softale.app', 'softale-desktop.webp', 1440, 900)
 
   await browser.close()
   console.log('\nFatto. Committa public/shots/ nel repo.')

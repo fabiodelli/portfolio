@@ -98,11 +98,12 @@ export default async function SoftaleCS({
               </div>
               <div className="device-shot" style={{ aspectRatio: '16/9' }}>
                 <Image
-                  src="/screenshots/softale.jpg"
-                  alt={`${s.title} — ${s.lead}`}
+                  src="/shots/softale-desktop.webp"
+                  alt={`${s.title} · ${s.lead}`}
                   fill
                   sizes="100vw"
                   priority
+                  style={{ filter: 'brightness(.96) saturate(.95)' }}
                 />
               </div>
             </div>

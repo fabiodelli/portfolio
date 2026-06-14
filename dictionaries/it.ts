@@ -1,7 +1,7 @@
 export const it = {
   /* ── Meta / globals ─────────────────────────────────────── */
   siteName: 'Fabio Delli',
-  siteTagline: 'AI Integration Specialist — Versilia',
+  siteTagline: 'AI Integration Specialist · Versilia',
 
   /* ── Navigazione ─────────────────────────────────────────── */
   nav: {
@@ -19,7 +19,7 @@ export const it = {
   /* ── Home ────────────────────────────────────────────────── */
   home: {
     meta: {
-      title: 'Fabio Delli — AI Integration Specialist in Versilia',
+      title: 'Fabio Delli · AI Integration Specialist in Versilia',
       description:
         'Costruisco soluzioni AI su misura per hotel e attività locali in Versilia: assistenti conversazionali, automazioni e integrazioni cuciti sui tuoi processi.',
     },
@@ -27,7 +27,7 @@ export const it = {
       kicker: 'Specialista AI Integration · Versilia',
       headline: 'Semplifico il lavoro ripetitivo e ti restituisco le ore.',
       headlineKeyword: 'ti restituisco le ore',
-      lead: 'Costruisco soluzioni AI cucite sulla tua realtà — richieste, prenotazioni, comunicazioni multilingua — e le giornate tornano a ciò che conta davvero: i tuoi clienti.',
+      lead: 'Costruisco soluzioni AI cucite sulla tua realtà (richieste, prenotazioni, comunicazioni multilingua), e le giornate tornano a ciò che conta davvero: i tuoi clienti.',
       cta: 'Incontro conoscitivo gratuito',
       ctaHref: '/contact#form',
       secondary: 'Vedi i progetti',
@@ -45,29 +45,29 @@ export const it = {
     services: {
       kicker: 'Cosa risolvo per te',
       title: 'Tre modi per restituire tempo alla tua attività.',
-      subtitle: 'Niente pacchetti in serie. Ogni intervento parte da un problema reale e da un guadagno misurabile — ore, conversioni, margine.',
+      subtitle: 'Niente pacchetti in serie. Ogni intervento parte da un problema reale e da un guadagno misurabile: ore, conversioni, margine.',
       items: [
         {
           num: '01',
           title: 'Assistenti AI che rispondono al posto tuo, 24/7 e in ogni lingua',
           desc: "Un assistente che gestisce richieste e prenotazioni in autonomia, di giorno e di notte, nella lingua del cliente. Le domande ricorrenti trovano risposta subito; tu intervieni solo dove serve davvero.",
-          gain: 'Ore liberate ogni settimana e più conversioni dirette — fino al 15–25% di commissione OTA recuperata.',
+          gain: 'Ore liberate ogni settimana e più conversioni dirette, fino al 15–25% di commissione OTA recuperata.',
         },
         {
           num: '02',
           title: 'Automazione dei processi ripetitivi',
-          desc: "Mappo i passaggi manuali che si ripetono ogni giorno — copia-incolla, inserimenti, comunicazioni standard — e li affido a flussi automatici affidabili, integrati con gli strumenti che già usi.",
+          desc: "Mappo i passaggi manuali che si ripetono ogni giorno (copia-incolla, inserimenti, comunicazioni standard) e li affido a flussi automatici affidabili, integrati con gli strumenti che già usi.",
           gain: 'Meno lavoro manuale e meno errori, più tempo per ciò che conta.',
         },
         {
           num: '03',
           title: 'Audit e consulenza AI',
-          desc: "Prima di investire, capiamo insieme dove l'AI conviene davvero e dove no. Ti lascio una roadmap concreta, con priorità, tempi e ritorni attesi — anche se poi decidi di procedere da solo.",
+          desc: "Prima di investire, capiamo insieme dove l'AI conviene davvero e dove no. Ti lascio una roadmap concreta, con priorità, tempi e ritorni attesi, anche se poi decidi di procedere da solo.",
           gain: 'Una rotta chiara prima di spendere un euro.',
         },
       ],
       footnote:
-        "+ Sviluppo e integrazione dell'infrastruttura web come abilitatore — sito, prenotazioni, dati — quando serve a far funzionare il resto.",
+        "+ Sviluppo e integrazione dell'infrastruttura web come abilitatore (sito, prenotazioni, dati) quando serve a far funzionare il resto.",
     },
     projects: {
       kicker: 'Progetti in evidenza',
@@ -110,7 +110,7 @@ export const it = {
         {
           num: '02',
           title: 'Su misura, non in serie',
-          desc: 'Ogni soluzione nasce dal tuo flusso reale e si adatta a come lavori — non il contrario. Cucita, non presa da uno scaffale.',
+          desc: 'Ogni soluzione nasce dal tuo flusso reale e si adatta a come lavori, non il contrario. Cucita, non presa da uno scaffale.',
         },
         {
           num: '03',
@@ -126,7 +126,7 @@ export const it = {
       button: "Prenota l'incontro",
       href: '/contact#form',
       points: [
-        'Nessun gergo tecnico — parliamo di ore e di clienti.',
+        'Nessun gergo tecnico: parliamo di ore e di clienti.',
         'Una rotta concreta, anche se poi non lavoriamo insieme.',
         'Sul territorio, in Versilia o da remoto.',
       ],
@@ -136,7 +136,7 @@ export const it = {
   /* ── Case study Villa Levante ────────────────────────────── */
   villaLevante: {
     meta: {
-      title: 'Case study — Assistente AI per Villa Levante (demo)',
+      title: 'Case study · Assistente AI per Villa Levante (demo)',
       description:
         "Progetto dimostrativo: assistente AI multilingua per un boutique hotel. Risponde 24/7 in IT/EN/DE e guida le prenotazioni dirette, potenzialmente recuperando fino al 15–25% di commissioni OTA.",
     },
@@ -156,7 +156,7 @@ export const it = {
     context: {
       kicker: 'Il contesto',
       lead: 'Una struttura che riceve ospiti da tutto il mondo, a ogni ora del giorno.',
-      body: "Le richieste arrivano in più lingue e fuori orario; ogni risposta tardiva è una prenotazione che rischia di passare a una OTA, con la sua commissione. Il personale spende ore su domande ripetitive — disponibilità, servizi, indicazioni — sottraendo tempo all'ospitalità vera.",
+      body: "Le richieste arrivano in più lingue e fuori orario; ogni risposta tardiva è una prenotazione che rischia di passare a una OTA, con la sua commissione. Il personale spende ore su domande ripetitive (disponibilità, servizi, indicazioni) sottraendo tempo all'ospitalità vera.",
       body2: "L'obiettivo: rispondere subito, in ogni lingua, e riportare la prenotazione sul canale diretto.",
     },
     lever: {
@@ -175,7 +175,7 @@ export const it = {
       rev: {
         tag: 'Lato ricavi',
         title: 'Più prenotazioni dirette',
-        body: "Rispondendo subito e bene, l'assistente accompagna l'ospite alla prenotazione sul canale diretto — riducendo la dipendenza dalle OTA e le loro commissioni.",
+        body: "Rispondendo subito e bene, l'assistente accompagna l'ospite alla prenotazione sul canale diretto, riducendo la dipendenza dalle OTA e le loro commissioni.",
         items: [
           'Conversione diretta guidata',
           'Potenziale risparmio OTA (15–25%)',
@@ -197,7 +197,7 @@ export const it = {
     demo: {
       kicker: 'Demo live',
       title: 'Prova il progetto dimostrativo.',
-      lead: "Questo è un prototipo funzionante — non un hotel reale. Ti permette di vedere in concreto come funziona l'assistente, come risponde, come guida l'ospite.",
+      lead: "Questo è un prototipo funzionante, non un hotel reale. Ti permette di vedere in concreto come funziona l'assistente, come risponde, come guida l'ospite.",
       cta: 'Apri la demo',
       ctaHref: 'https://villa-levante-demo.vercel.app',
       ctaContact: 'Voglio qualcosa di simile per la mia struttura',
@@ -213,14 +213,14 @@ export const it = {
   /* ── Case study Softale ──────────────────────────────────── */
   softale: {
     meta: {
-      title: 'Case study — Softale, audio-storie generate con AI',
+      title: 'Case study · Softale, audio-storie generate con AI',
       description:
         'Softale: web app di audio-storie generate con AI (LLM + TTS), dalla pipeline al prodotto pubblicato su softale.app. Prova di capacità AI end-to-end.',
     },
     kicker: 'Prodotto AI · Proof of capability',
     breadcrumb: ['Home', 'Progetti', 'Softale'] as const,
     title: 'Softale',
-    lead: "Un prodotto AI end-to-end: pipeline generativa più sintesi vocale per creare audio-storie personalizzate. Non una commessa cliente — un prodotto proprio, pubblicato e funzionante.",
+    lead: "Un prodotto AI end-to-end: pipeline generativa più sintesi vocale per creare audio-storie personalizzate. Non una commessa cliente: un prodotto proprio, pubblicato e funzionante.",
     statusLabel: 'Stato',
     status: 'Pubblicato · softale.app',
     settoreLabel: 'Settore',
@@ -240,7 +240,7 @@ export const it = {
       title: "Generazione + voce, dall'inizio alla fine.",
       body: "Orchestrazione LLM per la generazione del testo narrativo, sintesi vocale (TTS) per l'audio. Tutto su Next.js con deploy su Vercel. Infrastruttura gestita, nessun backend custom da mantenere.",
       items: [
-        { label: 'Input utente', desc: 'Genere, tono, personaggi — pochi campi, risultato completo.' },
+        { label: 'Input utente', desc: 'Genere, tono, personaggi: pochi campi, risultato completo.' },
         { label: 'Generazione LLM', desc: 'Il modello crea la narrativa su misura del profilo scelto.' },
         { label: 'Sintesi vocale', desc: "TTS trasforma il testo in audio naturale, pronto all'ascolto." },
         { label: 'Delivery', desc: "La storia viene consegnata all'utente in pochi secondi." },
@@ -258,7 +258,7 @@ export const it = {
     cta: {
       kicker: 'Prova il prodotto',
       title: 'Softale è live su softale.app',
-      lead: 'Puoi provarlo adesso — è il prodotto reale, non una demo.',
+      lead: 'Puoi provarlo adesso: è il prodotto reale, non una demo.',
       button: 'Visita softale.app',
       href: 'https://www.softale.app',
       ctaContact: 'Vuoi un prodotto AI end-to-end?',
@@ -274,13 +274,13 @@ export const it = {
   /* ── Chi sono ────────────────────────────────────────────── */
   about: {
     meta: {
-      title: 'Chi sono — Fabio Delli, AI Integration Specialist',
+      title: 'Chi sono · Fabio Delli, AI Integration Specialist',
       description:
         'Fabio Delli: specialista AI Integration, full-stack, con base in Versilia. Costruisce soluzioni AI su misura per hotel e attività locali.',
     },
     kicker: 'Chi sono',
     title: 'Una sola persona, dal primo colloquio alla soluzione che funziona.',
-    lead: 'Sono Fabio Delli, sviluppatore full-stack e specialista di integrazione AI. Lavoro in Versilia, vicino alle attività che aiuto — niente agenzia, niente catena di referenti.',
+    lead: 'Sono Fabio Delli, sviluppatore full-stack e specialista di integrazione AI. Lavoro in Versilia, vicino alle attività che aiuto: niente agenzia, niente catena di referenti.',
     role: 'Specialista AI Integration · Versilia',
     methodCard: {
       kicker: 'Come lavoro',
@@ -294,8 +294,8 @@ export const it = {
     narrativa: {
       kicker: 'La mia posizione',
       paragraphs: [
-        "Non sono un generalista che fa un po' di tutto. Sono uno specialista di integrazione AI: il mio mestiere è capire dove, nella tua attività, il tempo si perde in compiti ripetitivi — e restituirtelo con soluzioni costruite su misura.",
-        "Credo nella scala umana. Quando lavoriamo insieme parli sempre con me: chi ascolta il problema è la stessa persona che progetta, costruisce e ti segue dopo. Questo rende tutto più chiaro, più rapido e, alla fine, più conveniente — senza l'overhead di una struttura tra te e il lavoro.",
+        "Non sono un generalista che fa un po' di tutto. Sono uno specialista di integrazione AI: il mio mestiere è capire dove, nella tua attività, il tempo si perde in compiti ripetitivi, e restituirtelo con soluzioni costruite su misura.",
+        "Credo nella scala umana. Quando lavoriamo insieme parli sempre con me: chi ascolta il problema è la stessa persona che progetta, costruisce e ti segue dopo. Questo rende tutto più chiaro, più rapido e, alla fine, più conveniente, senza l'overhead di una struttura tra te e il lavoro.",
         "E credo nella concretezza. Niente promesse rivoluzionarie: parliamo di ore liberate, di prenotazioni dirette, di processi che smettono di pesare. Se l'AI non serve, te lo dico.",
       ],
       pull: 'Su misura, non in serie. Cucito sulla tua attività, non preso da uno scaffale.',
@@ -307,7 +307,7 @@ export const it = {
         {
           num: '01',
           title: 'Chiarezza prima di tutto',
-          body: 'Spiego ogni scelta in parole semplici. Se un termine tecnico è necessario, te lo racconto — niente gergo per sembrare bravo.',
+          body: 'Spiego ogni scelta in parole semplici. Se un termine tecnico è necessario, te lo racconto: niente gergo per sembrare bravo.',
         },
         {
           num: '02',
@@ -359,9 +359,9 @@ export const it = {
   /* ── Contatti ────────────────────────────────────────────── */
   contact: {
     meta: {
-      title: 'Contatti — Fabio Delli',
+      title: 'Contatti · Fabio Delli',
       description:
-        'Scrivi a Fabio Delli per un incontro conoscitivo gratuito. Senza impegno, senza pitch — solo una conversazione.',
+        'Scrivi a Fabio Delli per un incontro conoscitivo gratuito. Senza impegno, senza pitch: solo una conversazione.',
     },
     kicker: 'Contatti',
     title: 'Parliamone, senza impegno.',
@@ -392,7 +392,7 @@ export const it = {
       messagePlaceholder: 'Racconta in due righe il compito ripetitivo che ti pesa di più…',
       submit: 'Invia la richiesta',
       note: 'Inviando accetti di essere ricontattato. Nessuna newsletter, nessuno spam.',
-      success: 'Grazie — ti rispondo presto.',
+      success: 'Grazie, ti rispondo presto.',
     },
   },
 

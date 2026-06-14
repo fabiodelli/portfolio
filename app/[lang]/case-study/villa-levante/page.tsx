@@ -101,11 +101,12 @@ export default async function VillaLevanteCS({
               </div>
               <div className="device-shot" style={{ aspectRatio: '16/9' }}>
                 <Image
-                  src="/screenshots/villa-levante.jpg"
-                  alt={`${vl.title} — ${vl.lead}`}
+                  src="/shots/villa-levante-desktop.webp"
+                  alt={`${vl.title} · ${vl.lead}`}
                   fill
                   sizes="100vw"
                   priority
+                  style={{ filter: 'brightness(.96) saturate(.95)' }}
                 />
               </div>
             </div>

@@ -201,10 +201,11 @@ export default async function HomePage({
                   </div>
                   <div className="device-shot" style={{ aspectRatio: '16/10' }}>
                     <Image
-                      src="/screenshots/villa-levante.jpg"
-                      alt={`${h.projects.villaLevante.title} — ${h.projects.villaLevante.meta}`}
+                      src="/shots/villa-levante-desktop.webp"
+                      alt={`${h.projects.villaLevante.title} · ${h.projects.villaLevante.meta}`}
                       fill
                       sizes="(max-width: 768px) 100vw, 55vw"
+                      style={{ filter: 'brightness(.96) saturate(.95)' }}
                     />
                   </div>
                 </div>
@@ -249,10 +250,11 @@ export default async function HomePage({
                   </div>
                   <div className="device-shot" style={{ aspectRatio: '16/10' }}>
                     <Image
-                      src="/screenshots/softale.jpg"
-                      alt={`${h.projects.softale.title} — ${h.projects.softale.meta}`}
+                      src="/shots/softale-desktop.webp"
+                      alt={`${h.projects.softale.title} · ${h.projects.softale.meta}`}
                       fill
                       sizes="(max-width: 768px) 100vw, 55vw"
+                      style={{ filter: 'brightness(.96) saturate(.95)' }}
                     />
                   </div>
                 </div>
