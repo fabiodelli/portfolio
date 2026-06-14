@@ -86,6 +86,12 @@ Aggiornato: 2026-06-12 (FIX_R2)
 - [x] CTA incontro conoscitivo su Home, case study e Contatti
 - [x] Zero occorrenze della parola "artigiano" nel contenuto del sito
 
+## Round FIX_R3 — completato 2026-06-14
+
+- [x] **Blocco 1 — Em dash rimossi**: tutti i trattini lunghi (`—`) sostituiti in `dictionaries/it.ts` e `en.ts` con punteggiatura contestuale (`:`, `,`, `( )`, `·`). Zero occorrenze residue nelle frasi; intervalli numerici `15–25%` conservati.
+- [x] **Blocco 2 — Screenshot reali**: catturati `villa-levante-desktop.webp` (166KB), `villa-levante-mobile.webp` (49KB), `softale-desktop.webp` (30KB) via Playwright + sharp in `public/shots/`. Chat screenshot saltato (overlay intercetta il click — noto). Path aggiornati da `/screenshots/*.jpg` a `/shots/*.webp` in home + entrambi i case study. Filter `brightness(.96) saturate(.95)` applicato come da DESIGN.md §3.3.
+- [x] **Blocco 3 — villa-levante-demo**: zero `effedi` nel repo (→ `fabiodelli.com`). Hero badge, footer, metadata, login placeholder, .env.local.example, README tutti aggiornati. Commit su master del repo demo.
+
 ## Round FIX_R2 — completato 2026-06-12
 
 - [x] **Blocco 1 — Email**: `fabio@fabiodelli.com` → `contact@fabiodelli.com` in `dictionaries/it.ts` e `en.ts`. Grep zero residui su tutto il repo.
