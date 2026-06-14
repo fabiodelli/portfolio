@@ -25,8 +25,8 @@ export const en = {
     },
     hero: {
       kicker: 'AI Integration Specialist · Versilia',
-      headline: 'I simplify repetitive work and give you back your hours.',
-      headlineKeyword: 'give you back your hours',
+      headline: 'I take the repetitive work off your days. The hours become yours again.',
+      headlineKeyword: 'The hours become yours again.',
       lead: 'I build AI solutions shaped around your reality (enquiries, bookings, multilingual communication) so your days go back to what really matters: your guests and clients.',
       cta: 'Free discovery call',
       ctaHref: '/en/contact#form',
@@ -51,7 +51,7 @@ export const en = {
           num: '01',
           title: 'AI assistants that respond instead of you, 24/7 in any language',
           desc: 'An assistant that handles enquiries and bookings autonomously, day and night, in your customer\'s language. Recurring questions get an instant answer; you step in only where it really matters.',
-          gain: 'Hours freed every week and more direct conversions, potentially recovering 15–25% of OTA commissions.',
+          gain: 'Hours freed every week and more clients acquired directly, without platform commissions.',
         },
         {
           num: '02',

@@ -25,8 +25,8 @@ export const it = {
     },
     hero: {
       kicker: 'Specialista AI Integration · Versilia',
-      headline: 'Semplifico il lavoro ripetitivo e ti restituisco le ore.',
-      headlineKeyword: 'ti restituisco le ore',
+      headline: 'Tolgo dalle tue giornate il lavoro che si ripete. Le ore tornano tue.',
+      headlineKeyword: 'Le ore tornano tue.',
       lead: 'Costruisco soluzioni AI cucite sulla tua realtà (richieste, prenotazioni, comunicazioni multilingua), e le giornate tornano a ciò che conta davvero: i tuoi clienti.',
       cta: 'Incontro conoscitivo gratuito',
       ctaHref: '/contact#form',
@@ -51,7 +51,7 @@ export const it = {
           num: '01',
           title: 'Assistenti AI che rispondono al posto tuo, 24/7 e in ogni lingua',
           desc: "Un assistente che gestisce richieste e prenotazioni in autonomia, di giorno e di notte, nella lingua del cliente. Le domande ricorrenti trovano risposta subito; tu intervieni solo dove serve davvero.",
-          gain: 'Ore liberate ogni settimana e più conversioni dirette, fino al 15–25% di commissione OTA recuperata.',
+          gain: 'Ore liberate ogni settimana e più clienti acquisiti direttamente, senza commissioni di piattaforma.',
         },
         {
           num: '02',

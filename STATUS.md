@@ -86,6 +86,14 @@ Aggiornato: 2026-06-12 (FIX_R2)
 - [x] CTA incontro conoscitivo su Home, case study e Contatti
 - [x] Zero occorrenze della parola "artigiano" nel contenuto del sito
 
+## Round FIX_R4 — completato 2026-06-14
+
+- [x] **Blocco 1 — Headline definitiva**: IT `'Tolgo dalle tue giornate il lavoro che si ripete. Le ore tornano tue.'` / EN `'I take the repetitive work off your days. The hours become yours again.'` Accent in ambra: IT `'Le ore tornano tue.'` / EN `'The hours become yours again.'` `HeadlineWithKeyword` funziona con sottostringa esatta — nessuna modifica al componente necessaria.
+- [x] **Blocco 2 — Pulizia copy settoriale**: rimosso l'unico assolutismo chiaro: `services.items[0].gain` citava "commissioni OTA" (esclusivamente hospitality) in un tile generico → sostituito con "clienti acquisiti direttamente, senza commissioni di piattaforma" / "clients acquired directly, without platform commissions".
+- [ ] **Blocco 2 — Da valutare con Fabio** (non modificato d'iniziativa):
+  - `home.meta.description` / `about.meta.description` IT+EN: "hotel e attività locali" / "hotels and local businesses" — già plurale ma hotel in pole position. Considerare "attività locali e professionisti" o simile se si vuole bilanciare.
+  - `about.narrativa.paragraphs[2]` IT: "prenotazioni dirette" / EN "direct bookings" — usato come esempio concreto in un paragrafo generico. In italiano "prenotazioni" è polisemico, ma in EN "bookings" suona più hospitality. Valutare sostituzione con "risultati diretti" / "direct outcomes" o lasciare come esempio.
+
 ## Round FIX_R3 — completato 2026-06-14
 
 - [x] **Blocco 1 — Em dash rimossi**: tutti i trattini lunghi (`—`) sostituiti in `dictionaries/it.ts` e `en.ts` con punteggiatura contestuale (`:`, `,`, `( )`, `·`). Zero occorrenze residue nelle frasi; intervalli numerici `15–25%` conservati.
