@@ -1,7 +1,7 @@
 export const en = {
   /* ── Meta / globals ─────────────────────────────────────── */
   siteName: 'Fabio Delli',
-  siteTagline: 'AI Integration Specialist — Versilia, Tuscany',
+  siteTagline: 'AI Integration Specialist · Versilia, Tuscany',
 
   /* ── Navigation ──────────────────────────────────────────── */
   nav: {
@@ -19,25 +19,25 @@ export const en = {
   /* ── Home ────────────────────────────────────────────────── */
   home: {
     meta: {
-      title: 'Fabio Delli — AI Integration Specialist, Versilia',
+      title: 'Fabio Delli · AI Integration Specialist, Versilia',
       description:
-        'I build custom AI solutions for hotels and local businesses in Versilia, Tuscany: conversational assistants, automations, and integrations tailored to your workflows.',
+        "There's a gap between what AI can do for your business and what it does today. I'm Fabio Delli, AI specialist in Versilia: I help hotels and local businesses close it.",
     },
     hero: {
       kicker: 'AI Integration Specialist · Versilia',
-      headline: 'I simplify repetitive work and give you back your hours.',
-      headlineKeyword: 'give you back your hours',
-      lead: 'I build AI solutions shaped around your reality — enquiries, bookings, multilingual communication — so your days go back to what really matters: your guests and clients.',
+      headline: "There's a gap between what AI can do for your business and what it does today. I'm here to close it.",
+      headlineKeyword: "I'm here to close it.",
+      lead: 'I build AI solutions shaped around your reality: enquiries, bookings, multilingual communication. Your days go back to what really matters: your guests and clients.',
       cta: 'Free discovery call',
       ctaHref: '/en/contact#form',
       secondary: 'See my work',
       secondaryHref: '#progetti',
-      metaLabel: 'Tailored for',
-      sectors: ['Hospitality', 'Local businesses', 'Services', 'and beyond'],
+      metaLabel: '',
+      sectors: 'For every business that handles enquiries, bookings, or manual processes',
       chatCard: {
         header: 'AI assistant · demo',
         bubbleGuest: 'Hi! Do you have a room for two this weekend?',
-        bubbleAssistant: 'Of course! The Levante Room is available: €180/night, breakfast included. Would you like to proceed with a direct booking?',
+        bubbleAssistant: "Of course, the Levante Room is available for those dates. I can help you book directly, if you'd like.",
         chipCta: 'Book now · no commission',
         footer: 'Fabio Delli · Versilia',
       },
@@ -45,29 +45,29 @@ export const en = {
     services: {
       kicker: 'What I solve for you',
       title: 'Three ways to give your business its time back.',
-      subtitle: 'No off-the-shelf packages. Every engagement starts from a real problem and a measurable return — hours, conversions, margin.',
+      subtitle: 'No off-the-shelf packages. Every engagement starts from a real problem and a measurable return: hours, conversions, margin.',
       items: [
         {
           num: '01',
           title: 'AI assistants that respond instead of you, 24/7 in any language',
           desc: 'An assistant that handles enquiries and bookings autonomously, day and night, in your customer\'s language. Recurring questions get an instant answer; you step in only where it really matters.',
-          gain: 'Hours freed every week and more direct conversions — potentially recovering 15–25% of OTA commissions.',
+          gain: 'Hours freed every week and more direct bookings, with less dependency on portals.',
         },
         {
           num: '02',
           title: 'Automation of repetitive processes',
-          desc: 'I map the manual steps that repeat every day — copy-paste, data entry, standard communications — and hand them off to reliable automated flows, integrated with the tools you already use.',
+          desc: 'I map the manual steps that repeat every day: copy-paste, data entry, standard communications. I hand them off to reliable automated flows, integrated with the tools you already use.',
           gain: 'Less manual work and fewer errors, more time for what counts.',
         },
         {
           num: '03',
-          title: 'AI audit and consulting',
-          desc: 'Before investing, we figure out together where AI genuinely pays off — and where it\'s still too early. I leave you a concrete roadmap with priorities, timelines, and expected returns — even if you decide to proceed on your own.',
+          title: 'Digital consulting',
+          desc: "Before investing, we figure out together where AI genuinely pays off, and where it's still too early. I leave you a concrete roadmap with priorities, timelines, and expected returns, even if you decide to proceed on your own.",
           gain: 'A clear direction before spending a single euro.',
         },
       ],
       footnote:
-        '+ Web infrastructure development and integration as an enabler — site, bookings, data — when needed to make everything else work.',
+        '+ Web infrastructure development and integration as an enabler (site, bookings, data), when needed to make everything else work.',
     },
     projects: {
       kicker: 'Featured work',
@@ -78,10 +78,10 @@ export const en = {
         index: '01',
         meta: 'Hospitality · Case study',
         title: 'Villa Levante',
-        desc: 'Multilingual AI assistant for a hospitality property: responds to guests 24/7, manages booking enquiries, and drives direct conversion — reducing OTA dependency.',
+        desc: 'Multilingual AI assistant for a hospitality property: responds to guests 24/7, manages booking enquiries, and drives direct conversion, reducing OTA dependency.',
         tags: ['AI assistant', 'Multilingual', 'Direct conversion'],
         kpi1: { value: '24/7', label: 'Guest responses' },
-        kpi2: { value: '−25%', label: 'OTA commissions recoverable' },
+        kpi2: { value: 'Direct', label: 'Less dependency on portals' },
         cta: 'Read the case study',
         href: '/en/case-study/villa-levante',
         deviceUrl: 'villa-levante-demo.vercel.app',
@@ -106,12 +106,12 @@ export const en = {
         {
           num: '01',
           title: 'Single point of contact',
-          desc: 'You always talk to the person who designs and builds. No referral chains, no account managers — one person, present on the ground.',
+          desc: 'You always talk to the person who designs and builds. No referral chains, no account managers: one person, present on the ground.',
         },
         {
           num: '02',
           title: 'Built for you, not for everyone',
-          desc: 'Every solution starts from your actual workflow and adapts to how you work — not the other way around. Tailored, not taken off a shelf.',
+          desc: 'Every solution starts from your actual workflow and adapts to how you work, not the other way around. Tailored, not taken off a shelf.',
         },
         {
           num: '03',
@@ -127,7 +127,7 @@ export const en = {
       button: 'Book the call',
       href: '/en/contact#form',
       points: [
-        'No technical jargon — we talk about hours and customers.',
+        'No technical jargon: we talk about hours and customers.',
         'A concrete direction, even if we don\'t end up working together.',
         'On the ground in Versilia, or remote.',
       ],
@@ -137,9 +137,9 @@ export const en = {
   /* ── Case study Villa Levante ────────────────────────────── */
   villaLevante: {
     meta: {
-      title: 'Case study — AI assistant for Villa Levante (demo)',
+      title: 'Case study · AI assistant for Villa Levante (demo)',
       description:
-        'Demo project: multilingual AI assistant for a boutique hotel. Responds 24/7 in IT/EN/DE and guides direct bookings, potentially recovering up to 15–25% of OTA commissions.',
+        'Demo project: multilingual AI assistant for a boutique hotel. Responds 24/7 in IT/EN/DE and guides direct bookings, reducing dependency on OTA portals.',
     },
     kicker: 'Hospitality · AI assistant',
     breadcrumb: ['Home', 'Projects', 'Villa Levante'],
@@ -157,7 +157,7 @@ export const en = {
     context: {
       kicker: 'The context',
       lead: 'A property receiving guests from around the world, at every hour of the day.',
-      body: 'Enquiries arrive in multiple languages and outside office hours; every late response is a booking that risks shifting to an OTA, along with its commission. Staff spend hours on repetitive questions — availability, services, directions — taking time away from real hospitality.',
+      body: 'Enquiries arrive in multiple languages and outside office hours; every late response is a booking that risks shifting to an OTA, along with its commission. Staff spend hours on repetitive questions (availability, services, directions), taking time away from real hospitality.',
       body2: 'The goal: respond immediately, in any language, and bring the booking back to the direct channel.',
     },
     lever: {
@@ -176,17 +176,17 @@ export const en = {
       rev: {
         tag: 'Revenue side',
         title: 'More direct bookings',
-        body: 'By responding promptly and well, the assistant guides the guest to book on the direct channel — reducing OTA dependency and their commissions.',
+        body: 'By responding promptly and well, the assistant guides the guest to book on the direct channel, reducing OTA dependency and their commissions.',
         items: [
           'Guided direct conversion',
-          'Potential OTA saving (15–25%)',
+          'More direct bookings, fewer portal commissions',
           'Guest relationship from first contact',
         ],
       },
     },
     kpis: [
       { value: '24/7', label: 'Request coverage, every time zone, every language.' },
-      { value: 'up to 25%', label: 'OTA commission potentially recovered per direct booking.' },
+      { value: 'Direct', label: 'Bookings that bypass the portals.' },
       { value: 'hrs/week', label: 'Staff time returned to real hospitality.' },
     ],
     stack: {
@@ -198,7 +198,7 @@ export const en = {
     demo: {
       kicker: 'Live demo',
       title: 'Try the working prototype.',
-      lead: 'This is a functional prototype — not a real hotel. It lets you see concretely how the assistant works, how it responds, how it guides the guest.',
+      lead: 'This is a functional prototype (not a real hotel). It lets you see concretely how the assistant works, how it responds, how it guides the guest.',
       cta: 'Open the demo',
       ctaHref: 'https://villa-levante-demo.vercel.app',
       ctaContact: 'I want something like this for my property',
@@ -214,14 +214,14 @@ export const en = {
   /* ── Case study Softale ──────────────────────────────────── */
   softale: {
     meta: {
-      title: 'Case study — Softale, AI-generated audio stories',
+      title: 'Case study · Softale, AI-generated audio stories',
       description:
         'Softale: web app for AI-generated audio stories (LLM + TTS pipeline), taken from idea to live product at softale.app. A proof of end-to-end AI capability.',
     },
     kicker: 'AI product · Proof of capability',
     breadcrumb: ['Home', 'Projects', 'Softale'],
     title: 'Softale',
-    lead: 'An end-to-end AI product: generative pipeline plus speech synthesis to create personalised audio stories. Not a client commission — a product of my own, live and working.',
+    lead: 'An end-to-end AI product: generative pipeline plus speech synthesis to create personalised audio stories. Not a client commission: a product of my own, live and working.',
     statusLabel: 'Status',
     status: 'Live · softale.app',
     settoreLabel: 'Sector',
@@ -239,9 +239,9 @@ export const en = {
     pipeline: {
       kicker: 'The technical pipeline',
       title: 'Generation + voice, start to finish.',
-      body: 'LLM orchestration for narrative generation, text-to-speech (TTS) for the audio output. Everything on Next.js deployed on Vercel — managed infrastructure, no custom backend to maintain.',
+      body: 'LLM orchestration for narrative generation, text-to-speech (TTS) for the audio output. Everything on Next.js deployed on Vercel: managed infrastructure, no custom backend to maintain.',
       items: [
-        { label: 'User input', desc: 'Genre, tone, characters — a few fields, a complete result.' },
+        { label: 'User input', desc: 'Genre, tone, characters: a few fields, a complete result.' },
         { label: 'LLM generation', desc: 'The model creates a narrative tailored to the chosen profile.' },
         { label: 'Speech synthesis', desc: 'TTS turns the text into natural audio, ready to listen.' },
         { label: 'Delivery', desc: 'The story is delivered to the user in seconds.' },
@@ -259,7 +259,7 @@ export const en = {
     cta: {
       kicker: 'Try it',
       title: 'Softale is live at softale.app',
-      lead: 'You can try it now — this is the real product, not a demo.',
+      lead: 'You can try it now: this is the real product, not a demo.',
       button: 'Visit softale.app',
       href: 'https://www.softale.app',
       ctaContact: 'Want an end-to-end AI product?',
@@ -275,18 +275,18 @@ export const en = {
   /* ── About ───────────────────────────────────────────────── */
   about: {
     meta: {
-      title: 'About — Fabio Delli, AI Integration Specialist',
+      title: 'About · Fabio Delli, AI Integration Specialist',
       description:
         'Fabio Delli: AI Integration Specialist, full-stack, based in Versilia, Tuscany. Builds custom AI solutions for hotels and local businesses.',
     },
     kicker: 'About',
     title: 'One person, from first conversation to a working solution.',
-    lead: "I'm Fabio Delli, a full-stack developer and AI integration specialist. I work in Versilia, close to the businesses I help — no agency, no chain of contacts.",
+    lead: "I'm Fabio Delli, a full-stack developer and AI integration specialist. I work in Versilia, close to the businesses I help: no agency, no chain of contacts.",
     role: 'AI Integration Specialist · Versilia',
     methodCard: {
       kicker: 'How I work',
       steps: [
-        { num: '01', title: 'Listen', desc: 'Understand the real workflow — where time is actually lost.' },
+        { num: '01', title: 'Listen', desc: 'Understand the real workflow: where time is actually lost.' },
         { num: '02', title: 'Build', desc: 'Tailored to you, integrated with what you already use.' },
         { num: '03', title: 'Stay present', desc: 'Ongoing maintenance and continuous improvement.' },
       ],
@@ -295,8 +295,8 @@ export const en = {
     narrativa: {
       kicker: 'My position',
       paragraphs: [
-        "I'm not a generalist who does a bit of everything. I'm an AI integration specialist: my job is to identify where, in your business, time gets lost in repetitive tasks — and give it back to you with solutions built around you.",
-        "I believe in human scale. When we work together you always talk to me: the person who listens to the problem is the same person who designs, builds, and supports you afterwards. This makes everything clearer, faster, and — in the end — more cost-effective, without the overhead of a layer between you and the work.",
+        "I'm not a generalist who does a bit of everything. I'm an AI integration specialist: my job is to identify where, in your business, time gets lost in repetitive tasks, and give it back to you with solutions built around you.",
+        "I believe in human scale. When we work together you always talk to me: the person who listens to the problem is the same person who designs, builds, and supports you afterwards. This makes everything clearer, faster and, in the end, more cost-effective, without the overhead of a layer between you and the work.",
         "And I believe in concreteness. No revolutionary promises: we talk about hours freed, direct bookings, processes that stop weighing on you. If AI isn't the answer, I'll tell you.",
       ],
       pull: "Built for you, not for everyone. Shaped around your business, not taken off a shelf.",
@@ -308,7 +308,7 @@ export const en = {
         {
           num: '01',
           title: 'Clarity first',
-          body: "I explain every decision in plain words. If a technical term is necessary, I'll walk you through it — no jargon to sound impressive.",
+          body: "I explain every decision in plain words. If a technical term is necessary, I'll walk you through it: no jargon to sound impressive.",
         },
         {
           num: '02',
@@ -360,9 +360,9 @@ export const en = {
   /* ── Contact ─────────────────────────────────────────────── */
   contact: {
     meta: {
-      title: 'Contact — Fabio Delli',
+      title: 'Contact · Fabio Delli',
       description:
-        "Get in touch with Fabio Delli for a free discovery call. No commitment, no pitch — just a conversation.",
+        "Get in touch with Fabio Delli for a free discovery call. No commitment, no pitch: just a conversation.",
     },
     kicker: 'Contact',
     title: "Let's talk, no strings attached.",
@@ -393,14 +393,14 @@ export const en = {
       messagePlaceholder: 'Describe in a couple of lines the repetitive task that weighs on you most…',
       submit: 'Send request',
       note: 'By submitting you agree to be contacted. No newsletter, no spam.',
-      success: "Thank you — I'll be in touch soon.",
+      success: "Thank you, I'll be in touch soon.",
     },
   },
 
   /* ── Footer ──────────────────────────────────────────────── */
   footer: {
     tagline:
-      'AI integration specialist in Versilia, Tuscany. Custom solutions that automate repetitive tasks for local businesses, recovering hours of work every week.',
+      "AI integration specialist in Versilia, Tuscany. I close the gap between what AI can do for your business and what it does today.",
     navLabel: 'Navigate',
     contactLabel: 'Contact',
     rights: '© {year} Fabio Delli. All rights reserved.',

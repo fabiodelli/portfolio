@@ -93,12 +93,7 @@ export default async function HomePage({
                 </a>
               </div>
               <div className="hero-meta">
-                <span className="hero-meta-lbl">{h.hero.metaLabel}</span>
-                <div className="hero-sectors">
-                  {h.hero.sectors.map((s) => (
-                    <span key={s}>{s}</span>
-                  ))}
-                </div>
+                <span className="hero-meta-lbl">{h.hero.sectors}</span>
               </div>
             </div>
 
