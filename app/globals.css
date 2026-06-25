@@ -586,6 +586,104 @@ html.js .reveal.in {
   letter-spacing: 0.02em;
 }
 
+/* ─── HeroChatCard — interactive elements ─── */
+.hcc-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0;
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--calce-12) transparent;
+}
+
+.hcc-starters {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.hcc-starter-chip {
+  align-self: flex-start;
+  font-size: 13px;
+  font-family: var(--sans);
+  color: var(--calce-60);
+  background: transparent;
+  border: 1px solid var(--calce-12);
+  border-radius: var(--r-pill);
+  padding: 8px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color .2s, color .2s;
+}
+.hcc-starter-chip:hover { border-color: var(--calce-30); color: var(--calce-80); }
+
+.hcc-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-top: 2px;
+}
+
+.hcc-input {
+  flex: 1;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--calce);
+  background: var(--espresso-2);
+  border: 1px solid var(--calce-12);
+  border-radius: var(--r-pill);
+  padding: 10px 16px;
+  outline: none;
+  transition: border-color .2s;
+}
+.hcc-input::placeholder { color: var(--calce-45); }
+.hcc-input:focus { border-color: var(--calce-30); }
+.hcc-input:disabled { opacity: 0.6; }
+
+.hcc-send-btn {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ambra);
+  color: var(--on-ambra);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  line-height: 1;
+}
+.hcc-send-btn:hover:not(:disabled) { background: #C99838; }
+.hcc-send-btn:disabled { opacity: 0.4; cursor: default; }
+
+.hcc-typing {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 14px 18px !important;
+}
+.hcc-typing span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--calce-60);
+  animation: hcc-bounce .9s ease-in-out infinite;
+  display: block;
+}
+.hcc-typing span:nth-child(2) { animation-delay: .15s; }
+.hcc-typing span:nth-child(3) { animation-delay: .3s; }
+
+@keyframes hcc-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-5px); }
+}
+
 /* ─── MethodCard ─── */
 .method-card {
   background: var(--espresso);

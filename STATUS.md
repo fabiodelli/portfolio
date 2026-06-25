@@ -86,6 +86,29 @@ Aggiornato: 2026-06-12 (FIX_R2)
 - [x] CTA incontro conoscitivo su Home, case study e Contatti
 - [x] Zero occorrenze della parola "artigiano" nel contenuto del sito
 
+## Round FIX_ASSISTENTE_HOME — completato 2026-06-25
+
+- [x] **Merge risolto**: conflitti HEAD vs origin/master in `it.ts` ed `en.ts` (headline definitiva mantenuta; "Consulenza digitale" da remote; punteggiatura da remote)
+- [x] **Dizionari aggiornati**: `chatCard` con `welcome`, `starters`, `inputPlaceholder`, `errorMessage` (sostituisce `bubbleGuest`/`bubbleAssistant`/`chipCta`); `services.title` senza numero fisso; nuovo `service 04` sito/app AI-native. IT + EN.
+- [x] **Dipendenze AI SDK v6**: `ai@^6`, `@ai-sdk/anthropic@^3`, `@ai-sdk/openai@^3`, `@ai-sdk/react@^3` installate
+- [x] **`lib/ai/providers.ts`**: `primaryModel` (Haiku 4.5) + `fallbackModel` (gpt-4o-mini)
+- [x] **`lib/ai/portfolio-assistant-prompt.ts`**: system prompt completo con positioning, regole ferme, chiusura morbida
+- [x] **`app/api/chat/route.ts`**: edge route, cap 16 turni + 1500 char, fallback automatico su OpenAI, `x-model-used` header
+- [x] **`components/hero-chat-card.tsx`**: riscritta come `'use client'` con `useChat` (AI SDK v6 API: `sendMessage`, `status`, `parts`); welcome statico + 3 chip avvio; input pill + bottone ambra; indicatore typing; autoscroll; gestione errori
+- [x] **`app/globals.css`**: aggiunte classi `.hcc-messages`, `.hcc-starters`, `.hcc-starter-chip`, `.hcc-input-row`, `.hcc-input`, `.hcc-send-btn`, `.hcc-typing`
+- [x] **`.env.local`**: chiavi Anthropic + OpenAI (stesse di Villa Levante, gitignored)
+- [x] **Build clean**: TypeScript zero errori, 16 pagine SSG + 1 route edge `/api/chat`
+
+### Note tecniche (AI SDK v6)
+- `useChat()` non accetta `api:` — usa `DefaultChatTransport` con `/api/chat` come default
+- Messaggi hanno `parts[]` non `content` — usare `isTextUIPart` da `ai` per filtrare
+- `sendMessage({ text })` sostituisce `input`/`handleSubmit` — stato input gestito localmente
+
+### Nota per Fabio (azione richiesta prima o subito dopo il deploy)
+- Console Anthropic: impostare spend limit + alert email
+- Console OpenAI: impostare usage limit hard + soft + alert
+- Aggiungere `ANTHROPIC_API_KEY` e `OPENAI_API_KEY` su Vercel (Production + Preview)
+
 ## Round FIX_R4 — completato 2026-06-14
 
 - [x] **Blocco 1 — Headline definitiva**: IT `'Tolgo dalle tue giornate il lavoro che si ripete. Le ore tornano tue.'` / EN `'I take the repetitive work off your days. The hours become yours again.'` Accent in ambra: IT `'Le ore tornano tue.'` / EN `'The hours become yours again.'` `HeadlineWithKeyword` funziona con sottostringa esatta — nessuna modifica al componente necessaria.
