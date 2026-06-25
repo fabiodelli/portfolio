@@ -135,12 +135,6 @@ export default async function HomePage({
             <div style={{ borderBottom: '1px solid var(--calce-12)' }} />
           </div>
 
-          <Reveal>
-            <p className="svc-foot">
-              <span className="index-num">+</span>
-              {h.services.footnote}
-            </p>
-          </Reveal>
         </div>
       </section>
 

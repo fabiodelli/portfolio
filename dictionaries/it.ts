@@ -25,9 +25,9 @@ export const it = {
     },
     hero: {
       kicker: 'Specialista AI Integration · Versilia',
-      headline: 'Tolgo dalle tue giornate il lavoro che si ripete. Le ore tornano tue.',
-      headlineKeyword: 'Le ore tornano tue.',
-      lead: 'Costruisco soluzioni AI cucite sulla tua realtà (richieste, prenotazioni, comunicazioni multilingua), e le giornate tornano a ciò che conta davvero: i tuoi clienti.',
+      headline: "C'è un divario tra quello che l'AI può fare per la tua attività e quello che oggi fa. Sono qui per colmarlo.",
+      headlineKeyword: 'Sono qui per colmarlo.',
+      lead: 'Costruisco soluzioni AI cucite sulla tua realtà: richieste, prenotazioni, comunicazioni multilingua. Le giornate tornano a ciò che conta davvero: i tuoi clienti.',
       cta: 'Incontro conoscitivo gratuito',
       ctaHref: '/contact#form',
       secondary: 'Vedi i progetti',
@@ -60,25 +60,23 @@ export const it = {
         },
         {
           num: '02',
+          title: "Il sito o l'app su cui costruire, pensato per l'AI fin dall'inizio",
+          desc: "Spesso il primo passo non è l'AI, è avere una base solida: un sito, un'app, un gestionale che funzionano davvero. La costruisco già pronta a ospitare automazioni e assistenti quando sarà il momento. Parti da qui, l'AI si aggiunge quando serve, senza rifare tutto tra un anno.",
+          gain: 'Una base digitale solida e pronta a crescere, senza doverla rifare da capo.',
+        },
+        {
+          num: '03',
           title: 'Automazione dei processi ripetitivi',
           desc: "Mappo i passaggi manuali che si ripetono ogni giorno (copia-incolla, inserimenti, comunicazioni standard) e li affido a flussi automatici affidabili, integrati con gli strumenti che già usi.",
           gain: 'Meno lavoro manuale e meno errori, più tempo per ciò che conta.',
         },
         {
-          num: '03',
+          num: '04',
           title: 'Consulenza digitale',
           desc: "Prima di investire, capiamo insieme dove l'AI conviene davvero e dove no. Ti lascio una roadmap concreta, con priorità, tempi e ritorni attesi. Anche se poi decidi di procedere da solo.",
           gain: 'Una rotta chiara prima di spendere un euro.',
         },
-        {
-          num: '04',
-          title: "Il sito o l'app su cui costruire, pensato per l'AI fin dall'inizio",
-          desc: "Spesso il primo passo non è l'AI, è avere una base solida: un sito, un'app, un gestionale che funzionano davvero. La costruisco già pronta a ospitare automazioni e assistenti quando sarà il momento. Parti da qui, l'AI si aggiunge quando serve, senza rifare tutto tra un anno.",
-          gain: 'Una base digitale solida e pronta a crescere, senza doverla rifare da capo.',
-        },
       ],
-      footnote:
-        "+ Sviluppo e integrazione dell'infrastruttura web come abilitatore (sito, prenotazioni, dati), quando serve a far funzionare il resto.",
     },
     projects: {
       kicker: 'Progetti in evidenza',

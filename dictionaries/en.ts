@@ -25,9 +25,9 @@ export const en = {
     },
     hero: {
       kicker: 'AI Integration Specialist · Versilia',
-      headline: 'I take the repetitive work off your days. The hours become yours again.',
-      headlineKeyword: 'The hours become yours again.',
-      lead: 'I build AI solutions shaped around your reality (enquiries, bookings, multilingual communication) so your days go back to what really matters: your guests and clients.',
+      headline: "There's a gap between what AI can do for your business and what it does today. I'm here to close it.",
+      headlineKeyword: "I'm here to close it.",
+      lead: 'I build AI solutions shaped around your reality: enquiries, bookings, multilingual communication. Your days go back to what really matters: your guests and clients.',
       cta: 'Free discovery call',
       ctaHref: '/en/contact#form',
       secondary: 'See my work',
@@ -60,25 +60,23 @@ export const en = {
         },
         {
           num: '02',
+          title: 'The website or app to build on, designed AI-ready from day one',
+          desc: "Often the first step isn't AI, it's having a solid foundation: a website, an app, a management system that actually works. I build it already ready to host automations and assistants when the time comes. Start here, and AI gets added when you need it, without rebuilding everything a year from now.",
+          gain: 'A solid digital foundation, ready to grow, without having to start over.',
+        },
+        {
+          num: '03',
           title: 'Automation of repetitive processes',
           desc: 'I map the manual steps that repeat every day (copy-paste, data entry, standard communications) and hand them off to reliable automated flows, integrated with the tools you already use.',
           gain: 'Less manual work and fewer errors, more time for what counts.',
         },
         {
-          num: '03',
+          num: '04',
           title: 'Digital consulting',
           desc: "Before investing, we figure out together where AI genuinely pays off, and where it's still too early. I leave you a concrete roadmap with priorities, timelines, and expected returns, even if you decide to proceed on your own.",
           gain: 'A clear direction before spending a single euro.',
         },
-        {
-          num: '04',
-          title: 'The website or app to build on, designed AI-ready from day one',
-          desc: "Often the first step isn't AI, it's having a solid foundation: a website, an app, a management system that actually works. I build it already ready to host automations and assistants when the time comes. Start here, and AI gets added when you need it, without rebuilding everything a year from now.",
-          gain: 'A solid digital foundation, ready to grow, without having to start over.',
-        },
       ],
-      footnote:
-        '+ Web infrastructure development and integration as an enabler (site, bookings, data), when needed to make everything else work.',
     },
     projects: {
       kicker: 'Featured work',
