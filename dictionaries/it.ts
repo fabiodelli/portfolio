@@ -27,7 +27,7 @@ export const it = {
       kicker: 'Specialista AI Integration · Versilia',
       headline: "C'è un divario tra quello che l'AI può fare per la tua attività e quello che oggi fa. Sono qui per colmarlo.",
       headlineKeyword: 'Sono qui per colmarlo.',
-      lead: 'Costruisco soluzioni AI cucite sulla tua realtà: richieste, prenotazioni, comunicazioni multilingua. Le giornate tornano a ciò che conta davvero: i tuoi clienti.',
+      lead: 'Costruisco soluzioni AI cucite sulla tua realtà: richieste, prenotazioni, comunicazioni multilingua. Le giornate tornano a ciò che conta davvero.',
       cta: 'Incontro conoscitivo gratuito',
       ctaHref: '/contact#form',
       secondary: 'Vedi i progetti',

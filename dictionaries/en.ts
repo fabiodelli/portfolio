@@ -27,7 +27,7 @@ export const en = {
       kicker: 'AI Integration Specialist · Versilia',
       headline: "There's a gap between what AI can do for your business and what it does today. I'm here to close it.",
       headlineKeyword: "I'm here to close it.",
-      lead: 'I build AI solutions shaped around your reality: enquiries, bookings, multilingual communication. Your days go back to what really matters: your guests and clients.',
+      lead: 'I build AI solutions shaped around your reality: enquiries, bookings, multilingual communication. Your days go back to what really matters.',
       cta: 'Free discovery call',
       ctaHref: '/en/contact#form',
       secondary: 'See my work',
