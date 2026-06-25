@@ -39,7 +39,7 @@ export const it = {
         welcome: "Ciao, sono l'assistente di Fabio. Posso aiutarti a capire se e come l'AI può farti risparmiare tempo. Da cosa partiamo?",
         starters: [
           "Cosa puoi fare per la mia attività?",
-          'Come funziona un assistente come te?',
+          'Come mi faresti risparmiare tempo?',
           'Voglio capire se fa per me',
         ],
         inputPlaceholder: 'Scrivi un messaggio...',

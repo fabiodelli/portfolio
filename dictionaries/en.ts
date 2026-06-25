@@ -39,7 +39,7 @@ export const en = {
         welcome: "Hi, I'm Fabio's assistant. I can help you understand if and how AI can save you time. Where shall we start?",
         starters: [
           'What can you do for my business?',
-          'How does an assistant like you work?',
+          'How would you save me time?',
           "I want to see if this is right for me",
         ],
         inputPlaceholder: 'Write a message...',

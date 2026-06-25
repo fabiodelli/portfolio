@@ -17,11 +17,13 @@ export function HeroChatCard({ strings }: { strings: ChatCardStrings }) {
   const { messages, sendMessage, status, error } = useChat()
 
   const [input, setInput] = useState('')
-  const bottomRef = useRef<HTMLDivElement>(null)
+  const messagesRef = useRef<HTMLDivElement>(null)
   const isLoading = status === 'submitted' || status === 'streaming'
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (messages.length === 0) return
+    const el = messagesRef.current
+    if (el) el.scrollTop = el.scrollHeight
   }, [messages, isLoading])
 
   const send = (text: string) => {
@@ -46,7 +48,7 @@ export function HeroChatCard({ strings }: { strings: ChatCardStrings }) {
       </div>
 
       {/* Messages area */}
-      <div className="hcc-messages">
+      <div className="hcc-messages" ref={messagesRef}>
         {/* Welcome message — always visible */}
         <div className="hcc-bubble hcc-bubble-assistant">{strings.welcome}</div>
 
@@ -99,7 +101,6 @@ export function HeroChatCard({ strings }: { strings: ChatCardStrings }) {
           </div>
         )}
 
-        <div ref={bottomRef} />
       </div>
 
       {/* Input row */}
