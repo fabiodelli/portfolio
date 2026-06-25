@@ -21,7 +21,7 @@ export const it = {
     meta: {
       title: 'Fabio Delli · AI Integration Specialist in Versilia',
       description:
-        'Costruisco soluzioni AI su misura per hotel e attività locali in Versilia: assistenti conversazionali, automazioni e integrazioni cuciti sui tuoi processi.',
+        "C'è un divario tra quello che l'AI può fare per la tua attività e quello che oggi fa. Sono Fabio Delli, specialista AI in Versilia: aiuto hotel e attività locali a colmarlo.",
     },
     hero: {
       kicker: 'Specialista AI Integration · Versilia',
@@ -32,19 +32,24 @@ export const it = {
       ctaHref: '/contact#form',
       secondary: 'Vedi i progetti',
       secondaryHref: '#progetti',
-      metaLabel: 'Su misura per',
-      sectors: ['Hospitality', 'Attività locali', 'Servizi', 'e oltre'],
+      metaLabel: '',
+      sectors: 'Per ogni attività che gestisce richieste, prenotazioni o processi a mano',
       chatCard: {
-        header: 'Assistente AI · demo',
-        bubbleGuest: 'Hi! Do you have a room for two this weekend?',
-        bubbleAssistant: 'Certo! La Camera Levante è disponibile: 180€/notte, colazione inclusa. Vuoi procedere con la prenotazione diretta?',
-        chipCta: 'Prenota ora · senza commissioni',
+        header: 'Assistente AI',
+        welcome: "Ciao, sono l'assistente di Fabio. Posso aiutarti a capire se e come l'AI può farti risparmiare tempo. Da cosa partiamo?",
+        starters: [
+          "Cosa puoi fare per la mia attività?",
+          'Come funziona un assistente come te?',
+          'Voglio capire se fa per me',
+        ],
+        inputPlaceholder: 'Scrivi un messaggio...',
+        errorMessage: 'Ho avuto un intoppo, riprova o scrivimi dai contatti.',
         footer: 'Fabio Delli · Versilia',
       },
     },
     services: {
       kicker: 'Cosa risolvo per te',
-      title: 'Tre modi per restituire tempo alla tua attività.',
+      title: 'Modi concreti per restituire tempo alla tua attività.',
       subtitle: 'Niente pacchetti in serie. Ogni intervento parte da un problema reale e da un guadagno misurabile: ore, conversioni, margine.',
       items: [
         {
@@ -61,13 +66,19 @@ export const it = {
         },
         {
           num: '03',
-          title: 'Audit e consulenza AI',
-          desc: "Prima di investire, capiamo insieme dove l'AI conviene davvero e dove no. Ti lascio una roadmap concreta, con priorità, tempi e ritorni attesi, anche se poi decidi di procedere da solo.",
+          title: 'Consulenza digitale',
+          desc: "Prima di investire, capiamo insieme dove l'AI conviene davvero e dove no. Ti lascio una roadmap concreta, con priorità, tempi e ritorni attesi. Anche se poi decidi di procedere da solo.",
           gain: 'Una rotta chiara prima di spendere un euro.',
+        },
+        {
+          num: '04',
+          title: "Il sito o l'app su cui costruire, pensato per l'AI fin dall'inizio",
+          desc: "Spesso il primo passo non è l'AI, è avere una base solida: un sito, un'app, un gestionale che funzionano davvero. La costruisco già pronta a ospitare automazioni e assistenti quando sarà il momento. Parti da qui, l'AI si aggiunge quando serve, senza rifare tutto tra un anno.",
+          gain: 'Una base digitale solida e pronta a crescere, senza doverla rifare da capo.',
         },
       ],
       footnote:
-        "+ Sviluppo e integrazione dell'infrastruttura web come abilitatore (sito, prenotazioni, dati) quando serve a far funzionare il resto.",
+        "+ Sviluppo e integrazione dell'infrastruttura web come abilitatore (sito, prenotazioni, dati), quando serve a far funzionare il resto.",
     },
     projects: {
       kicker: 'Progetti in evidenza',
@@ -80,7 +91,7 @@ export const it = {
         desc: 'Assistente AI multilingua per una struttura ricettiva: risponde agli ospiti 24/7, gestisce le richieste di prenotazione e spinge la conversione diretta, riducendo la dipendenza dalle OTA.',
         tags: ['Assistente AI', 'Multilingua', 'Conversione diretta'],
         kpi1: { value: '24/7', label: 'Risposte agli ospiti' },
-        kpi2: { value: '−25%', label: 'Commissioni OTA recuperabili' },
+        kpi2: { value: 'Diretto', label: 'Meno dipendenza dai portali' },
         cta: 'Leggi il caso studio',
         href: '/case-study/villa-levante',
         deviceUrl: 'villa-levante-demo.vercel.app',
@@ -138,7 +149,7 @@ export const it = {
     meta: {
       title: 'Case study · Assistente AI per Villa Levante (demo)',
       description:
-        "Progetto dimostrativo: assistente AI multilingua per un boutique hotel. Risponde 24/7 in IT/EN/DE e guida le prenotazioni dirette, potenzialmente recuperando fino al 15–25% di commissioni OTA.",
+        "Progetto dimostrativo: assistente AI multilingua per un boutique hotel. Risponde 24/7 in IT/EN/DE e guida le prenotazioni dirette, riducendo la dipendenza dai portali.",
     },
     kicker: 'Hospitality · Assistente AI',
     breadcrumb: ['Home', 'Progetti', 'Villa Levante'] as const,
@@ -156,7 +167,7 @@ export const it = {
     context: {
       kicker: 'Il contesto',
       lead: 'Una struttura che riceve ospiti da tutto il mondo, a ogni ora del giorno.',
-      body: "Le richieste arrivano in più lingue e fuori orario; ogni risposta tardiva è una prenotazione che rischia di passare a una OTA, con la sua commissione. Il personale spende ore su domande ripetitive (disponibilità, servizi, indicazioni) sottraendo tempo all'ospitalità vera.",
+      body: "Le richieste arrivano in più lingue e fuori orario; ogni risposta tardiva è una prenotazione che rischia di passare a una OTA, con la sua commissione. Il personale spende ore su domande ripetitive (disponibilità, servizi, indicazioni), sottraendo tempo all'ospitalità vera.",
       body2: "L'obiettivo: rispondere subito, in ogni lingua, e riportare la prenotazione sul canale diretto.",
     },
     lever: {
@@ -178,14 +189,14 @@ export const it = {
         body: "Rispondendo subito e bene, l'assistente accompagna l'ospite alla prenotazione sul canale diretto, riducendo la dipendenza dalle OTA e le loro commissioni.",
         items: [
           'Conversione diretta guidata',
-          'Potenziale risparmio OTA (15–25%)',
+          'Più prenotazioni dirette, meno commissioni di portale',
           "Relazione con l'ospite dal primo contatto",
         ],
       },
     },
     kpis: [
       { value: '24/7', label: 'Copertura delle richieste, in ogni fuso e ogni lingua.' },
-      { value: 'fino a 25%', label: 'Commissione OTA potenzialmente recuperata su ogni diretta.' },
+      { value: 'Dirette', label: 'Prenotazioni che non passano dai portali.' },
       { value: 'ore/sett.', label: "Tempo del personale restituito all'ospitalità reale." },
     ],
     stack: {
@@ -197,7 +208,7 @@ export const it = {
     demo: {
       kicker: 'Demo live',
       title: 'Prova il progetto dimostrativo.',
-      lead: "Questo è un prototipo funzionante, non un hotel reale. Ti permette di vedere in concreto come funziona l'assistente, come risponde, come guida l'ospite.",
+      lead: "Questo è un prototipo funzionante (non un hotel reale). Ti permette di vedere in concreto come funziona l'assistente, come risponde, come guida l'ospite.",
       cta: 'Apri la demo',
       ctaHref: 'https://villa-levante-demo.vercel.app',
       ctaContact: 'Voglio qualcosa di simile per la mia struttura',
@@ -295,7 +306,7 @@ export const it = {
       kicker: 'La mia posizione',
       paragraphs: [
         "Non sono un generalista che fa un po' di tutto. Sono uno specialista di integrazione AI: il mio mestiere è capire dove, nella tua attività, il tempo si perde in compiti ripetitivi, e restituirtelo con soluzioni costruite su misura.",
-        "Credo nella scala umana. Quando lavoriamo insieme parli sempre con me: chi ascolta il problema è la stessa persona che progetta, costruisce e ti segue dopo. Questo rende tutto più chiaro, più rapido e, alla fine, più conveniente, senza l'overhead di una struttura tra te e il lavoro.",
+        "Credo nella scala umana. Quando lavoriamo insieme parli sempre con me: chi ascolta il problema è la stessa persona che progetta, costruisce e ti segue dopo. Questo rende tutto più chiaro, più rapido e, alla fine, più conveniente. Senza l'overhead di una struttura tra te e il lavoro.",
         "E credo nella concretezza. Niente promesse rivoluzionarie: parliamo di ore liberate, di prenotazioni dirette, di processi che smettono di pesare. Se l'AI non serve, te lo dico.",
       ],
       pull: 'Su misura, non in serie. Cucito sulla tua attività, non preso da uno scaffale.',
@@ -399,7 +410,7 @@ export const it = {
   /* ── Footer ──────────────────────────────────────────────── */
   footer: {
     tagline:
-      'Specialista di integrazione AI in Versilia. Soluzioni su misura che automatizzano i task ripetitivi delle attività locali, recuperando ore di lavoro ogni settimana.',
+      "Specialista di integrazione AI in Versilia. Colmo il divario tra quello che l'AI può fare per la tua attività e quello che oggi fa.",
     navLabel: 'Naviga',
     contactLabel: 'Contatti',
     rights: '© {year} Fabio Delli. Tutti i diritti riservati.',
