@@ -1,6 +1,23 @@
 # STATUS — Portfolio Fabio Delli
 
-Aggiornato: 2026-06-12 (FIX_R2)
+Aggiornato: 2026-07-06 (Form contatti Resend + fix i18n)
+
+## Round FORM_CONTATTI — completato 2026-07-06
+
+- [x] **`app/api/contact/route.ts`**: nuova route Node (non edge) che valida i campi (nome+email obbligatori, limiti lunghezza), honeypot anti-spam (`website`), invia via Resend a `CONTACT_TO_EMAIL` con `replyTo` del visitatore
+- [x] **`components/contact-form.tsx`**: POST JSON a `/api/contact` (rimosso l'ID Formspree placeholder `xpwxywqz` che causava l'errore a ogni invio), aggiunto honeypot nascosto, messaggio d'errore localizzato da dizionario (rimosso hardcoded IT con em dash)
+- [x] **Dizionari**: aggiunta `contact.form.errorMessage` IT+EN; `footer.rights` aggiornata a "© {year} Fabio Delli · Versilia, Toscana/Tuscany"
+- [x] **Fix i18n**: `footer.tsx` ora usa `dict.footer.rights` (prima copyright hardcoded in italiano anche su EN); `nav.tsx` aria-label localizzato via nuova chiave `nav.ariaLabel`
+- [x] **`.env.local`**: aggiunte `RESEND_API_KEY` (da riempire) e `CONTACT_TO_EMAIL=contact@fabiodelli.com` (redirect attivo confermato)
+- [x] LinkedIn `linkedin.com/in/fabio-delli` confermato corretto da Fabio
+
+### Azioni residue per Fabio (Resend)
+1. Verificare che il dominio in Resend sia scritto `fabiodelli.com` (due L)
+2. Aggiungere i record DNS (DKIM+SPF) mostrati da Resend nel pannello del dominio, poi "Verify DNS Records"
+3. Creare API key (Sending access) → incollarla in `.env.local` (`RESEND_API_KEY=`)
+4. Su Vercel: aggiungere `RESEND_API_KEY` e `CONTACT_TO_EMAIL` (Production + Preview)
+
+Finché la key non è configurata la route risponde 503 e il form mostra l'errore localizzato.
 
 ## Blocchi completati
 

@@ -29,7 +29,7 @@ export function Nav({ lang, dict }: Props) {
         </Link>
 
         {/* Desktop nav links — hidden on mobile via globals.css */}
-        <nav className="nav-links" aria-label="Navigazione principale">
+        <nav className="nav-links" aria-label={dict.nav.ariaLabel}>
           {links.map((link) => (
             <Link key={link.href} href={link.href}>
               {link.label}

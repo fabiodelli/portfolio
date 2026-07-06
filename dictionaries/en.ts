@@ -14,6 +14,7 @@ export const en = {
     langSwitchLabel: 'Switch to Italian',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
+    ariaLabel: 'Main navigation',
   },
 
   /* ── Home ────────────────────────────────────────────────── */
@@ -403,6 +404,7 @@ export const en = {
       submit: 'Send request',
       note: 'By submitting you agree to be contacted. No newsletter, no spam.',
       success: "Thank you, I'll be in touch soon.",
+      errorMessage: 'Something went wrong: please try again shortly or write me an email.',
     },
   },
 
@@ -412,6 +414,6 @@ export const en = {
       "AI integration specialist in Versilia, Tuscany. I close the gap between what AI can do for your business and what it does today.",
     navLabel: 'Navigate',
     contactLabel: 'Contact',
-    rights: '© {year} Fabio Delli. All rights reserved.',
+    rights: '© {year} Fabio Delli · Versilia, Tuscany',
   },
 } as const

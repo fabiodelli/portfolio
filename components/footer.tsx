@@ -102,7 +102,7 @@ export function Footer({ lang, dict }: Props) {
             gap: '16px',
           }}
         >
-          <span>© {year} Fabio Delli · Versilia, Toscana</span>
+          <span>{dict.footer.rights.replace('{year}', String(year))}</span>
           <a
             href={lang === 'it' ? '/en' : '/'}
             style={{ color: 'var(--calce-60)', textDecoration: 'none', fontSize: '13px' }}

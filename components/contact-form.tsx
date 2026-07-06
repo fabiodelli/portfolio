@@ -18,6 +18,7 @@ type FormDict = {
   submit: string
   note: string
   success: string
+  errorMessage: string
 }
 
 export function ContactForm({ form }: { form: FormDict }) {
@@ -27,11 +28,12 @@ export function ContactForm({ form }: { form: FormDict }) {
     e.preventDefault()
     setStatus('submitting')
     const data = new FormData(e.currentTarget)
+    const payload = Object.fromEntries(data.entries())
     try {
-      const res = await fetch('https://formspree.io/f/xpwxywqz', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json' },
       })
       setStatus(res.ok ? 'success' : 'error')
     } catch {
@@ -89,6 +91,12 @@ export function ContactForm({ form }: { form: FormDict }) {
       </div>
 
       <form onSubmit={handleSubmit} noValidate>
+        {/* Honeypot anti-spam: invisibile agli utenti, i bot lo compilano */}
+        <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
+
         <div className="field-row">
           <div className="field">
             <label htmlFor="nome">{form.nameLabel}</label>
@@ -132,7 +140,7 @@ export function ContactForm({ form }: { form: FormDict }) {
 
         {status === 'error' && (
           <p style={{ color: 'var(--ambra)', fontSize: '13.5px', marginTop: '12px', textAlign: 'center' }}>
-            Errore nell&apos;invio — riprova o scrivimi via email.
+            {form.errorMessage}
           </p>
         )}
 

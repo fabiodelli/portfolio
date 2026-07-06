@@ -14,6 +14,7 @@ export const it = {
     langSwitchLabel: "Passa all'inglese",
     openMenu: 'Apri menu',
     closeMenu: 'Chiudi menu',
+    ariaLabel: 'Navigazione principale',
   },
 
   /* ── Home ────────────────────────────────────────────────── */
@@ -402,6 +403,7 @@ export const it = {
       submit: 'Invia la richiesta',
       note: 'Inviando accetti di essere ricontattato. Nessuna newsletter, nessuno spam.',
       success: 'Grazie, ti rispondo presto.',
+      errorMessage: "Errore nell'invio: riprova tra poco o scrivimi via email.",
     },
   },
 
@@ -411,6 +413,6 @@ export const it = {
       "Specialista di integrazione AI in Versilia. Colmo il divario tra quello che l'AI può fare per la tua attività e quello che oggi fa.",
     navLabel: 'Naviga',
     contactLabel: 'Contatti',
-    rights: '© {year} Fabio Delli. Tutti i diritti riservati.',
+    rights: '© {year} Fabio Delli · Versilia, Toscana',
   },
 } as const
