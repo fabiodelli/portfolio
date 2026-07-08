@@ -1,5 +1,11 @@
 # PORTFOLIO — Brief di build
 
+> ⚠️ **DOCUMENTO STORICO** (build completata, sito live su fabiodelli.com da luglio 2026).
+> Conservato come riferimento delle scelte iniziali. Lo stato attuale è in `STATUS.md`,
+> il contesto strategico in `VISION.md`. Differenze note rispetto al brief: shadcn/ui
+> non usato (componenti custom), email `contact@` invece di `fabio@`, form reale via
+> Resend, aggiunto assistente AI in home (non previsto qui).
+
 > Sito-portfolio professionale di Fabio Delli. Repo nuovo, dedicato.
 > Identità v1: **Fabio Delli**. Dominio da acquistare — preferibilmente il nome reale (`fabiodelli.com` / `fabiodelli.it`); vedi raccomandazione. Brand commerciale innestato più avanti, quando deciso.
 > Coordinamento: questo Project. Implementazione: Claude Code.

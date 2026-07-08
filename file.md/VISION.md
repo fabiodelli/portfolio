@@ -1,6 +1,6 @@
 # VISION.md — Fabio Delli / Sistema Lead Generation Versilia
 > Fonte di verità strategica. Aggiornare SOLO a decisioni prese, non a ogni sessione.
-> Stato operativo dei repo → STATUS.md di ciascun repo. Ultimo aggiornamento: 2026-06-10 (sera)
+> Stato operativo dei repo → STATUS.md di ciascun repo. Ultimo aggiornamento: 2026-07-08
 
 ## 0. NORTH STAR
 Costruire un **sistema di generazione lead** per l'attività freelance di AI integration in Versilia.
@@ -38,21 +38,21 @@ Direzione **Notturno integrale** (da "Direzioni di Stile", Claude Design): notte
 ## 4. REGISTRO ASSET
 | Asset | Stato | URL / Repo | Note |
 |---|---|---|---|
-| Villa Levante (demo hospitality) | ✅ LIVE | github.com/fabiodelli/villa-levante-demo · https://villa-levante-demo.vercel.app | Assistente "Claudia". Haiku 4.5 + fallback GPT-4o-mini, Supabase. Footer da correggere: cita effedi.dev |
-| Portfolio | Migrazione a direzione NOTTURNO integrale in corso | github.com/fabiodelli/portfolio | IT+EN, SSG. DESIGN.md nel repo = fonte vincolante. Da Notturno derivano biglietti + CV |
+| Villa Levante (demo hospitality) | ✅ LIVE | github.com/fabiodelli/villa-levante-demo · https://villa-levante-demo.vercel.app | Assistente "Claudia". Haiku 4.5 + fallback GPT-4o-mini, Supabase. effedi.dev rimosso ovunque (2026-06-14) |
+| Portfolio | ✅ LIVE su fabiodelli.com | github.com/fabiodelli/portfolio | IT+EN, SSG, tema Notturno. Assistente AI in home (2026-06-25, architettura demo riusata). Form contatti reale via Resend (2026-07-06) |
 | Softale | MVP online, pipeline non esposta | softale.app | Audio-storie AI (LLM + Coqui TTS locale). Proof of capability |
-| Dominio | In acquisto (2026-06-10) | fabiodelli.com + .it | Prerequisito al deploy portfolio. NON possiedo effedi.dev |
-| CV | In avvio (con LinkedIn) | — | Via Claude Design, coerente col tema scuro |
-| LinkedIn | In lavorazione | linkedin.com/in/fabio-delli | Copy in corso in Chat |
-| Biglietti da visita | Pianificati | — | Da tema scuro, via Claude Design |
+| Dominio | ✅ Acquistato e collegato | fabiodelli.com | Portfolio live sul dominio. NON possiedo effedi.dev |
+| CV | ✅ Creato (profilo professionale) | — | Coerente col tema Notturno |
+| LinkedIn | ✅ Pubblicato | linkedin.com/in/fabio-delli | Confermato attivo (2026-07-06) |
+| Biglietti da visita | v1 stampata, DA RIFARE | — | Esiste una versione; rifacimento pianificato da tema Notturno |
 | Repo context privato | Attivo | github.com/fabiodelli/context (privato) | POSITIONING.md, PIANO_SPRINT.md (pricing) |
 
 ## 5. SEQUENZA E FASI
-Dipendenze: Softale ✓ → Villa Levante → Portfolio → CV → LinkedIn → outreach. Nessun outreach freddo prima del completamento.
-- Fase 1 lug–set 2026: network + soft launch (conversazioni warm GIÀ in parallelo agli asset)
+Dipendenze: Softale ✓ → Villa Levante ✓ → Portfolio ✓ → CV ✓ → LinkedIn ✓ → outreach. Asset core completati (2026-07).
+- Fase 1 lug–set 2026: network + soft launch — **IN CORSO** (prime conversazioni warm avviate, luglio 2026)
 - Fase 2 set 2026–feb 2027: outreach attivo (hospitality concentrato ott–feb)
 - Fase 3 da mar 2027: automazione e scaling → qui torna centrale il SISTEMA di lead generation automatizzato
-- Villa Levante v1.5 (futuro): chat assistant nel portfolio riusando l'architettura demo
+- ~~Villa Levante v1.5 (futuro): chat assistant nel portfolio~~ → FATTO 2026-06-25 (assistente in home del portfolio)
 
 ## 6. MODELLO OPERATIVO
 - **Chat (questo project)**: strategia, piani cross-repo, copywriting, ricerca, review design, istruzioni per Code
@@ -61,11 +61,12 @@ Dipendenze: Softale ✓ → Villa Levante → Portfolio → CV → LinkedIn → 
 - Chat verifica lo stato reale clonando i repo pubblici (mai fidarsi dei riassunti se il codice è leggibile)
 - Stack standard: Next.js · Vercel · Vercel AI SDK · Supabase · Claude Haiku primario / GPT-4o-mini fallback
 
-## 7. APERTI (al 2026-06-10 sera)
-- [ ] Demo: sostituire "effedi.dev" (footer + meta) con fabiodelli.com appena acquistato — PRIORITARIO
-- [ ] Portfolio: eseguire MIGRAZIONE_NOTTURNO.md con Code (DESIGN.md committato in root) → poi biglietti + CV
-- [ ] Portfolio: etichetta Softale "In produzione" → "Pubblicato/Online" (da fare nella migrazione tema)
-- [ ] LinkedIn: completare copy e pubblicare
-- [ ] Mitigazione costi: spend limit/alert su console Anthropic e OpenAI (endpoint demo pubblico)
+## 7. APERTI (al 2026-07-08)
+- [ ] Mitigazione costi: spend limit/alert su console Anthropic e OpenAI — ora ci sono DUE endpoint pubblici (demo + assistente portfolio). Deprioritizzato da Fabio, ma resta il rischio principale di costo
+- [ ] Portfolio: design upgrade "più wow" mantenendo l'editoriale Notturno (piano pronto: scala tipografica, atmosfera, micro-interazioni)
+- [ ] Biglietti da visita: rifare dalla v1 stampata, coerenti col tema Notturno
+- [ ] Vercel: aggiungere RESEND_API_KEY e CONTACT_TO_EMAIL alle env (Production+Preview) se non già fatto — il form in produzione dipende da questo
 - [ ] DEFERITI (post-asset, fase miglioramento demo): hardening /api/chat, cache probe+config, verifica fix middleware
 - [ ] FUTURO: nuove demo per segmenti marmo e nautica (portfolio + esperienza)
+
+Chiusi da giugno: effedi.dev rimosso dalla demo ✓ · migrazione Notturno ✓ · etichetta Softale ✓ · LinkedIn pubblicato ✓ · dominio collegato ✓ · form contatti reale ✓ · assistente AI in home ✓
