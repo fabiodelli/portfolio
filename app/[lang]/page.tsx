@@ -45,33 +45,8 @@ export default async function HomePage({
   const dict = await getDictionary(l)
   const h = dict.home
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Person',
-        name: 'Fabio Delli',
-        jobTitle: 'AI Integration Specialist',
-        url: SITE_URL,
-        address: { '@type': 'PostalAddress', addressLocality: 'Versilia', addressCountry: 'IT' },
-      },
-      {
-        '@type': 'ProfessionalService',
-        name: 'Fabio Delli — AI Integration',
-        url: SITE_URL,
-        description: dict.home.meta.description,
-        areaServed: { '@type': 'Place', name: 'Versilia, Toscana' },
-      },
-    ],
-  }
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-      />
-
       {/* ── HERO ── */}
       <section className="hero-section">
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>

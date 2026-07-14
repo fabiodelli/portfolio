@@ -18,3 +18,8 @@ export function pageAlternates(lang: Lang, slug: Slug): Metadata['alternates'] {
     languages: { it, en, 'x-default': it },
   }
 }
+
+export function pageUrl(lang: Lang, slug: Slug): string {
+  const { it, en } = urls(slug)
+  return lang === 'it' ? it : en
+}

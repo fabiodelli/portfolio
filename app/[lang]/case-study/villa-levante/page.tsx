@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getDictionary, type Lang } from '@/lib/dictionaries'
-import { pageAlternates } from '@/lib/metadata'
+import { pageAlternates, pageUrl, SITE_URL } from '@/lib/metadata'
 import { Reveal } from '@/components/scroll-reveal'
 
 export async function generateMetadata({
@@ -18,7 +18,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: pageAlternates(l, 'case-study/villa-levante'),
-    openGraph: { title, description },
+    openGraph: { title, description, url: pageUrl(l, 'case-study/villa-levante') },
   }
 }
 
@@ -33,8 +33,23 @@ export default async function VillaLevanteCS({
   const vl = dict.villaLevante
   const home = l === 'en' ? '/en' : '/'
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: 'Villa Levante',
+    description: vl.meta.description,
+    url: pageUrl(l, 'case-study/villa-levante'),
+    inLanguage: l,
+    creator: { '@type': 'Person', name: 'Fabio Delli', url: SITE_URL },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+      />
+
       {/* ── HERO ── */}
       <section style={{ paddingTop: 'var(--s7)' }}>
         <div className="wrap">

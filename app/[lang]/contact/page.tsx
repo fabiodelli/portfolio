@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getDictionary, type Lang } from '@/lib/dictionaries'
-import { pageAlternates } from '@/lib/metadata'
+import { pageAlternates, pageUrl } from '@/lib/metadata'
 import { ContactForm } from '@/components/contact-form'
 
 export async function generateMetadata({
@@ -16,7 +16,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: pageAlternates(l, 'contact'),
-    openGraph: { title, description },
+    openGraph: { title, description, url: pageUrl(l, 'contact') },
   }
 }
 

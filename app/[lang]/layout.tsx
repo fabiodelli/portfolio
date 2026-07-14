@@ -47,10 +47,34 @@ export default async function RootLayout({
   const resolvedLang = (lang === 'en' ? 'en' : 'it') as 'it' | 'en'
   const dict = await getDictionary(resolvedLang)
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person',
+        name: 'Fabio Delli',
+        jobTitle: 'AI Integration Specialist',
+        url: SITE_URL,
+        address: { '@type': 'PostalAddress', addressLocality: 'Versilia', addressCountry: 'IT' },
+      },
+      {
+        '@type': 'ProfessionalService',
+        name: 'Fabio Delli — AI Integration',
+        url: SITE_URL,
+        description: dict.home.meta.description,
+        areaServed: { '@type': 'Place', name: 'Versilia, Toscana' },
+      },
+    ],
+  }
+
   return (
     <html lang={resolvedLang} className={`${spectral.variable} ${schibsted.variable} h-full`}>
       <head>
         <meta name="theme-color" content="#16140F" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        />
         {/* Abilita lo scroll-reveal solo quando il JS è attivo: senza JS i contenuti restano visibili */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>

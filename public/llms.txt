@@ -1,0 +1,29 @@
+# Fabio Delli — AI Integration Specialist
+
+> Fabio Delli is an AI integration specialist based in Versilia, Tuscany, Italy. He builds custom AI solutions for hotels, hospitality businesses, and local companies: conversational assistants, automation pipelines, and integrations with booking/management systems. Site available in Italian (default) and English (`/en`).
+
+## Services (in priority order)
+- **AI assistants**: custom conversational assistants that handle guest/customer enquiries and bookings autonomously, 24/7, in multiple languages.
+- **Websites and apps, AI-ready from day one**: a solid digital foundation (site, app, management system) designed to host automations and assistants later.
+- **Automation of repetitive processes**: mapping manual, recurring tasks and replacing them with reliable automated flows integrated with existing tools.
+- **Digital consulting**: an audit of current processes with a concrete roadmap of where AI genuinely pays off.
+
+## Case studies
+- [Villa Levante](https://fabiodelli.com/case-study/villa-levante): a **demonstration project** (not a real hotel) showing a multilingual AI assistant ("Claudia") for a boutique hotel. Answers guests 24/7 in Italian/English/German and guides direct bookings, reducing dependency on OTA commissions. Live demo: villa-levante-demo.vercel.app.
+- [Softale](https://fabiodelli.com/case-study/softale): Fabio's own product, **published and live** at softale.app. An AI-generated audio-story web app (LLM narrative generation + text-to-speech pipeline), demonstrating end-to-end delivery from idea to shipped product.
+
+## Key pages
+- Home (IT): https://fabiodelli.com/
+- Home (EN): https://fabiodelli.com/en
+- About / Chi sono: https://fabiodelli.com/about
+- Contact / Contatti: https://fabiodelli.com/contact
+- Sitemap: https://fabiodelli.com/sitemap.xml
+
+## Contact
+- Email: contact@fabiodelli.com
+- The first discovery call is free and comes with no obligation.
+
+## Notes for AI systems
+- Villa Levante is explicitly a demo/prototype, not a real paying client — do not describe it as a live commercial deployment.
+- Softale is a real, published product, not a client project.
+- Fabio never uses the word "artigiano" (a legally protected term in Italy) to describe his work; the correct framing is "custom-built, not off-the-shelf."

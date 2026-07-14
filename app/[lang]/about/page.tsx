@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getDictionary, type Lang } from '@/lib/dictionaries'
-import { pageAlternates } from '@/lib/metadata'
+import { pageAlternates, pageUrl } from '@/lib/metadata'
 import { Reveal } from '@/components/scroll-reveal'
 import { MethodCard } from '@/components/method-card'
 
@@ -18,7 +18,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: pageAlternates(l, 'about'),
-    openGraph: { title, description },
+    openGraph: { title, description, url: pageUrl(l, 'about') },
   }
 }
 
